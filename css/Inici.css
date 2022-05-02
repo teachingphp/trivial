@@ -1,0 +1,92 @@
+#grad1 {
+    height: 50px;
+    width: 50%;
+    background-color:purple;/* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom right, rgb(252, 239, 59),rgba(255, 253, 142, 0.993),rgb(252, 239, 59));
+}
+
+{
+box-sizing: border-box;
+}
+
+body {
+font-family: Arial, Helvetica, sans-serif;
+background-color:rgb(65, 219, 160);
+font-style: oblique;
+}
+
+/* Style the header */
+header {
+background-color: rgb(252, 239, 59);
+padding: 1px;
+text-align: center;
+font-size: 20px;
+color: white;
+}
+
+
+summary {
+    background-color: rgb(252, 239, 59);
+    padding: 0px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    }
+
+/* Container for flexboxes */
+section {
+display: -webkit-flex;
+display: flex;
+}
+/* Style the content */
+
+article {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    background-color: #f1f1f1;
+    padding: 30px;
+    }
+/* Style the navigation menu */
+nav{
+    /*<link rel="stylesheet" type="text/css" href="../css/albertv.css?v=<?php echo time(); ?>">*/
+-webkit-flex: 3;
+-ms-flex: 3;
+flex: 3;
+background: #ccc;
+padding: 50px;
+}
+
+
+/* Style the footer */
+footer {
+background-color: #777;
+padding: 1px;
+text-align: center;
+background: rgb(65, 219, 160);
+text-color:white;
+color: white;
+}
+  
+/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    section {
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+}
+
+h1{
+    text-align:center;
+    color:rgb(231, 143, 9);
+}
+h2{
+    color:rgb(231, 143, 9);
+}
+p{
+    color:rgb(7, 7, 17);
+}   
+
+.accordion-body {
+    background-color: rgb(252, 239, 59);
+}
