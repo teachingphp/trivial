@@ -31,7 +31,7 @@
                     <div class="accordion-body">
                         <section>   
                             <article>
-                                <p>Algunes pagines webs on pots veure l'Anime:</p>
+                                <p>asjdañslkjdblaskjdblakjsdbaslkjdbaslkdjb:</p>
                             </article>
                         </section>
                     </div>
