@@ -24,6 +24,8 @@ font-size: 20px;
 color: white;
 }
 
+div-1{
+}
 
 summary {
     background-color: rgb(252, 239, 59);
@@ -78,7 +80,6 @@ color: white;
 
 h1{
     text-align:center;
-    color:rgb(231, 143, 9);
 }
 h2{
     color:rgb(231, 143, 9);
