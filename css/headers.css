@@ -31,10 +31,11 @@
   outline: 0;
 }
 
-.btn-primary {
+.btn-primary.amagar {
   color: #fff;
   background-color: red !important;
   border-color: #0d6efd;
+  display: none;
 }
 
 
@@ -43,7 +44,9 @@
   display: none;
 }
 
-.btn.btn-primary.amgar{
+.d-block.link-dark.text-decoration-none.dropdown-toggle.escondite{
 
-  display: none;
+    display: none !important;
 }
+
+ 

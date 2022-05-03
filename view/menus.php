@@ -1,13 +1,16 @@
 <!doctype html>
 <?php
 /* definicio de la cockieee */
-
+$classe_escondite = "";
 $classe_amagar = "";
 if(isset($_COOKIE["galleta"])){
   echo $_COOKIE["galleta"];
   $nomusuari = $_COOKIE["galleta"];
   $classe_amagar = "amagar";
-}   
+} 
+if(! isset($_COOKIE["galleta"])){
+  $classe_escondite = "escondite";
+}     
 ?>
 <html lang="en">
   <head>
@@ -16,7 +19,7 @@ if(isset($_COOKIE["galleta"])){
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Cabeceras</title>
+    <title>Menu-Trivial</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
 
@@ -83,14 +86,15 @@ if(isset($_COOKIE["galleta"])){
           <li><a href="../webpages/jugadors.php" class="nav-link px-2 link-dark">Hall of fame</a></li>
           <li><a href="#" class="nav-link px-2 link-dark">Joc</a></li>
           <li><a href="#" class="nav-link px-2 link-dark">Preguntas frecuentes</a></li>
+          <li><a href="http://localhost/trivial/view/avislegal.php" class="nav-link px-2 link-dark">Aviso legal</a></li>
         </ul>
 
         <div class="dropdown text-end">
          <div class="text-end">
-          <button type="button" class="btn btn-light text-dark me-2 <?php echo $classe_amagar ?>">Login</button>
-          <button type="button" class="btn btn-primary <?php echo $classe_amagar ?>">Sign-up</button>
+          <button type="button" onclick="login()" class="btn btn-light text-dark me-2 <?php echo $classe_amagar ?>">Login</button>
+          <button type="button" onclick="SingOut()" class="btn btn-primary <?php echo $classe_amagar ?>">Sign-up</button>
         </div>
-          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle <?php echo $classe_escondite ?>" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
@@ -109,5 +113,17 @@ if(isset($_COOKIE["galleta"])){
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
       
+
+<script>
+  function login (){
+    alert("login ok");
+  }
+</script>
+<script>
+  function SingOut (){
+    alert("singout ok");
+  }
+</script>
+
   </body>
 </html>
