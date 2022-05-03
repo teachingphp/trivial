@@ -20,6 +20,7 @@ $controller = new TrivialController;
 if (isset($_GET["accio"]) && $_GET["accio"] == "cerrarsesion"){
     $controller->cerrarsesion();
 }else{
+    
     //Ejecuto el método
     $controller->index();
 
