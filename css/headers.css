@@ -46,7 +46,7 @@
 
 .d-block.link-dark.text-decoration-none.dropdown-toggle.escondite{
 
-    display: none;
+    display: none !important;
 }
 
  
