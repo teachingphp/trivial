@@ -26,18 +26,19 @@ if ($_POST["g-recaptcha-response"]) {
 <html>
   <head><title>reCAPTCHA Aviso Legal</title></head>
   <body>
+  <body style="background-color:black">
 <?php
 if ($resp != null && $resp->success) {
     echo "¡Correcto!";
 }
 ?>
-    <form action="?" method="post">
+    <form action="./avislegal2.php" method="post">
       <div class="g-recaptcha" data-sitekey="<?php echo $siteKey;?>"></div>
       <script type="text/javascript"
           src="https://www.google.com/recaptcha/api.js?hl=<?php echo $lang;?>">
       </script>
-      <br/>
-      <input type="submit" value="Enviar" />
+      <br/>  
+      <input type="submit" value="Enviar">
     </form>
   </body>
 </html>
