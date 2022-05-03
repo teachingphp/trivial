@@ -118,11 +118,11 @@ if(! isset($_COOKIE["galleta"])){
   function login (){
     alert("login ok");
   }
-</script>
-<script>
+
   function SingOut (){
-    alert("singout ok");
+    alert("hola putos ok");
   }
+
 </script>
 
   </body>
