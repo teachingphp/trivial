@@ -12,15 +12,14 @@
             <h1>Trivial</h1>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-p0yzg8lEnMxEVIvpqXTU8augkXWdh7FD5A&usqp=CAU"></img> 
         </div>
-        
-        <div class="container col-sm-9">
+        <div id ="myDIV"   class="container col-sm-9">
         
         
             <div class="row">
 
                 <div class="col-sm-3">
                     <h3>Anónim</h3>
-                    <img src="https://image.shutterstock.com/image-vector/user-icon-trendy-flat-style-260nw-418179856.jpg"></img>
+                    <img src="https://image.shutterstock.com/image-vector/user-icon-trendy-flat-style-260nw-418179856.jpgalt" width="75%" height="75%"></img>
                 </div>
                 <div class="col-sm-3">
                     <h3>Registrat</h3>
@@ -65,7 +64,6 @@
                 </div>
             </div>
         </div>
-
         <?php
             include './footer.php';
         ?>
