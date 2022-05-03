@@ -83,6 +83,7 @@ if(isset($_COOKIE["galleta"])){
           <li><a href="../webpages/jugadors.php" class="nav-link px-2 link-dark">Hall of fame</a></li>
           <li><a href="#" class="nav-link px-2 link-dark">Joc</a></li>
           <li><a href="#" class="nav-link px-2 link-dark">Preguntas frecuentes</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark">Aviso legal</a></li>
         </ul>
 
         <div class="dropdown text-end">
