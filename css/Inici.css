@@ -100,6 +100,7 @@ hr{
     font-size: 10%;
     width: 75%;
     padding: 2px 5px 5px 5px;
+    margin: auto;
 }
 #myDIV {
     height:300px;
