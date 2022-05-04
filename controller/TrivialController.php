@@ -14,7 +14,7 @@ class TrivialController
 
         $this->jugadors = [
             1 => new Jugador("Jugador1","15000"),
-            2 => new Jugador("Jugador2","434")
+            2 => new Jugador("Jugador2","43400000000")
         ];
     }
 
@@ -26,6 +26,14 @@ class TrivialController
 
         //Le paso los datos a la vista
         require("view/jugadors.php");
+
+    }
+
+    public function hola(){
+
+
+        //Le paso los datos a la vista
+        require("view/hola.php");
 
     }
 
