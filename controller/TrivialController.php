@@ -29,11 +29,19 @@ class TrivialController
 
     }
 
-    public function hola(){
+    public function cerrarsesion(){
 
-
+        if (isset($_SERVER['HTTP_COOKIE'])) {
+            $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+            foreach($cookies as $cookie) {
+                $parts = explode('=', $cookie);
+                $name = trim($parts[0]);
+                setcookie($name, '', time()-1000);
+                setcookie($name, '', time()-1000, '/');
+            }
+        }
         //Le paso los datos a la vista
-        require("view/hola.php");
+        require("view/cerrarsesion.php");
 
     }
 
