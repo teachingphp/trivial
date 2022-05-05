@@ -86,14 +86,29 @@ h1{
     text-align:center;
 }
 h2{
-    font-size: 100%;
+    font-size: 150%;
     font-family: cursive;
     line-height: 100%;
     color:rgb(231, 143, 9);
 }
 p{
+    line-height: 100%;
     color:rgb(7, 7, 17);
-}   
+}
+hr{
+    color:rgb(1, 70, 29);
+    font-size: 10%;
+    width: 75%;
+    padding: 2px 5px 5px 5px;
+    margin: auto;
+}
+#myDIV {
+    height:300px;
+    background-color:#FFFFFF;
+    border: 1px color:rgb(1, 70, 29);;
+    border-radius:50px;
+    padding:20px;
+  } 
 
 /*.accordion-body {
     background-color: rgb(252, 239, 59);

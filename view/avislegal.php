@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 .loader {
-  text-align: center;
+  margin: auto;
   border-radius: 50%;
   border-top: 16px solid #3498db;
   width: 120px;
@@ -33,10 +33,9 @@
 
 <h2>Cargando reCAPTCHA de Aviso Legal</h2>
 
-<div style = "text-align:center">
+<div class="loader"></div>
+    
 
-    <div class="loader"></div>
-</div>
 
 </body>
 </html>
