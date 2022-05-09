@@ -13,4 +13,12 @@ CREATE TABLE ranking_total(ID INTEGER NOT NULL UNIQUE AUTO_INCREMENT, usr_id INT
 
 CREATE TABLE Historial_Partides(ID INTEGER NOT NULL UNIQUE AUTO_INCREMENT, part_id INTEGER UNIQUE, part_fechaInicio DATETIME, part_fechaFinalizacion DATETIME, hist_duracio FLOAT, hist_numplayers INTEGER, PRIMARY KEY(ID), FOREIGN KEY(part_id) REFERENCES partida(ID));
 CREATE TABLE Historial_Usuari(ID INTEGER NOT NULL UNIQUE AUTO_INCREMENT, usr_id INTEGER, usr_punts INTEGER, part_id INTEGER, part_fechaInicio DATETIME, part_fechaFinalizacion DATETIME, PRIMARY KEY(ID), FOREIGN KEY(usr_id) REFERENCES usuaris_registrats(ID), FOREIGN KEY(part_id) REFERENCES partida(ID));  
-
+/*Taula Traduccions */
+CREATE TABLE traduccions(
+ID INT NOT NULL UNIQUE AUTO_INCREMENT, 
+IDIOMA_ES varchar(50),
+IDIOMA_CAT varchar(50),
+IDIOMA_ENG	 varchar(50),
+APARTAT varchar(25),
+PRIMARY KEY(ID)	
+);
