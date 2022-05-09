@@ -77,7 +77,7 @@ if(! isset($_COOKIE["galleta"])){
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-       <img src="https://cdn-icons.flaticon.com/png/512/3975/premium/3975233.png?token=exp=1651143202~hmac=e99baa088d62498f3380e3513c7db7a1"width="40" height="32">
+       <img src="../../files/sources/imatges/titol.gif"width="50" height="50">
         
       </a> 
 
