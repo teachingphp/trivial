@@ -1,7 +1,7 @@
 <?php
 //Configuración global
-define("CONTROLADOR_DEFECTO", "Trivial");
-define("ACCION_DEFECTO", "index");
+//define("CONTROLADOR_DEFECTO", "Trivial");
+//define("ACCION_DEFECTO", "index");
 
 require("./controller/TrivialController.php");
 
@@ -19,12 +19,18 @@ $controller = new TrivialController;
 
 if (isset($_GET["accio"]) && $_GET["accio"] == "cerrarsesion"){
     $controller->cerrarsesion();
+}
+else if (isset($_POST["accio"]) && $_POST["accio"] == "pujarfitxer"){
+    //echo print_r($_FILES);
+    $controller->pujarfitxer();
 }else{
     
     //Ejecuto el método
     $controller->index();
 
 }
+
+
 
 
 // //Cargamos controladores y acciones
