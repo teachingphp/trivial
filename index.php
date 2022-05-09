@@ -24,7 +24,6 @@ else if (isset($_POST["accio"]) && $_POST["accio"] == "pujarfitxer"){
     //echo print_r($_FILES);
     $controller->pujarfitxer();
 }else{
-    
     //Ejecuto el método
     $controller->index();
 

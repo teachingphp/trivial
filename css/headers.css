@@ -31,11 +31,10 @@
   outline: 0;
 }
 
-.btn-primary.amagar {
+.btn-primary {
   color: #fff;
   background-color: red !important;
   border-color: #0d6efd;
-  display: none;
 }
 
 
@@ -44,9 +43,7 @@
   display: none;
 }
 
-.escondite{
+.btn.btn-primary.amgar{
 
-    display: none !important;
+  display: none;
 }
-
- 

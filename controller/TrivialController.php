@@ -14,7 +14,7 @@ class TrivialController
 
         $this->jugadors = [
             1 => new Jugador("Jugador1","15000"),
-            2 => new Jugador("Jugador2","43400000000")
+            2 => new Jugador("Jugador2","434")
         ];
     }
 

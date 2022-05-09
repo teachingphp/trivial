@@ -11,9 +11,9 @@
 .loader {
   margin: auto;
   border-radius: 50%;
-  border-top: 20px solid #3498db;
-  width: 130px;
-  height: 130px;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
   -webkit-animation: spin 1s linear infinite; 
   animation: spin 1s linear infinite;
 }
@@ -31,21 +31,7 @@
 </head>
 <body>
 
-<html>
-<head>
-<style>
-h4 {text-align: center;}
-</style>
-</head>
-<body>
-
-<br/>
-<br/>
-<br/>
-<h4>Cargando reCAPTCHA de Aviso Legal</h4>
-
-</body>
-</html>
+<h2>Cargando reCAPTCHA de Aviso Legal</h2>
 
 <div class="loader"></div>
     
@@ -56,6 +42,6 @@ h4 {text-align: center;}
 <body>
    <head>
       <title>Redirection</title>
-            <meta http-equiv = "refresh" content = "5.5; url = http://teachingphp.endinahosting.com/trivialavislegal.php?" />
+      <!--<meta http-equiv = "refresh" content = "6.5; url = http://teachingphp.endinahosting.com/trivialavislegal.php?" />-->
    </head>
 </html>
