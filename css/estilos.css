@@ -137,3 +137,8 @@ a {
 		width: 100%;
 	}
 }
+
+
+.image-upload>input {
+	display: none;
+  }
