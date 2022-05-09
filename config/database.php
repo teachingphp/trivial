@@ -4,7 +4,11 @@ return array(
     "host"      =>"localhost",
     "user"      =>"root",
     "pass"      =>'',
-    "database"  =>"testtrivial",
+<<<<<<< HEAD
+    "database"  =>"basadotest",
+=======
+    "database"  =>"basetest",
+>>>>>>> a73c7fa0445ef84a75eea3a9ec5ec7c55cc771a5
     "charset"   =>"utf8"
 );
 ?>

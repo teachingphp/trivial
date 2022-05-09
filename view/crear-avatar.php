@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Carousel Template · Bootstrap v5.1</title>
+    <title>Avatar - Trivial</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
 
@@ -67,7 +67,7 @@ foreach($files as $file) {
     <div class="row">
       <div class="col-lg-4">
         <h2>Selecciona tu avatar</h2>
-        <img id="imagen-avatar" class="bd-placeholder-img rounded-circle" width="140" height="140" src="../files/sources/imatges/pato lucas.jpg"></svg>
+        <img id="imagen-avatar" class="bd-placeholder-img rounded-circle" width="140" height="140" src="../files/sources/imatges/pato lucas.jpg"></img>
 
        
         <svg xmlns="http://www.w3.org/2000/svg" onclick="cambiarAvatar('<?php echo $rutas ?>')" width="30" height="30" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
@@ -75,11 +75,20 @@ foreach($files as $file) {
           <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
 
         </svg>
+        
       </div><!-- /.col-lg-4 -->
       
     </div><!-- /.row -->
 
-
+    <br>
+        Sube una imagen:
+        <form action="../index.php" method="POST" enctype="multipart/form-data">
+          
+          <input type="file" name="fileToUpload" id="fileToUpload">
+          <br>
+          <input type="submit" value="Sube Imagen" name="submit">
+          <input type="text" name="accio" value ="pujarfitxer" hidden>
+        </form>
     
 
   </div><!-- /.container -->
