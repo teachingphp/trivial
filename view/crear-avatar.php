@@ -11,7 +11,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
 
     <link rel="stylesheet" href="../css/estilos.css">
-}
+
 
     
 
