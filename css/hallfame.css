@@ -7,6 +7,20 @@ p {
     font-family: "Georgia", "Serif", monospace;
     font-size: 20px;
 }
+p.round1{
+    text-align: text-right;
+    color: grey;
+    
+
+}
+p.round2{
+    text-align: right;
+    color: grey;
+    font-family: "Andale Mono", "monospace";
+    font-size: 40px;
+
+
+}
 h1{
     text-align: center;
 

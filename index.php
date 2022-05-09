@@ -16,8 +16,14 @@ foreach(glob(dirname(__FILE__)."/model/*.php") as $file){
 //Instancio el controlador
 $controller = new TrivialController;
 
-//Ejecuto el método
-$controller->index();
+
+if (isset($_GET["accio"]) && $_GET["accio"] == "cerrarsesion"){
+    $controller->cerrarsesion();
+}else{
+    //Ejecuto el método
+    $controller->index();
+
+}
 
 
 // //Cargamos controladores y acciones

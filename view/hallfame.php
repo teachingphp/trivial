@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Marcel·la">
-  
+  <br>
     <title>Hall of Fame</title>
 
       <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/list-groups/">
 
-    <link rel="stylesheet" type="text/css"  href="../css/list-groups.css?v=<?php echo time(); ?>">
+
     <link rel="stylesheet" type="text/css" href="../css/hallfame.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" type="text/css" href="../view/menus.php?v=<?php echo time(); ?>">
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -60,7 +61,8 @@
 
  
 <div class="p">
-  <h1 class= "city">Taula de jugadors </h1>
+  <h1 class= "city">Hall of fame </h1>
+  <br>
   <?php
   require_once dirname(__FILE__).'/../connection/Conectar.php';
   $conectar=new Conectar();
@@ -72,25 +74,28 @@
   ?>
   <?php
         foreach($result as $value){
-      $ruta = "https://github.com/".$value["AVATAR"].".png";
+      $ruta = 'https://github.com/'. $value["AVATAR"] . '.png';
         $alumne = '
         <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-        <img  alt="Putos" width="32" height="32" class="rounded-circle flex-shrink-0 src="'.$ruta.'" </img>
+        <img  alt="Imatge perfil" width="50" height="50" class="rounded-circle flex-shrink-0" src="'.$ruta.'" </img>
+      
 
-        
-        <div class="d-flex gap-2 w-100 justify-content-between">
      
       <div>
-        <h6 class="mb-0">'.$value["NOM"].'</h6>
-        <p class="mb-0 opacity-75">descripcio de les preguntes respostes o respostes encertades</p>
+      <h3 class="mb-0">'.$value["NOM"].'</h3>
+      <p class="text-right">Puntuació:      '.$value["RANKING"].'</p>
       </div>
-      <small class="opacity-50 text-nowrap">'.$value["ID"].'</small>
+      
+
+      <h1><p class="round2">'.$value["RANKING"].'</h1> 
    
       </div>
       </a>';
         echo $alumne;
+
       }
       ?>
+    
       </div><br><br>
       
     <div class="b-example-divider"></div>
