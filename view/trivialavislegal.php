@@ -27,18 +27,32 @@ if ($_POST["g-recaptcha-response"]) {
   <head><title>reCAPTCHA Aviso Legal</title></head>
   <body>
   <body style="background-color:black">
+  <div>
 <?php
 if ($resp != null && $resp->success) {
     echo "¡Correcto!";
 }
 ?>
-    <form action="./avislegal2.php" method="post">
-      <div class="g-recaptcha" data-sitekey="<?php echo $siteKey;?>"></div>
+<p style="color:red; text-align:center">Completa el captcha para redirigirte al aviso legal de Trivial</p>
+<br/>
+<div >
+    <form style="color:red; text-align:center" action="./avislegal2.php" method="post">
+      <div style="display:inline-block" class="g-recaptcha" data-sitekey="<?php echo $siteKey;?>"></div>
+      <br/>
       <script type="text/javascript"
           src="https://www.google.com/recaptcha/api.js?hl=<?php echo $lang;?>">
       </script>
-      <br/>  
+      <br/>
       <input type="submit" value="Enviar">
-    </form>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <img style="margin: auto; left: 50px;" src="./imatges/captcha.gif" alt="" img>
+   
+</div>
+</div>
+
   </body>
 </html>
