@@ -1,0 +1,63 @@
+.navbar-logo {
+  height: 30px;
+}
+
+.large-logo {
+  height: 180px;
+}
+
+.small-logo {
+  height: 120px;
+}
+
+
+
+.bg-whats {
+  /* background-color: #e3dcd4; */
+  background-color: #cc91f194;
+}
+
+.scoreboard {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.bg-scorecard {
+  background-color: #e3dcd4;
+}
+
+.message-other {
+  background-color: #ffffff;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.message-self {
+  background-color: #dbf8c6;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.chat-messages {
+  height: 250px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.category-img {
+  height: 80px;
+  width: 80px;
+}
+
+.question-title {
+  margin-left: 80px;
+}
+
+.question-card {
+  background-color: #dddddd;
+}
+
+.link-input {
+  max-width: 400px;
+}
+
