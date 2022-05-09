@@ -13,15 +13,15 @@
                 <img src="../../files/sources/imatges/titol.gif"style=center width="20%" height="20%"></img>
             </h1>
         </div>
-        <div id ="myDIV1"   class="container col-sm-9" class="container col-sm-9">
-            
-                <div id ="myDIV2" class="col-sm-9">
-                        <div class="col-sm-1">
+        <div id ="myDIV1"   class="container col-sm-9">
+
+                <div id ="myDIV2" class="container col-sm-6">
+                        <div class="col-sm-3">
                             <h3>Anónim</h3>
                             <img src="https://image.shutterstock.com/image-vector/user-icon-trendy-flat-style-260nw-418179856.jpgalt" width="75%" height="75%"></img>
                         </div>
-                        <div class="col-sm-1">
-                        <div class="col-sm-1">
+                        <div class="col-sm-0">
+                        <div class="col-sm-3">
                             <h3>Registrat</h3>
                             <p>Apodo</p>
                         </div>
@@ -46,7 +46,7 @@
                 </div>
             </div>
         </div>
-        <div id ="myDIV3" class="container col-sm-9">
+        <div id ="myDIV4" class="container col-sm-9">
             <div class="col-sm-12">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingTwo">

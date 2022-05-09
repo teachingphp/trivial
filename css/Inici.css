@@ -115,31 +115,47 @@ hr{
 }
 #myDIV1{
     height:auto;
-    
     background-color:#FFFFFF;
     border: 1px color:rgb(1, 70, 29);;
     border-radius:20px;
     border-radius-bot:10px;
-    padding:auto;
+    border-color: green;
+    /*padding:auto;*/
 } 
 
 #myDIV2{
+    text-align: center;
     height: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
     margin-left: 1%;
-    
-    background-color: rgb(164, 248, 223);
+    margin-right: 51%;
+    background-color: #b0f0bb;
     border: 1px color:rgb(10, 10, 10);;
     border-radius:20px;
-    padding:auto;
+    /*padding:auto;*/
 }
 
 #myDIV3{
+    text:;
+    text-align: center;
+    height: 100%;
+    margin-left: 51%;
+    margin-right: 1%;
+    background-color: #b0f0bb;
+    border: 1px color:rgb(10, 10, 10);;
+    border-radius:20px;
+    /*padding:auto;*/
+}
+
+
+#myDIV4{
     height:100%;
     background-color:#FFFFFF;
-    border: 1px color:rgb(1, 70, 29);;
+    border: 1px color:rgb(1, 70, 29);
     border-radius:10px;
-    padding:auto;
 }
+
 /*.accordion-body {
     background-color: rgb(252, 239, 59);
 }
