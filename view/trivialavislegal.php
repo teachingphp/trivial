@@ -27,7 +27,6 @@ if ($_POST["g-recaptcha-response"]) {
   <head><title>reCAPTCHA Aviso Legal</title></head>
   <body>
   <body style="background-color:black">
-  <div>
 <?php
 if ($resp != null && $resp->success) {
     echo "¡Correcto!";
@@ -42,17 +41,8 @@ if ($resp != null && $resp->success) {
       <script type="text/javascript"
           src="https://www.google.com/recaptcha/api.js?hl=<?php echo $lang;?>">
       </script>
-      <br/>
+      <br/>  
       <input type="submit" value="Enviar">
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <img style="margin: auto; left: 50px;" src="./imatges/captcha.gif" alt="" img>
-   
-</div>
-</div>
-
+    </form>
   </body>
 </html>

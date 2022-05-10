@@ -16,12 +16,7 @@ INSERT INTO categories(ID, cat_nom, cat_desc) VALUES (5,'CIENCIA Y NATURALEZA','
 INSERT INTO categories(ID, cat_nom, cat_desc) VALUES (6,'MUSICA','En esta categoria habrán preguntas sobre diferentes cantantes y obras.');
 
 
-
-
-/*
-INSERTS PREGUNTES
-(Cuidao que hi ha Auto_Increment)
-*/
+/*INSERTS PREGUNTES_RESPOSTES*/
 
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (6,'¿Que Any es considera el Jazz com musica?','https://okdiario.com/img/2018/10/29/pasos-jazz.jpeg');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (2,'¿Quins van ser els primers cotxes que va fer Ford?','https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.3djake.es%2Frevell%2Fmodelo-1913-ford-model-t-road&psig=AOvVaw2HTwLuP8rgZGjEs4whV815&ust=1651054739017000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCPiv283AsfcCFQAAAAAdAAAAABAD');
@@ -118,10 +113,6 @@ INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (3,'¿Cuand
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (1,'¿Que película protagonza Robin Williams?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (4,'¿ De que trata realmete el famoso cuento de "La caperucita Roja"','');
 
-
-
-/*INSERTS RESPOSTES*/
-
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Als Anys 1920 en Estats units i als 1950 en Europa i Japo','','','',1);
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Ford Model T','Volkwagen','Chevrolet','Gready',2);
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Poeta y dramaturgo de mayor influencia en el siglo XX','Un doctor muy reconocido de su época','El mejor Bailarín de Salsa del siglo XX','Director de cine Italiano',3);
@@ -216,3 +207,4 @@ INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('1892','1800','1863','1912',92);
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Hook','Noche en el museo','Niños grandes','A todo gas',93);
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('','','','',94);
+
