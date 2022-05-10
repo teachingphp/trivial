@@ -11,7 +11,33 @@ if(isset($_COOKIE["galleta"])){
 } 
 if(! isset($_COOKIE["galleta"])){
   $classe_escondite = "escondite";
-}     
+}    
+$idioma ="ES"; 
+if(isset($_COOKIE["idioma"])){
+  $idioma = $_COOKIE["idioma"];
+}
+$nom_columna = "IDIOMA_" . $idioma;
+
+require("../controller/TrivialController.php");
+
+//Conexión con BBDD
+require_once dirname(__FILE__).'/../connection/Conectar.php';
+
+$conectar=new Conectar();
+$conexion=$conectar->conexion();
+
+    $sql = "SELECT * FROM traduccions";
+    $result = $conexion -> query($sql);
+    
+    $traduccions = array();
+    $i = 1; 
+    foreach ($result as $value){
+      //print_r ($value, false);
+      $traduccions[$value["IDIOMA_ES"]] = $value[$nom_columna];
+    }
+    //print_r ($traduccions, false);
+
+
 ?>
 <html lang="en">
   <head>
@@ -78,24 +104,30 @@ if(! isset($_COOKIE["galleta"])){
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-       <img src="../../files/sources/imatges/titol.gif"width="60" height="60"> 
+       <img src="../files/sources/imatges/titol.gif"width="60" height="60"> 
         
       </a> 
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 link-dark">Inici</a></li>
-          <li><a href="../view/hallfame.php" class="nav-link px-2 link-dark">Hall of fame</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Crear Partida</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Preguntas frecuentes</a></li>
-          <li><a href="http://localhost/trivial/view/avislegal.php" class="nav-link px-2 link-dark">Aviso legal</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Idiomas</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark"><?php echo $traduccions["Inicio"] ?></a></li>
+          <li><a href="../view/hallfame.php" class="nav-link px-2 link-dark"><?php echo $traduccions["salon de la fama"] ?></a></li>
+          <li><a href="#" class="nav-link px-2 link-dark"><?php echo $traduccions["Crear Partida"] ?></a></li>
+          <li><a href="../view/faqs.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Preguntas Frecuentes"] ?></a></li>
+          <li><a href="http://localhost/trivial/view/avislegal.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Aviso legal"] ?></a></li>
+          
+          <li><a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"><?php echo $traduccions["idiomas"] ?></a>
+          <ul class="dropdown-menu">
+      <li><a class="dropdown-item" onclick="idioma('ES')">ES</a></li>
+      <li><a class="dropdown-item" onclick="idioma('CAT')">CAT</a></li>
+      <li><a class="dropdown-item" onclick="idioma('ENG')">ENG</a></li>
+    </ul></li>
         </ul>
 
 
         <div class="dropdown text-end">
          <div class="text-end">
-          <button type="button" onclick="login()" class="btn btn-light text-dark me-2 <?php echo $classe_amagar ?>">Login</button>
-          <button type="button" onclick="SingOut()" class="btn btn-primary <?php echo $classe_amagar ?>">Sign-up</button>
+          <button type="button" onclick="login()" class="btn btn-light text-dark me-2 <?php echo $classe_amagar ?>"><?php echo $traduccions["registrarse"]?></button>
+          <button type="button" onclick="SingOut()" class="btn btn-primary <?php echo $classe_amagar ?>"><?php echo $traduccions["inicia sesión"] ?></button>
         </div>
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle <?php echo $classe_escondite ?>" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
@@ -125,6 +157,19 @@ if(! isset($_COOKIE["galleta"])){
   function SingOut (){
     alert("hola putos ok");
   }
+
+  function idioma (idioma){
+    console.log(idioma);
+    setCookie("idioma", idioma, 30);
+    location.reload();
+  }
+
+  function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + "; " + expires;
+}
 
 </script>
 
