@@ -33,7 +33,7 @@ p.container:before, .container:after { display:table; content:"";
 }
 p.container:after { clear:both; 
 }
-p.container { width:500px; margin:20 auto; border:1px solid rgb(243, 196, 196);
+p.container { width:500px; margin:200 auto; border:1px solid rgb(243, 196, 196);
   box-shadow:0px 2px 7px #292929;
   -moz-box-shadow: 0px 2px 7px #292929;
   -webkit-box-shadow: 0px 2px 7px #292929; border-radius:10px;
