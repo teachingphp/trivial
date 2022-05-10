@@ -1,5 +1,6 @@
 <!doctype html>
 <?php
+$imgusu = "";
 /* definicio de la cockieee */
 $classe_escondite = "";
 $classe_amagar = "";
@@ -83,8 +84,8 @@ if(! isset($_COOKIE["galleta"])){
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="#" class="nav-link px-2 link-dark">Inici</a></li>
-          <li><a href="../webpages/jugadors.php" class="nav-link px-2 link-dark">Hall of fame</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Joc</a></li>
+          <li><a href="../view/hallfame.php" class="nav-link px-2 link-dark">Hall of fame</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark">Crear Partida</a></li>
           <li><a href="#" class="nav-link px-2 link-dark">Preguntas frecuentes</a></li>
           <li><a href="http://localhost/trivial/view/avislegal.php" class="nav-link px-2 link-dark">Aviso legal</a></li>
           <li><a href="#" class="nav-link px-2 link-dark">Idiomas</a></li>
