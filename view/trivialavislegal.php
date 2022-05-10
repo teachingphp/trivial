@@ -36,13 +36,25 @@ if ($resp != null && $resp->success) {
 <br/>
 <div >
     <form style="color:red; text-align:center" action="./avislegal2.php" method="post">
-      <div style="display:inline-block" class="g-recaptcha" data-sitekey="<?php echo $siteKey;?>"></div>
+      <div style="display:inline-block"  class="g-recaptcha" data-callback="enableBtn" data-sitekey="<?php echo $siteKey;?>"></div>
       <br/>
       <script type="text/javascript"
           src="https://www.google.com/recaptcha/api.js?hl=<?php echo $lang;?>">
       </script>
       <br/>  
-      <input type="submit" value="Enviar">
+      <input id="button1" type="submit" value="Enviar" disabled>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <img style="margin: auto; left: 50px;" src="./imatges/captcha.gif" alt="" img>
     </form>
+
+    <script>
+        function enableBtn(){
+          document.getElementById("button1").disabled = false;
+        }
+      </script>
   </body>
 </html>

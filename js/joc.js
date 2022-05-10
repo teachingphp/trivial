@@ -12,3 +12,26 @@ function copiarPortapapeles() {
     /* Alert the copied text */
     console.log("Copied the text: " + copyText.value);
   }
+
+  function startGame(){
+    document.getElementById("joc").innerHTML = 
+
+`
+    <div class="bg-whats rounded py-5 px-1 text-center flex-grow-1">
+                <h1>Pregunta</h1>
+                <div class="container-fluid py-3">
+                  <div class="row">
+                    <div class="col-0 col-md-2 col-xl-3">
+                    </div>
+                    <div class="col-12 col-md-8 col-xl-6">
+                      <button class="btn btn-lg btn-primary btn-block">Resposta 1</button>
+                      <button class="btn btn-lg btn-primary btn-block">Resposta 2</button>
+                      <button class="btn btn-lg btn-primary btn-block">Resposta 3</button>
+                      <button class="btn btn-lg btn-primary btn-block">Resposta 4</button>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+`
+  }

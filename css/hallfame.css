@@ -4,7 +4,7 @@ body{
 p {
     color: rgb(81, 87, 82);
     text-align: center;
-    font-family: "Georgia", "Serif", monospace;
+    font-family: "Georgia", "Serif", "monospace";
     font-size: 20px;
 }
 p.round1{
@@ -20,6 +20,29 @@ p.round2{
     font-size: 40px;
 
 
+}
+p.round3{
+    text-align: center;
+    color: black;
+    font-family: "Verdana", "Serif", "monospace";
+    font-size: 40px;
+
+
+}
+p.container:before, .container:after { display:table; content:""; 
+}
+p.container:after { clear:both; 
+}
+p.container { width:500px; margin:200 auto; border:1px solid rgb(243, 196, 196);
+  box-shadow:0px 2px 7px #292929;
+  -moz-box-shadow: 0px 2px 7px #292929;
+  -webkit-box-shadow: 0px 2px 7px #292929; border-radius:10px;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px; background-color:#f9c6c6; 
+  text-align: center;
+    color: black;
+    font-family: "Verdana", "Serif", "monospace";
+    font-size: 40px;
 }
 h1{
     text-align: center;
