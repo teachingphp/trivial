@@ -55,7 +55,7 @@
 
         </body>
 
-        <script type="text/javascript" src="../recursos/MatchPass.js?v=<?php echo time(); ?>"></script>
+        <script type="text/javascript" src="../js/MatchPass.js?v=<?php echo time(); ?>"></script>
 </html>
 
 
