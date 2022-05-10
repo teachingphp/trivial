@@ -90,6 +90,7 @@ if(! isset($_COOKIE["galleta"])){
           <li><a href="#" class="nav-link px-2 link-dark">Idiomas</a></li>
         </ul>
 
+        
         <div class="dropdown text-end">
          <div class="text-end">
           <button type="button" onclick="login()" class="btn btn-light text-dark me-2 <?php echo $classe_amagar ?>">Login</button>
