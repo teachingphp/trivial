@@ -4,7 +4,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="../css/RegistrarseTrivial.css?v=<?php echo time(); ?>">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css?v=<?php echo time(); ?>">
         <title>Cool Trivial - Registro</title>
     </head>
 <div>
@@ -26,9 +26,9 @@
     <label for="email" class="last-name">eMail:</label>
     <input id="email" type="email" placeholder="email" required><br><br>
     <label for="Contraseña">Contraseña:</label>
-    <input type="password" placeholder="Contraseña" id="Contra" required><br><br>
+    <input type="password" placeholder="Contraseña" id="Contra" required><i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i><br><br>
     <label for="Confirma Contraseña">Confirma Contraseña:</label>
-        <input type="password" placeholder="Confirma Contraseña" id="ConfirmContra" required>
+        <input type="password" placeholder="Confirma Contraseña" id="ConfirmContra" required><i class="far fa-eye" id="togglePassword2" style="margin-left: -30px; cursor: pointer;"></i>
         <br><br>
 
 
@@ -55,7 +55,7 @@
 
         </body>
 
-        <script type="text/javascript" src="../recursos/MatchPass.js?v=<?php echo time(); ?>"></script>
+        <script type="text/javascript" src="../js/MatchPass.js?v=<?php echo time(); ?>"></script>
 </html>
 
 
