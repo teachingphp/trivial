@@ -12,6 +12,9 @@ if(isset($_COOKIE["galleta"])){
 if(! isset($_COOKIE["galleta"])){
   $classe_escondite = "escondite";
 }    
+
+/* definicio de idiomes i crida a la DB*/
+
 $idioma ="ES"; 
 if(isset($_COOKIE["idioma"])){
   $idioma = $_COOKIE["idioma"];
@@ -157,7 +160,7 @@ $conexion=$conectar->conexion();
   function SingOut (){
     alert("hola putos ok");
   }
-
+/*fincio idioma per crear cookie*/ 
   function idioma (idioma){
     console.log(idioma);
     setCookie("idioma", idioma, 30);
