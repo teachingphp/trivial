@@ -75,6 +75,13 @@ h2{
     text-align:center;
     font-size: small;
 }
+
+h3{
+    text-align:center;
+    font-size: small;
+   
+}
+
 p{
     color:rgb(7, 7, 17);
     font-size: medium;
@@ -99,42 +106,46 @@ hr{
     margin-left: 25px;
     margin-top: 10px;
 }
-#myDIV1{
-    background-color:#d66262;
+#myDIV1{    
+    background-color:#74e4c8;
+    min-height: 100%;
     border-radius:20px;
     border-radius-bot:10px;
     border-color: green;
-    padding: auto;*/
+    /*padding: auto;*/
 } 
 
 #myDIV2{
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    margin-right: 2%;
     text-align: center;
-
-    background-color: #b0f0bb;
-    border: 1px color:rgb(10, 10, 10);;
+    min-height: 100%;
+    background-color:transparent;
+    border: 1px color:rgb(10, 10, 10);
+   
     border-radius:20px;
     /*padding:auto;*/
 }
 
 #myDIV3{
-    text:;
     text-align: center;
     height: 100%;
-    margin-left: 51%;
-    margin-right: 1%;
-    background-color: #b0f0bb;
+    background-color:#34e693;
     border: 1px color:rgb(10, 10, 10);;
     border-radius:20px;
     /*padding:auto;*/
 }
 
-
 #myDIV4{
-    height:100%;
-    background-color:#FFFFFF;
-    border: 1px color:rgb(1, 70, 29);
-    border-radius:10px;
-}
+    margin-left: 5%;
+    text-align: center;
+    background-color: #b0f0bb;
+    border: 1px color:rgb(10, 10, 10);;
+    border-radius:20px;
+    border-radius-bottom:20px;
+    /*padding:auto;*/
 
 /*.accordion-body {
     background-color: rgb(252, 239, 59);
