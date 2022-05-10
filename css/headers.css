@@ -33,15 +33,20 @@
 
 
 
-
+/*Bottons de login i registrer*/
 .btn.btn-light.text-dark.me-2.amagar{
 
   display: none;
 }
 
-.btn.btn-primary{
-
+.btn.btn-primary.amagar{
   display: none;
 }
 
+/*Espai del usuari logat*/
+
+.d-block.link-dark.text-decoration-none.dropdown-toggle.escondite{
+
+  display: none !important;
+}
 

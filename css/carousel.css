@@ -1,11 +1,16 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
+@font-face {
+	font-family: quieloprobartuboca;
+	src: url(../files/sources/fuentes/Bing\ Bam\ Boum.woff2);
+  }
 
 body {
   padding-top: 3rem;
   padding-bottom: 3rem;
   color: #5a5a5a;
+  font-family: quieloprobartuboca;
 }
 
 

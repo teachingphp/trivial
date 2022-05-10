@@ -1,5 +1,6 @@
 <!doctype html>
 <?php
+$imgusu = "";
 /* definicio de la cockieee */
 $classe_escondite = "";
 $classe_amagar = "";
@@ -77,18 +78,19 @@ if(! isset($_COOKIE["galleta"])){
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-       <img src="../files/6296e069312cd28cf8c3fd1f8b26e13d.gif"width="60" height="60"> 
+       <img src="../files/sources/imatges/countdown.gif"width="60" height="60"> 
         
       </a> 
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="#" class="nav-link px-2 link-dark">Inici</a></li>
-          <li><a href="../webpages/jugadors.php" class="nav-link px-2 link-dark">Hall of fame</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Joc</a></li>
+          <li><a href="../view/hallfame.php" class="nav-link px-2 link-dark">Hall of fame</a></li>
+          <li><a href="#" class="nav-link px-2 link-dark">Crear Partida</a></li>
           <li><a href="#" class="nav-link px-2 link-dark">Preguntas frecuentes</a></li>
           <li><a href="http://localhost/trivial/view/avislegal.php" class="nav-link px-2 link-dark">Aviso legal</a></li>
           <li><a href="#" class="nav-link px-2 link-dark">Idiomas</a></li>
         </ul>
+
 
         <div class="dropdown text-end">
          <div class="text-end">
