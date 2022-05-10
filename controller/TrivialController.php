@@ -30,7 +30,7 @@ class TrivialController
     }
 
     public function pujarfitxer(){
-        $target_dir = "./files/";
+        $target_dir = "./files/sources/imatges/";
         //echo print_r($_FILES, false);
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
