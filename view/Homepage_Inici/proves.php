@@ -28,25 +28,25 @@
 
 
 
-        <div id ="myDIV1" class="container col-sm-9">
-            <div id ="myDIV2" class="container-col">
-                <div>
+        <div id ="myDIV1" class="container">
+            <div class="row">
+                <div id ="myDIV2" class="col-lg-4">    
                     <h3>Anónim</h3>
                     <img src="https://image.shutterstock.com/image-vector/user-icon-trendy-flat-style-260nw-418179856.jpgalt" width="10%" height="10%"></img>                    <h3>Registrat</h3>
                     <p>Apodo</p>
                 </div>
-            </div>
-            <div id ="myDIV3" class="container-col">
-                <div id="grad1">
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h3 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <h2>Hall of Fame</h2>
-                                </button>       
-                            </h3>     
-                            <div id="collapseOne" class="accordion-collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="accordion-body"></div>
+                <div id ="myDIV2" class="col-lg-4">
+                    <div id="grad1">
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <h3>Hall of Fame</h3>
+                                    </button>       
+                                </h3>     
+                                <div id="collapseOne" class="accordion-collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
