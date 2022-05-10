@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="../css/avislegal.css?v=<?php echo time(); ?>">
 </head>
 <body>
-<i><h1 style="text-align:center;" ><B><FONT COLOR="black"><h3><p style="font-family:'Times New Roman', Times, serif">Aviso Legal</B></p></h3></h1></i></FONT>
+<i><h1 style="text-align:center;" ><B><FONT COLOR="black"><h3><p style="font-family:'Times New Roman', Times, serif"><p style="background-color:azure">Aviso Legal</B></p></h3></h1></i></FONT>
 
 <body style="background-image: url('./imatges/aslg.jpg')";
 
@@ -13,7 +13,9 @@
 
   <br/>
   <br/>
-  <p style="color:azure; background-color:black">Los contenidos de la web de TRIVIAL pertenecen a: 
+    <h2>
+        <center>
+  <p style="color:azure; background-color:black"> Los contenidos de la web de TRIVIAL pertenecen a: 
 
       TRIVIAL
       Inscrita en el CEINA el 05/05/2022
@@ -32,10 +34,9 @@
 
       Para cualquier comentario o sugerencia sobre los contenidos de este website pueden ponerse en contacto con los anfitriones de TRIVIAL, general Alberto o programador del aviso legal Marcel. php.ceina.marcel@gmail.com
       http://merlonrtx.es/
+</center>
       </p>
+      </h2>
+      <br/>
   </div>
-</div>
-
-
-</body>
 

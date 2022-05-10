@@ -33,7 +33,7 @@ if ($resp != null && $resp->success) {
     echo "¡Correcto!";
 }
 ?>
-<p style="color:red; text-align:center">Completa el captcha para redirigirte al aviso legal de Trivial</p>
+<p style="color:red; text-align:center">⚠️Completa el captcha para redirigirte al aviso legal de Trivial⚠️</p>
 <br/>
 <div >
     <form style="color:red; text-align:center" action="./avislegal2.php" method="post">
