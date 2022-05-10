@@ -6,15 +6,12 @@
 <body>
 <i><h1 style="text-align:center;" ><B><FONT COLOR="black"><h3><p style="font-family:'Times New Roman', Times, serif"><p style="background-color:azure">Aviso Legal</B></p></h3></h1></i></FONT>
 
-<body style="background-image: url('./imatges/aslg.jpg')";
+<body style="size:1040px;height:960px;background:url('./imatges/aslg.jpg') no-repeat; background-size: 100% 100%;">
 
-  </div>
-  <div class="column right" >
-
-  <br/>
   <br/>
     <h2>
         <center>
+            <center>
   <p style="color:azure; background-color:black"> Los contenidos de la web de TRIVIAL pertenecen a: 
 
       TRIVIAL
