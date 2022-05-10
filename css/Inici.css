@@ -88,22 +88,20 @@ p{
     font-family:Georgia, 'Times New Roman', Times, serif;
     padding: auto;
 }
+
 /*footer*/
 /* Style the footer */
 footer {
-
     padding: auto;
     text-align: center;
     background: rgb(65, 219, 160);
     text-color:white;
-    }
+}
 hr{
     color:rgb(1, 70, 29);
     font-size: 10%;
-    width: 75%;
+    /*width: 75%;*/
     padding: 2px 2px 2px 2px;  
-    
-    margin-left: 25px;
     margin-top: 10px;
 }
 #myDIV1{    

@@ -7,7 +7,7 @@
     </head>
     <body style="background-color:#6eebcb;";>
         <?php
-            include '../menu.php';
+            include './menu.php';
         ?>
         
             <h1>
