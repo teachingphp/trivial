@@ -59,19 +59,28 @@
   </symbol>
 </svg>
 
+ <!--Amb això tenim la barra de menú a dalt-->
+<?php
+    include 'menus.php';
+  ?>
+
  
 <div class="p">
-  <h1 class= "city">Hall of fame </h1>
+  <h1> <p class= "round3">Hall of fame </h1>
   <br>
+
+  <!--Connexió-->
   <?php
   require_once dirname(__FILE__).'/../connection/Conectar.php';
   $conectar=new Conectar();
   $conexion=$conectar->conexion();
   
+  //Base de dades -> S'hauria de canviar a la base que ha fet el Pol
   $sql = "SELECT ID, NOM, AVATAR, ID_github, RANKING FROM alumnes ORDER BY RANKING DESC";
     $result = $conexion -> query($sql);
     
   ?>
+
   <?php
         foreach($result as $value){
       $ruta = 'https://github.com/'. $value["AVATAR"] . '.png';
@@ -85,6 +94,7 @@
       <h3 class="mb-0">'.$value["NOM"].'</h3>
       <p class="text-right">Puntuació:      '.$value["RANKING"].'</p>
       </div>
+      
       
 
       <h1><p class="round2">'.$value["RANKING"].'</h1> 
