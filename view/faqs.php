@@ -1,1 +1,1 @@
-<h1>no hay preguntas que valgan, la respuesta siempre es TONI BOU</h1>
+<h1>Preguntas frecuentes</h1>
