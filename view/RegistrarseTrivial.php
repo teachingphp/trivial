@@ -17,9 +17,12 @@
 </div>
     <body>
         <div>
-        <h1>Registrarse</h1>
+        <h1>
+            Registrate en 
+            <span>Cool Trivial</span>
+    </h1>
         <p>Para poder disfrutar de más opciones es recomendable registrarse:</p>
-    <form action="../pagines/RegistrarseTrivial.php" method="post">
+    <form action="../index.php" method="post">
         <div class="container">
         <label for="Usuario" class="first-name">Usuario:</label>
     <input id="Usuario" type="text" placeholder="Usuario" required><br><br>
@@ -30,11 +33,11 @@
     <label for="Confirma Contraseña">Confirma Contraseña:</label>
         <input type="password" placeholder="Confirma Contraseña" id="ConfirmContra" required><i class="far fa-eye" id="togglePassword2" style="margin-left: -30px; cursor: pointer;"></i>
         <br><br>
-    
-
-        <input type="submit" name="crearU" value="VERIFICA EL CORREO">
-        </div>
         <input id="myBtn" type="checkbox" class="form-check-input is-invalid" id="acepta_terminos1" required> Aceptar terminos y condiciones
+        <input type="text" name="accio" value ="registrarse" hidden>
+        <br><br>
+        <input type="submit" name="crearU" value="Registrate" id="RegistBTN">
+        </div>
 
     </form>
     <!-- Trigger/Open The Modal -->
@@ -92,19 +95,14 @@
 <p>Esta compañía no venderá, cederá ni distribuirá la información personal que es recopilada sin su consentimiento, salvo que sea requerido por un juez con un orden judicial.</p>
 <p>Cool Trivial se reserva el derecho de cambiar los términos de la presente Política de Privacidad en cualquier momento.</p>
 <br>
-<input type="submit" onclick="aceptar()" name="aceptar" value="estoy de acuerdo">
+<input type="submit" id="AceptarT" name="aceptar" value="Estoy de acuerdo">
   </div>
 
 </div>
     </div>
   
 
-    <script>
-        function aceptar(){
-            //javascript uncheck myBtn checkbox
-            var radiobutton = document.getElementById("myBtn");
-        }
-    </script>
+
 
         </body>
 
