@@ -13,16 +13,16 @@
                 <div class="row">
                     <div class="col-sm-2"></div>
                     <div class="col-sm-2">
-                        <p >Terminos de Servicio</p>
+                        <p-footer >Terminos de Servicio</p-footer>
                     </div>
                     <div class="col-sm-2">
-                        <p>Gestion de Cookies</p>
+                        <p-footer>Gestion de Cookies</p-footer>
                     </div>
                     <div class="col-sm-2">
-                        <p>Faqs</p>
+                        <p-footer>Faqs</p-footer>
                     </div>
                     <div class="col-sm-2">
-                        <p style="line-height: normal">Contactos</p>
+                        <p-footer style="line-height: normal">Contactos</p-footer>
                         <img src="../files/sources/imatges/facebook.png" alt="" width="25" height="25"></img>
                         <img src="../files/sources/imatges/instagram.png" alt="" width="25" height="25"></img>
                         <img src="../files/sources/imatges/twitter.png" alt="" width="25" height="25"></img>
