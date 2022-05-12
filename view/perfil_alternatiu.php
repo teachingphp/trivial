@@ -73,7 +73,7 @@
       <form class="card p-2">
         <a  class="btn btn-secondary" onclick="next('<?php echo $rutas;  ?>')" >Next</a> 
         <br>
-        <a  class="btn btn-secondary" onclick="previous() " >Previous</a>
+        <a  class="btn btn-secondary" onclick="previous('<?php echo $rutas;  ?>') " >Previous</a>
         </form>
       
         
@@ -138,16 +138,30 @@
 
 
     <script >
+
+    var i = 1;  
+    var rutasImg;
     function next(rutas){
+      rutasImg = rutas.split(';');
+      if (i == rutasImg.length-1){
+        i = 1;
+      }
       console.log(rutas);
       var image = document.getElementById("imatge_perfil"); 
-      ruta_imatge = "../files/Perfils/images - copia.jpg";
-  
-      image.src = ruta_imatge;
+      
+      image.src = rutasImg[i];
+      i++;
     }
 
-    function previous(){
+    function previous(rutas){
+      rutasImg = rutas.split(';');
+      if (i == 1){
+        i = rutasImg.length-1;
+      }
+      var image = document.getElementById("imatge_perfil"); 
       
+      image.src = rutasImg[i];
+      i--;
     }
 
     </script>
