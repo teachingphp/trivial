@@ -59,19 +59,28 @@
   </symbol>
 </svg>
 
+ <!--Amb això tenim la barra de menú a dalt-->
+<?php
+    include 'menu.php';
+  ?>
+
  
 <div class="p">
-  <h1 class= "city">Hall of fame </h1>
+  <h1> <p class= "container">HALL OF FAME</h1>
   <br>
+
+  <!--Connexió-->
   <?php
   require_once dirname(__FILE__).'/../connection/Conectar.php';
   $conectar=new Conectar();
   $conexion=$conectar->conexion();
   
+  //Base de dades -> S'hauria de canviar a la base que ha fet el Pol
   $sql = "SELECT ID, NOM, AVATAR, ID_github, RANKING FROM alumnes ORDER BY RANKING DESC";
     $result = $conexion -> query($sql);
     
   ?>
+
   <?php
         foreach($result as $value){
       $ruta = 'https://github.com/'. $value["AVATAR"] . '.png';
@@ -85,6 +94,7 @@
       <h3 class="mb-0">'.$value["NOM"].'</h3>
       <p class="text-right">Puntuació:      '.$value["RANKING"].'</p>
       </div>
+      
       
 
       <h1><p class="round2">'.$value["RANKING"].'</h1> 
@@ -106,6 +116,15 @@
 <div class="b-example-divider"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-      
+ 
+<footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2022 Trivial CEINA</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+
   </body>
 </html>

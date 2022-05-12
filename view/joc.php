@@ -37,7 +37,7 @@
   </head>
   <body>
   <?php
-    include 'menus.php';
+    include 'menu.php';
   ?>
 
 
@@ -72,7 +72,7 @@
                 <div class="d-none d-sm-block float-left pr-2">
                   
                 </div>
-                <strong>¿Quieres jugar con tus amigos?</strong>
+                <strong>¡Juega con tus amigos!</strong>
                 <br>¡Comparte con ellos el enlace a la partida!<br>
                 <div class="input-group link-input">
                   <input type="text" class="form-control" readonly="" value="Link generado" id="linkCopiar">
@@ -86,7 +86,7 @@
                 </div>
               </div>
             </div>
-            <div class="p-1 flex-grow-1 d-flex flex-column">
+            <div class="p-1 flex-grow-1 d-flex flex-column" id="joc">
               <div class="bg-whats rounded py-5 px-1 text-center flex-grow-1">
                 <h1>Inicia la partida</h1>
                 <div class="container-fluid py-3">
@@ -94,7 +94,7 @@
                     <div class="col-0 col-md-2 col-xl-3">
                     </div>
                     <div class="col-12 col-md-8 col-xl-6">
-                      <button class="btn btn-lg btn-primary btn-block">¡A jugar!</button>
+                      <button class="btn btn-lg btn-primary btn-block" onclick=startGame()>¡A jugar!</button>
                       <button type="button" class="btn btn-lg btn-secondary btn-block" data-bs-toggle="modal" data-bs-target="#ModalConfig">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
                             <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
@@ -152,7 +152,7 @@
             </div>
           </div>
         </div>
-    </div>
+  </div>
 
 
 

@@ -6,16 +6,16 @@
 <body>
 <i><h1 style="text-align:center;" ><B><FONT COLOR="black"><h3><p style="font-family:'Times New Roman', Times, serif"><p style="background-color:azure">Aviso Legal</B></p></h3></h1></i></FONT>
 
-<body style="background-image: url('./imatges/aslg.jpg')";
+<body style="size:1040px;height:960px;background:url('../imatges/manzi.jpg') no-repeat; background-size: 100% 100%;">
 
-  </div>
-  <div class="column right" >
-
-  <br/>
   <br/>
     <h2>
-        <center>
-  <p style="color:azure; background-color:black"> Los contenidos de la web de TRIVIAL pertenecen a: 
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+  <p style="color:black; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;"> Los contenidos de la web de TRIVIAL pertenecen a: 
 
       TRIVIAL
       Inscrita en el CEINA el 05/05/2022
@@ -32,11 +32,31 @@
 
       Al ofrecer estos enlaces, no se puede inferir que TRIVIAL, apruebe el contenido u otro material incluido en dichas webs ni tampoco se puede inferir relación alguna de TRIVIAL, con las partes que alojan estas webs.
 
-      Para cualquier comentario o sugerencia sobre los contenidos de este website pueden ponerse en contacto con los anfitriones de TRIVIAL, general Alberto o programador del aviso legal Marcel. php.ceina.marcel@gmail.com
-      http://merlonrtx.es/
+      Para cualquier comentario o sugerencia sobre los contenidos de este website pueden ponerse en contacto con los anfitriones de TRIVIAL, general Alberto o programador del aviso legal Marcel.
 </center>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<html>
+<head>
+<style>
+h1 {text-align: center;}
+p {text-align: center;}
+div {text-align: center;}
+</style>
+</head>
+<body>
+
+<div> php.ceina.marcel@gmail.com</div>
+<div>http://merlonrtx.es/</div>
+<p>2022 Igualada</p>
+<p> Trivial ©</p>
+
+</body>
+</html>
       </p>
       </h2>
-      <br/>
   </div>
 
