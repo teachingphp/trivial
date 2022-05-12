@@ -13,8 +13,8 @@ class TrivialController
         $this->adapter=$this->conectar->conexion();
 
         $this->jugadors = [
-            1 => new Jugador("Jugador1","15000"),
-            2 => new Jugador("Jugador2","434")
+            1 => new Jugador("Jugador1","15000",1,0,0),
+            2 => new Jugador("Jugador2","434",1,4,6)
         ];
     }
 
