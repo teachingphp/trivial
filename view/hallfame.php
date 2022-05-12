@@ -61,7 +61,7 @@
 
  <!--Amb això tenim la barra de menú a dalt-->
 <?php
-    include 'menus.php';
+    include 'menu.php';
   ?>
 
  
