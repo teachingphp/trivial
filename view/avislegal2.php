@@ -32,7 +32,7 @@
 
       Al ofrecer estos enlaces, no se puede inferir que TRIVIAL, apruebe el contenido u otro material incluido en dichas webs ni tampoco se puede inferir relación alguna de TRIVIAL, con las partes que alojan estas webs.
 
-      Para cualquier comentario o sugerencia sobre los contenidos de este website pueden ponerse en contacto con los anfitriones de TRIVIAL, general Alberto o programador del aviso legal Marcel.
+     <h2> Para cualquier comentario o sugerencia sobre los contenidos de este website pueden ponerse en contacto con los anfitriones de TRIVIAL, director general Alberto o programador del aviso legal Marcel. <h2/>
 </center>
 <br/>
 <br/>
@@ -42,17 +42,19 @@
 <html>
 <head>
 <style>
-h1 {text-align: center;}
+h5 {text-align: center;}
 p {text-align: center;}
 div {text-align: center;}
+h3 {text-align: center;}
+h2 {text-align: center;}
 </style>
 </head>
 <body>
 
 <div> php.ceina.marcel@gmail.com</div>
 <div>http://merlonrtx.es/</div>
-<p>2022 Igualada</p>
-<p> Trivial ©</p>
+<h3>2022 Igualada</h3>
+<h5>Trivial ©</h5>
 
 </body>
 </html>

@@ -23,7 +23,11 @@ if (isset($_GET["accio"]) && $_GET["accio"] == "cerrarsesion"){
 else if (isset($_POST["accio"]) && $_POST["accio"] == "pujarfitxer"){
     //echo print_r($_FILES);
     $controller->pujarfitxer();
-}else{
+}else if (isset($_POST["accio"]) && $_POST["accio"] == "registrarse"){
+    //echo print_r($_FILES);
+    $controller->registrarse();
+}
+else{
     //Ejecuto el método
     $controller->index();
 
