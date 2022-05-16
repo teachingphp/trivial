@@ -13,8 +13,8 @@ class TrivialController
         $this->adapter=$this->conectar->conexion();
 
         $this->jugadors = [
-            1 => new Jugador("Jugador1","15000"),
-            2 => new Jugador("Jugador2","434")
+            1 => new Jugador("Jugador1","15000",1,0,0),
+            2 => new Jugador("Jugador2","434",1,4,6)
         ];
     }
 
@@ -30,7 +30,7 @@ class TrivialController
     }
 
     public function pujarfitxer(){
-        $target_dir = "./files/";
+        $target_dir = "./files/sources/imatges/";
         //echo print_r($_FILES, false);
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
@@ -96,6 +96,24 @@ class TrivialController
         }
         //Le paso los datos a la vista
         require("view/cerrarsesion.php");
+
+    }
+
+    public function registrarse(){
+        //CREAR UNA NOVA CLASSE USUARI dins model Usuari.php
+        $sql = "SELECT * from usuaris_registrats";
+        $result = $this->adapter -> query($sql);
+        foreach($result as $value){
+            
+        }
+        print_r($_POST, false);
+        $usuari = new Usuari(); //DEFINIR AQUESTA CLASSE A Usuari.php
+        $usuari->setNom($_POST["Usuario"]);
+
+        $usuari->setPassword($_POST["Contra"]);
+
+        $usuari->guardar(); //DEFINIR AQUESTA funcio dins  Usuari.php
+        
 
     }
 

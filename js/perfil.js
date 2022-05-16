@@ -1,3 +1,24 @@
+var i = 1;
+var rutasImg;
+var image = document.getElementById("imagen-avatar");
+
+function next(rutas){
+  rutasImg = rutas.split(';');
+  if (i == rutasImg.length-1){
+    i = 1;
+  }
+  image.src = rutasImg[i];
+  i++;
+  //console.log(i);
+}
+
+function previous(rutas){
+  rutasImg = rutas.split(';');
+  image.src = rutasImg[i];
+  i--;
+}
+
+
 function cambiarAvatar(rutas){
     //alert("Avatar");
     //console.log (rutas);

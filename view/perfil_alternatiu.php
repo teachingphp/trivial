@@ -42,21 +42,38 @@
     <link href="form-validation.css" rel="stylesheet">
   </head>
   <body class="bg-light">
+
+  <?php
+
+  $files = scandir('../files/Perfils');
+  $i = 1;
+  $rutas ="";
+  foreach($files as $file) {
+    if($file == '.' || $file == '..') continue;
+    //print "../files/Perfils/" . $file . '<br>';
+    $rutas .=   "../files/Perfils/" . $file . ";" ;
+    $i++;
+    
+  }
+
+  ?>
     
 <div class="container">
   <main>
     <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-4" src="../files/andrea.jpg" alt="" width="72" height="57">
+      <img class="d-block mx-auto mb-4" src="../files/andrea.jpg" alt="" width="70" height="70">
       <h2>Pàgina de perfil</h2>
       <p class="lead">Aquí podràs modificar les teves dades</p>
     </div>
 
     <div class="row g-5">
-      <div class="col-md-5 col-lg-4 order-md-last">
-      <img  class="bd-placeholder-img rounded-circle" width="100%" height="400" src="../files/<?php echo $usuari;  ?>.jpg" </img>
+      <div class="col-md-5 col-lg-4 order-md-first">
+      <img id="imatge_perfil"  class="bd-placeholder-img rounded-circle" width="100%" height="400" src="../files/<?php echo $usuari;  ?>.jpg" </img>
 
       <form class="card p-2">
-        <a  class="btn btn-secondary" href="#">View details &raquo;</a>
+        <a  class="btn btn-secondary" onclick="next('<?php echo $rutas;  ?>')" >Next</a> 
+        <br>
+        <a  class="btn btn-secondary" onclick="previous('<?php echo $rutas;  ?>') " >Previous</a>
         </form>
       
         
@@ -76,20 +93,40 @@
           </div>
 
           <div class="col-12">
-            <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
-            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+            <label for="password" class="form-label">password </label>
+            <input type="password" class="form-control" id="password" placeholder="" >           
+          </div>
+
+          <div class="col-12">
+            <label for="email" class="form-label">Email </label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com" disabled>
             <div class="invalid-feedback">
               Please enter a valid email address for shipping updates.
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+
+         
+
+          <button type="submit" class="btn btn-primary">Actualitzar</button>
         </form>
+      </div>
+      <hr>
+      <div class="col-md-7 col-lg-8">
+      <h4 class="mb-3">Informació del jugador</h4>
+
+          <div class="col-12">
+            <label for="email" class="form-label">Email </label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com" disabled>
+            <div class="invalid-feedback">
+              Please enter a valid email address for shipping updates.
+            </div>
+          </div>
       </div>
     </div>
   </main>
 
   <footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">&copy; 2017–2021 Company Name</p>
+    <p class="mb-1">&copy; Trivial Ceina</p>
     <ul class="list-inline">
       <li class="list-inline-item"><a href="#">Privacy</a></li>
       <li class="list-inline-item"><a href="#">Terms</a></li>
@@ -99,8 +136,36 @@
 </div>
 
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script >
+
+    var i = 1;  
+    var rutasImg;
+    function next(rutas){
+      rutasImg = rutas.split(';');
+      if (i == rutasImg.length-1){
+        i = 1;
+      }
+      console.log(rutas);
+      var image = document.getElementById("imatge_perfil"); 
+      
+      image.src = rutasImg[i];
+      i++;
+    }
+
+    function previous(rutas){
+      rutasImg = rutas.split(';');
+      if (i == 1){
+        i = rutasImg.length-1;
+      }
+      var image = document.getElementById("imatge_perfil"); 
+      
+      image.src = rutasImg[i];
+      i--;
+    }
+
+    </script>
 
       <script src="form-validation.js"></script>
   </body>
-</html>
+</html> 
