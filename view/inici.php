@@ -18,12 +18,19 @@
             <div class="row">
                 <div id ="myDIV2" class="container col-lg-6">
                     <div class="row">
-                        <div id ="myDIV4" class="col-lg-10">
+                        <div id ="myDIV4" class="col-lg-10 ">
                             <h3>Anónim</h3>
                             <?php
                                 include './crear-avatar.php';
                             ?>
                             <p></p>
+                        </div>
+                        <div id = "myDIV3" class="container">
+                            <div class="row">
+                                    <button type="button">  <!--onclick='crearpartida()!-->
+                                        <h2>Crear Partida</h2>
+                                    </button>                                    
+                            </div>
                         </div>
                         <!--
                         <div id ="myDIV4" class="col-lg-5">    
@@ -42,8 +49,8 @@
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h3 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        <h3>Hall of Fame</h3>
+                                    <button class="accordion-button card text-white bg-dark mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <h3 >Hall of Fame</h3>
                                     </button>       
                                 </h3>     
                                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -54,16 +61,23 @@
                     </div>
                 </div>
             </div>
+            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h5 class="card-title">Dark card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
             <div id = "myDIV3" class="container">
                 <div class="row">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="accordion-button text-white bg-dark mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             <h2>Instruccions</h2>
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse " aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
+                            <div>
                                 <section>   
                                     <article>
                                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus minima dignissimos ea, qui nulla reiciendis obcaecati quasi animi voluptatem non unde voluptate deleniti, corrupti ipsa illo! Necessitatibus vel odit voluptatibus! Ipsa ab consectetur tenetur magnam perferendis pariatur, soluta illo eaque? Perferendis itaque exercitationem eveniet et iusto, porro perspiciatis blanditiis dolor amet suscipit!

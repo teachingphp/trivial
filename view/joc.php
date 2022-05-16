@@ -37,7 +37,39 @@
   </head>
   <body>
   <?php
-    include 'menu.php';
+    //include 'menu.php';
+
+    //Conexión con BBDD
+    require_once dirname(__FILE__).'/../connection/Conectar.php';
+
+    $conectar=new Conectar();
+    $conexion=$conectar->conexion();
+
+    $sql = "SELECT * FROM preguntes p inner join respostes r on p.id = r.preg_id";
+    $result = $conexion -> query($sql);
+    
+    $respostes_correctes = array();
+    $preguntes = array();
+    $respostes = array();
+    $i = 1;
+    foreach ($result as $value){
+      //print_r ($value, false);
+      $respostes_correctes[$value["preg_pregunta"]] = $value["resp_correcte"];
+      $preguntes[$i] = $value["preg_pregunta"];
+      $respostes[$value["preg_pregunta"]] = $value["resp_correcte"] . ";" . $value["resp_incorrecte_1"] . ";" . $value["resp_incorrecte_2"] . ";" . $value["resp_incorrecte_3"] ;
+      $i++;
+    }
+
+    //print_r ($preguntes[2], false);
+    //print_r ($preguntes[2], false);
+    //print_r ($preguntes[3], false);
+    //print_r ($respostes_correctes[$preguntes[2]], false);
+    //print_r ($respostes[$preguntes[2]], false);
+    //$todas_respuestas = explode(";", $respostes[$preguntes[2]]);
+    $preg = json_encode($preguntes,JSON_UNESCAPED_UNICODE);
+    $resp = json_encode($respostes,JSON_UNESCAPED_UNICODE);
+    $correctes = json_encode($respostes_correctes,JSON_UNESCAPED_UNICODE);
+    //print_r (, false);
   ?>
 
 
@@ -94,7 +126,7 @@
                     <div class="col-0 col-md-2 col-xl-3">
                     </div>
                     <div class="col-12 col-md-8 col-xl-6">
-                      <button class="btn btn-lg btn-primary btn-block" onclick=startGame()>¡A jugar!</button>
+                      <button class="btn btn-lg btn-primary btn-block" onclick='startGame(<?php echo $preg . ",". $resp . ",". $correctes;?>)'>¡A jugar!</button>
                       <button type="button" class="btn btn-lg btn-secondary btn-block" data-bs-toggle="modal" data-bs-target="#ModalConfig">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
                             <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
