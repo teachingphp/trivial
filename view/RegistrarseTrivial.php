@@ -17,21 +17,32 @@
 </div>
     <body>
         <div>
-        <h1>
+        <div class="row">
+            <div class="column">
+            <div class="container">
+            <h1>
             Registrate en 
             <span>Cool Trivial</span>
     </h1>
         <p>Para poder disfrutar de más opciones es recomendable registrarse:</p>
-    <form action="../index.php" method="post">
-        <div class="container">
-        <label for="Usuario" class="first-name">Usuario:</label>
-    <input id="Usuario" type="text" placeholder="Usuario" required><br><br>
-    <label for="email" class="last-name">eMail:</label>
-    <input id="email" type="email" placeholder="email" required><br><br>
-    <label for="Contraseña">Contraseña:</label>
-    <input type="password" placeholder="Contraseña" id="Contra" required><i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i><br><br>
-    <label for="Confirma Contraseña">Confirma Contraseña:</label>
-        <input type="password" placeholder="Confirma Contraseña" id="ConfirmContra" required><i class="far fa-eye" id="togglePassword2" style="margin-left: -30px; cursor: pointer;"></i>
+    <form action="./reg_ok.php" method="post">
+    <div class="field">
+        <input id="Usuario" name="Usuario" type="text" placeholder=" " required>
+        <label for="Usuario">Usuario</label>
+    </div>
+    <div class="field">
+    	<input id="email" type="email" placeholder="email" required>
+        <label for="email">eMail:</label>
+    </div>    
+    <div class="field">
+        
+        <input type="password" placeholder="Contraseña" id="Contra" required><i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+        <label for="Contraseña">Contraseña:</label>
+    </div>
+    <div class="field">
+        <input type="password" placeholder=" " id="ConfirmContra" required><i class="far fa-eye" id="togglePassword2" style="margin-left: -30px; cursor: pointer;"></i>
+        <label for="Confirma Contraseña">Confirma Contraseña:</label>
+    </div>
         <br><br>
         <input id="myBtn" type="checkbox" class="form-check-input is-invalid" id="acepta_terminos1" required> Aceptar terminos y condiciones
         <input type="text" name="accio" value ="registrarse" hidden>
@@ -41,6 +52,10 @@
 
     </form>
     <!-- Trigger/Open The Modal -->
+            </div>
+            <div class="column"></div>
+        </div>
+        
     
 
 <!-- The Modal -->
@@ -103,7 +118,7 @@
   
 
 
-
+        <div id="Gradi"></div>
         </body>
 
         <script type="text/javascript" src="../js/MatchPass.js?v=<?php echo time(); ?>"></script>
