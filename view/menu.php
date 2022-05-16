@@ -160,13 +160,13 @@ $conexion=$conectar->conexion();
   function SingOut (){
     alert("hola putos ok");
   }
-/*fincio idioma per crear cookie*/ 
+/*funcio idioma per crear cookie*/ 
   function idioma (idioma){
     console.log(idioma);
     setCookie("idioma", idioma, 30);
     location.reload();
   }
-
+/*funcio per crear cookie amb temporitzador */ 
   function setCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
