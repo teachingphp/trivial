@@ -76,7 +76,7 @@
   $conexion=$conectar->conexion();
   
   //Base de dades -> S'hauria de canviar a la base que ha fet el Pol
-  $sql = "SELECT * FROM jugadors ORDER BY player_punts DESC limit 3";
+  $sql = "SELECT * FROM jugadors ORDER BY player_punts DESC limit 10";
     $result = $conexion -> query($sql);
   //query vol dir consulta  
   ?>
@@ -85,36 +85,29 @@
         $i = 1;
         foreach($result as $value){
       $ruta = '../files/Perfils/perfil_'. $value["ID"] . '.jpg';
+      if (!file_exists ($ruta)){
+        $ruta = '../files/Perfils/perfil_defecte.png';
+      }
         $alumne = '
-        <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-        <img  alt="Imatge perfil" width="50" height="50" class="rounded-circle flex-shrink-0" src="'.$ruta.'" </img>
-      
-
-     
-      <div>
-      <h3 class="mb-0">'.$value["nom_jugador"].'</h3>
-      <p class="text-right">Puntuació: '.$value["player_punts"].'</p>
-      
-      </div>
-      
-      
-
-
-
-      <h1><p class="round2">'.$i.'</h1> 
-   
-      </div>
-      </a>';
+        
+<div class="row">
+  <div class="col" style="text-align:right"><img  alt="Imatge perfil" width="60" height="60" class="rounded-circle flex-shrink-0"  src="'.$ruta.'" </img><br><br></div>
+  <div class="col"><h3 style="text-align:left" >'.$value["nom_jugador"].'</h3></div>
+  <div class="col"><p style="text-align:left">Puntuació: '.$value["player_punts"].'</p></div>
+  <div class="col">'.$i.'</div> 
+</div>
+        ';
       $i++;
         echo $alumne;
 
       }
+
       ?>
-    
+   
       </div><br><br>
       
       <div class="b-example-divider"></div>
-  
+
 
 
 
@@ -130,6 +123,8 @@
       <li class="list-inline-item"><a href="#">Support</a></li>
     </ul>
   </footer>
+
+
 
   </body>
 </html>
