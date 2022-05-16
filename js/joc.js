@@ -1,3 +1,11 @@
+var preguntes;
+var respostes;
+var correctes;
+var indicador = 1;
+var quantes_preguntes =0;
+var puntuacio = 0;
+var num_aciertos = 0;
+
 function copiarPortapapeles() {
     /* Get the text field */
     var copyText = document.getElementById("linkCopiar");
@@ -13,23 +21,135 @@ function copiarPortapapeles() {
     console.log("Copied the text: " + copyText.value);
   }
 
-  function startGame(){
+  function myFunction(item, index) {
+    text += index + ": " + item + "<br>"; 
+  }
+
+  function next(){
+    //console.log(quantes_preguntes);
+    indicador++;
+    if (indicador > quantes_preguntes){
+      indicador = 1;
+    }
+    data = preguntes[indicador];
+    resp4 = respostes[data];
+    totes_respostes = resp4.split(";");
+    
+    changeHMTL(data, totes_respostes);
+  }
+
+  function previous(){
+    //console.log(indicador);
+    indicador--;
+    if (indicador == 0){
+      indicador = quantes_preguntes;
+    }
+    data = preguntes[indicador];
+    resp4 = respostes[data];
+    totes_respostes = resp4.split(";");
+    
+    changeHMTL(data, totes_respostes);
+  }
+
+  function changeHMTL(pregunta, totes_respostes){
     document.getElementById("joc").innerHTML = 
 
 `
     <div class="bg-whats rounded py-5 px-1 text-center flex-grow-1">
-                <h1>Pregunta</h1>
+                <h1>`+pregunta+`</h1>
                 <div class="container-fluid py-3">
                   <div class="row">
                     <div class="col-0 col-md-2 col-xl-3">
                     </div>
                     <div class="col-12 col-md-8 col-xl-6">
-                      <button class="btn btn-lg btn-primary btn-block">Resposta 1</button>
-                      <button class="btn btn-lg btn-primary btn-block">Resposta 2</button>
-                      <button class="btn btn-lg btn-primary btn-block">Resposta 3</button>
-                      <button class="btn btn-lg btn-primary btn-block">Resposta 4</button>
+                      <button id ="resp0" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 0 +`)">`+totes_respostes[0]+`</button>
+                      <button id ="resp1" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 1 +`)">`+totes_respostes[1]+`</button>
+                      <button id ="resp2" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 2 +`)">`+totes_respostes[2]+`</button>
+                      <button id ="resp3" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 3 +`)">`+totes_respostes[3]+`</button>
 
                     </div>
+                    <hr>
+                    <button class="btn btn-lg btn-primary btn-block" onclick ="next()">Next</button>
+                    <button class="btn btn-lg btn-primary btn-block" onclick ="previous()">Previous</button>
+                  </div>
+                </div>
+              </div>
+`
+  }
+
+  function deshabilitaBotons(){
+    for(i=0;i<4;i++){
+      var idresposta = "resp" +i;
+      var but = document.getElementById(idresposta);
+      but.disabled = true;
+    }
+  }
+
+  function mostraCorrecta(resposta_ok, respostes_pregunta){
+    for(i=0;i<4;i++){
+      if (resposta_ok == respostes_pregunta[i]){
+        var idresposta = "resp" +i;
+        var but = document.getElementById(idresposta);
+        but.classList.add('btn-success');
+      }
+      
+    }
+  }
+
+  function validaResposta(num_pregunta, resposta_a_revisar){
+    clau_pregunta = preguntes[num_pregunta];
+    resposta_ok = correctes[clau_pregunta];
+    respostes_pregunta = respostes[clau_pregunta].split(";");
+    //alert(respostes_pregunta[resposta_a_revisar]);
+    var idresposta = "resp" + resposta_a_revisar;
+    var but = document.getElementById(idresposta);
+    if (resposta_ok == respostes_pregunta[resposta_a_revisar]){
+      //alert ("ERES UNA MAQUINA");
+      but.classList.add('btn-success');
+      deshabilitaBotons();
+      num_aciertos ++;
+      puntuacio = puntuacio + 5;
+      console.log("num_aciertos: " + num_aciertos);
+      console.log("puntuacio: " + puntuacio);
+    }else{
+      //alert ("ERES UN PETARDO");
+      but.classList.add('btn-danger');
+      deshabilitaBotons();
+      mostraCorrecta(resposta_ok, respostes_pregunta);
+      console.log("num_aciertos: " + num_aciertos);
+      console.log("puntuacio: " + puntuacio);
+    }
+  }
+
+  function startGame(preguntesjson, respostesjson, correctesjson){
+    preguntes = preguntesjson;
+    respostes = respostesjson;
+    correctes = correctesjson;
+    quantes_preguntes = Object.keys(preguntes).length;
+    //console.log(respostes);
+    data = preguntes[1];
+    //data.forEach(myFunction);
+    resposta1 = respostes[preguntes[1]].split(";");
+    //console.log(resposta1.split(";"));
+    document.getElementById("joc").innerHTML = 
+
+`
+    <div class="bg-whats rounded py-5 px-1 text-center flex-grow-1">
+                <h1>`+data+`</h1>
+                <div class="container-fluid py-3">
+                  <div class="row">
+                    <div class="col-0 col-md-2 col-xl-3">
+                    </div>
+                    <div class="col-12 col-md-8 col-xl-6">
+                      <button class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 0 +`)">`+resposta1[0]+`</button>
+                      <button class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 1 +`)">`+resposta1[1]+`</button>
+                      <button class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 2 +`)">`+resposta1[2]+`</button>
+                      <button class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 3 +`)">`+resposta1[3]+`</button>
+
+                    </div>
+                    <hr>
+                    <button class="btn btn-lg btn-primary btn-block" onclick ="next()">Next</button>
+                    <button class="btn btn-lg btn-primary btn-block" onclick ="previous()">Previous</button>
                   </div>
                 </div>
               </div>
