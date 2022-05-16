@@ -129,7 +129,7 @@ $conexion=$conectar->conexion();
 
         <div class="dropdown text-end">
          <div class="text-end">
-          <button type="button" onclick="login()"  href= "#" class="btn btn-light text-dark me-2 <?php echo $classe_amagar ?>"><?php echo $traduccions["registrarse"]?></button>
+          <button type="button" href= "./RegistrarseTrivial.php" class="btn btn-light text-dark me-2 <?php echo $classe_amagar ?>"><?php echo $traduccions["registrarse"]?></button>
           <button type="button" onclick="SingOut()"href= "#"  class="btn btn-primary <?php echo $classe_amagar ?>"><?php echo $traduccions["inicia sesión"] ?></button>
         </div>
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle <?php echo $classe_escondite ?>" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
