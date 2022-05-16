@@ -2,20 +2,17 @@
 
 require_once "recaptchalib.php";
 
-// Register API keys at https://www.google.com/recaptcha/admin
 $siteKey = "6Lf4UL0fAAAAAKcdHHZsms20ryJ8VcwLkpO2Ov_F";
 $secret = "6Lf4UL0fAAAAAEHZC9VnjAUGdF_vGTD8T0at02iL";
-// reCAPTCHA supported 40+ languages listed here: https://developers.google.com/recaptcha/docs/language
+
 $lang = "es";
 
-// The response from reCAPTCHA
 $resp = null;
-// The error code from reCAPTCHA, if any
+
 $error = null;
 
 $reCaptcha = new ReCaptcha($secret);
 
-// Was there a reCAPTCHA response?
 if ($_POST["g-recaptcha-response"]) {
     $resp = $reCaptcha->verifyResponse(
         $_SERVER["REMOTE_ADDR"],
@@ -24,7 +21,7 @@ if ($_POST["g-recaptcha-response"]) {
 }
 ?>
 <html>
-  <head><title>reCAPTCHA Aviso Legal</title></head>
+  <head><title>Aviso Legal reCAPTCHA</title></head>
   <body>
   <body style="background-color:black">
 <?php
@@ -33,6 +30,7 @@ if ($resp != null && $resp->success) {
 }
 ?>
 <p style="color:red; text-align:center">⚠️Completa el captcha para redirigirte al aviso legal de Trivial⚠️</p>
+<p style="color:red; text-align:center">⚠️Complete the captcha to redirect you to the Trivial legal notice⚠️</p>
 <br/>
 <div >
     <form style="color:red; text-align:center" action="./avislegal2.php" method="post">
@@ -42,13 +40,17 @@ if ($resp != null && $resp->success) {
           src="https://www.google.com/recaptcha/api.js?hl=<?php echo $lang;?>">
       </script>
       <br/>  
-      <input id="button1" type="submit" value="Enviar" disabled>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <img style="margin: auto; left: 50px;" src="./imatges/captcha.gif" alt="" img>
+      <input id="button1" type="submit" value="Aceptar" disabled>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <img style="margin: auto; center" src="./imatges/captcha.gif"img>
     </form>
 
     <script>

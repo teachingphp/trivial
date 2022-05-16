@@ -22,7 +22,7 @@
                         <p-footer>Faqs</p-footer>
                     </div>
                     <div class="col-sm-2">
-                        <p-footer style="line-height: normal">Contactos</p-footer>
+                        <p-footer style="line-height: normal">Contactos<br></p-footer>
                         <img src="../files/sources/imatges/facebook.png" alt="" width="25" height="25"></img>
                         <img src="../files/sources/imatges/instagram.png" alt="" width="25" height="25"></img>
                         <img src="../files/sources/imatges/twitter.png" alt="" width="25" height="25"></img>
