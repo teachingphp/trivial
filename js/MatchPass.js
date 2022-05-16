@@ -3,12 +3,16 @@ var contra = document.getElementById("Contra")
 
 function validarCon(){
     if(contra.value != ConfirmContra.value) {
-        ConfirmContra.setCustomValidity("Las contraseñas no coinciden !");
+        ConfirmContra.setCustomValidity("Las contraseñas no coinciden");
     } else {
         ConfirmContra.setCustomValidity('');
 
     }
 }
+
+
+
+  
 
 contra.onchange = validarCon;
 ConfirmContra.onkeyup= validarCon;
@@ -25,19 +29,29 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
   modal.style.display = "block";
+  document.getElementById("myBtn").checked = false;
 }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
+  document.getElementById("myBtn").checked = false;
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    document.getElementById("myBtn").checked = false;
   }
 }
+
+var AceptarBTN = document.getElementById("AceptarT");
+AceptarBTN.onclick = function() {
+  modal.style.display = "none";
+  document.getElementById("myBtn").checked = true;
+}
+
 
 const togglePassword = document.querySelector('#togglePassword');
   const password = document.querySelector('#Contra');

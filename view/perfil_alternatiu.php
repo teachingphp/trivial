@@ -61,7 +61,7 @@
 <div class="container">
   <main>
     <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-4" src="../files/andrea.jpg" alt="" width="72" height="57">
+      <img class="d-block mx-auto mb-4" src="../files/andrea.jpg" alt="" width="70" height="70">
       <h2>Pàgina de perfil</h2>
       <p class="lead">Aquí podràs modificar les teves dades</p>
     </div>
@@ -98,7 +98,7 @@
           </div>
 
           <div class="col-12">
-            <label for="email" class="form-label">Email <span class="text-muted">(Optional)</span></label>
+            <label for="email" class="form-label">Email </label>
             <input type="email" class="form-control" id="email" placeholder="you@example.com" disabled>
             <div class="invalid-feedback">
               Please enter a valid email address for shipping updates.
