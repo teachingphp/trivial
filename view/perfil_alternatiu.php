@@ -38,8 +38,7 @@
     </style>
 
     
-    <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
+
   </head>
   <body class="bg-light">
 
@@ -61,14 +60,14 @@
 <div class="container">
   <main>
     <div class="py-5 text-center">
-      <img class="d-block mx-auto mb-4" src="../files/andrea.jpg" alt="" width="70" height="70">
+      <img class="d-block mx-auto mb-4" src="../files/andrea.jpg" alt="" width="72" height="57">
       <h2>Pàgina de perfil</h2>
       <p class="lead">Aquí podràs modificar les teves dades</p>
     </div>
 
     <div class="row g-5">
       <div class="col-md-5 col-lg-4 order-md-first">
-      <img id="imatge_perfil"  class="bd-placeholder-img rounded-circle" width="100%" height="400" src="../files/<?php echo $usuari;  ?>.jpg" </img>
+      <img id="imatge_perfil"  class="bd-placeholder-img rounded-circle" width="100%" height="350" src="../files/<?php echo $usuari;  ?>.jpg" </img>
 
       <form class="card p-2">
         <a  class="btn btn-secondary" onclick="next('<?php echo $rutas;  ?>')" >Next</a> 
@@ -142,30 +141,33 @@
     var i = 1;  
     var rutasImg;
     function next(rutas){
-      rutasImg = rutas.split(';');
-      if (i == rutasImg.length-1){
-        i = 1;
-      }
       console.log(rutas);
-      var image = document.getElementById("imatge_perfil"); 
-      
-      image.src = rutasImg[i];
       i++;
+      rutasImg = rutas.split(';');
+      if (i > rutasImg.length-1){
+        i = 0;
+      }
+      //console.log(rutas);
+      var image = document.getElementById("imatge_perfil"); 
+      console.log(i);
+      image.src = rutasImg[i];
+      
     }
 
     function previous(rutas){
+      console.log(rutas);
+      i--;
       rutasImg = rutas.split(';');
-      if (i == 1){
+      if (i < 0){
         i = rutasImg.length-1;
       }
       var image = document.getElementById("imatge_perfil"); 
-      
+      console.log(i);
       image.src = rutasImg[i];
-      i--;
+      
     }
 
     </script>
 
-      <script src="form-validation.js"></script>
   </body>
 </html> 

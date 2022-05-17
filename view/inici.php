@@ -25,7 +25,7 @@
                             ?>
                             <p></p>
                         </div>
-                        <div id = "myDIV3" class="container">
+                        <div id = "myDIV5" class="container col-lg-10">
                             <div class="row">
                                     <button type="button">  <!--onclick='crearpartida()!-->
                                         <h2>Crear Partida</h2>
@@ -45,11 +45,11 @@
                 </div>
                 <div class="col-lg-1"></div>
                 <div id ="myDIV2" class="col-lg-4">
-                    <div id="grad1">
-                        <div class="accordion" id="accordionExample">
+       
+                        <div class="accordion accordion-flush" id="accordionExample">
                             <div class="accordion-item">
                                 <h3 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button card text-white bg-dark mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="accordion-button card text-white bg-dark mb-3 btn-block " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         <h3 >Hall of Fame</h3>
                                     </button>       
                                 </h3>     
@@ -58,21 +58,15 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    
                 </div>
             </div>
-            <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Dark card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div id = "myDIV3" class="container">
+
+            <div id = "myDIV3" >
                 <div class="row">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button text-white bg-dark mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="accordion-button text-white bg-dark mb-3 btn-block" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             <h2>Instruccions</h2>
                             </button>
                         </h2>
