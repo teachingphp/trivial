@@ -14,7 +14,7 @@
                 <img src="../files/sources/imatges/titol.gif" style=center width="20%" height="20%"></img>
             </h1>
         
-        <div id = "myDIV1" class="container">
+        <div id = "myDIV1" class="container";>
             <div class="row">
                 <div id ="myDIV2" class="container col-lg-6">
                     <div class="row">
@@ -27,9 +27,9 @@
                         </div>
                         <div id = "myDIV5" class="container col-lg-10">
                             <div class="row">
-                                    <button type="button">  <!--onclick='crearpartida()!-->
-                                        <h2>Crear Partida</h2>
-                                    </button>                                    
+                                <button onclick="window.location.href='./peu_pagina.php';">
+                                    <h2>Crear Partida</h2>
+                                </button>
                             </div>
                         </div>
                         <!--
