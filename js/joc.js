@@ -178,3 +178,4 @@ function shuffleArray(array) {
       array[j] = temp;
   }
 }
+}
