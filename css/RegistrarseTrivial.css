@@ -1,85 +1,85 @@
 /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
+  input[type=text], input[type=email], input[type=password]{
 
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
+    width: 60%;
+    height: 56px;
+    background-color: #fff;
+    padding: 16px;
+    box-sizing: border-box;
+    font-family: Roboto,Helvetica,sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: .2px;
+    color: rgba(0,0,0,.6);
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  
+  #Gradi {
+    background-image: linear-gradient(to bottom right,rgb(162, 6, 252),rgb(189, 74, 255) );
+  }
+  body{
+    background-color: rgb(162, 6, 252);
+  }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-input[type=text], input[type=email], input[type=password]{
-
-  width: 60%;
-  height: 56px;
-  background-color: #fff;
-  padding: 16px;
-  box-sizing: border-box;
-  font-family: Roboto,Helvetica,sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.5;
-  letter-spacing: .2px;
-  color: rgba(0,0,0,.6);
-  border: none;
-  box-shadow: none;
-  border-radius: 0;
-}
-
-#Gradi {
-  background-image: linear-gradient(to bottom right,rgb(162, 6, 252),rgb(189, 74, 255) );
-}
-body{
-  background-color: rgb(162, 6, 252);
-}
-
-h1 span{
-  font-family:'NoiceFx' ;
-  font-weight: 700;
-  color: #d98f40;
-}
+  h1 span{
+    font-family:'NoiceFx' ;
+    font-weight: 700;
+    color: #d98f40;
+  }
 
 h1{
-font-family: 'NoiceFx';
-  font-weight: lighter;
-  font-size: 50px;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  padding: 0;
-  margin: 0;
-  color: #fff;
+  font-family: 'NoiceFx';
+    font-weight: lighter;
+    font-size: 50px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    padding: 0;
+    margin: 0;
+    color: #fff;
 }
 
 #RegistBTN{
@@ -107,22 +107,22 @@ transform: translateY(4px);
 
 
 .column {
-float: left;
-width: 40%;
+  float: left;
+  width: 40%;
 }
 
 
 form {
-margin: 1em 0;
+  margin: 1em 0;
 }
 /**
 * Make the field a flex-container, reverse the order so label is on top.
 */
 
 .field {
-display: flex;
-flex-flow: column-reverse;
-margin-bottom: 0.5em;
+  display: flex;
+  flex-flow: column-reverse;
+  margin-bottom: 0.5em;
 }
 /**
 * Add a transition to the label and input.
@@ -191,21 +191,21 @@ opacity: 1;
 */
 input:not(:placeholder-shown) + label,
 input:focus + label {
-transform: translate(0, 0) scale(1);
-cursor: pointer;
+  transform: translate(0, 0) scale(1);
+  cursor: pointer;
 }
 
 @font-face {
-font-family: 'NoiceFx';
-src: url('../files/sources/fuentes/ferrum.woff2') format('woff2');
-font-weight: normal;
-font-style: normal;
+  font-family: 'NoiceFx';
+  src: url('../files/sources/fuentes/ferrum.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 #Ojo1{
-text-align: center;
+  text-align: center;
 }
 
 #Ojo2{
-text-align: center;
+  text-align: center;
 }

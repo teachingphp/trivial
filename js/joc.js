@@ -33,9 +33,10 @@ function copiarPortapapeles() {
     }
     data = preguntes[indicador];
     resp4 = respostes[data];
+   
+    imatge = imatges[data];
     totes_respostes = resp4.split(";");
-    
-    changeHMTL(data, totes_respostes);
+    changeHMTL(data, totes_respostes, imatge);
   }
 
   function previous(){
@@ -46,16 +47,19 @@ function copiarPortapapeles() {
     }
     data = preguntes[indicador];
     resp4 = respostes[data];
+    imatge = imatges[data];
     totes_respostes = resp4.split(";");
     
-    changeHMTL(data, totes_respostes);
+    
+    changeHMTL(data, totes_respostes, imatge);
   }
 
-  function changeHMTL(pregunta, totes_respostes){
+  function changeHMTL(pregunta, totes_respostes, imatge){
     document.getElementById("joc").innerHTML = 
 
 `
     <div class="bg-whats rounded py-5 px-1 text-center flex-grow-1">
+                <img src="`+imatge+`" alt="..." class="img-thumbnail">
                 <h1>`+pregunta+`</h1>
                 <div class="container-fluid py-3">
                   <div class="row">
@@ -127,29 +131,33 @@ function copiarPortapapeles() {
   }
 
   function startGame(preguntesjson, respostesjson, correctesjson){
+  function startGame(preguntesjson, respostesjson, correctesjson,imatgesjson){
     preguntes = preguntesjson;
     respostes = respostesjson;
     correctes = correctesjson;
+    imatges = imatgesjson;
     quantes_preguntes = Object.keys(preguntes).length;
     //console.log(respostes);
     data = preguntes[1];
     //data.forEach(myFunction);
     resposta1 = respostes[preguntes[1]].split(";");
+    imatge = imatges[preguntes[1]];
     //console.log(resposta1.split(";"));
     document.getElementById("joc").innerHTML = 
 
 `
     <div class="bg-whats rounded py-5 px-1 text-center flex-grow-1">
+                <img src="`+imatge+`" alt="..." class="img-thumbnail">
                 <h1>`+data+`</h1>
                 <div class="container-fluid py-3">
                   <div class="row">
                     <div class="col-0 col-md-2 col-xl-3">
                     </div>
                     <div class="col-12 col-md-8 col-xl-6">
-                      <button class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 0 +`)">`+resposta1[0]+`</button>
-                      <button class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 1 +`)">`+resposta1[1]+`</button>
-                      <button class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 2 +`)">`+resposta1[2]+`</button>
-                      <button class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 3 +`)">`+resposta1[3]+`</button>
+                      <button id ="resp0" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 0 +`)">`+resposta1[0]+`</button>
+                      <button id ="resp1" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 1 +`)">`+resposta1[1]+`</button>
+                      <button id ="resp2" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 2 +`)">`+resposta1[2]+`</button>
+                      <button id ="resp3" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 3 +`)">`+resposta1[3]+`</button>
 
                     </div>
                     <hr>
@@ -160,3 +168,13 @@ function copiarPortapapeles() {
               </div>
 `
   }
+
+  /* Randomize array in-place using Durstenfeld shuffle algorithm */
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+  }
+}
