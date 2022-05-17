@@ -134,6 +134,12 @@ function copiarPortapapeles() {
     }
   }
 
+  function crearPartida(){
+    alert("YA TIENES LA PARTIDA CREADA");
+    location.href = "../index.php?accio=crearpartida";
+  }
+
+  function startGame(preguntesjson, respostesjson, correctesjson){
   function startGame(preguntesjson, respostesjson, correctesjson,imatgesjson){
     preguntes = preguntesjson;
     respostes = respostesjson;
@@ -189,4 +195,5 @@ function shuffleArray(array) {
       array[i] = array[j];
       array[j] = temp;
   }
+}
 }
