@@ -48,6 +48,16 @@
     $sql = "SELECT * FROM preguntes p inner join respostes r on p.id = r.preg_id order by RAND()";
     $result = $conexion -> query($sql);
     
+    $sqlJugadors = "SELECT j.usr_id, j.jug_nom, j.jug_punts, j.jug_aciertos, p.part_nom FROM jugadors j 
+    inner join jugadors_partida pj 
+    on j.ID = pj.jug_id 
+    inner join partida p
+    on p.ID = pj.part_id
+    where p.id =4 ";
+
+    $resultJugadors = $conexion -> query($sqlJugadors);
+   
+
     $respostes_correctes = array();
     $preguntes = array();
     $respostes = array();
@@ -61,6 +71,16 @@
       $imatges[$value["preg_pregunta"]]= $value["preg_img"];
       $i++;
     }
+    $jugadors = array();
+    $j=1;
+    foreach ($resultJugadors as $value2){
+      $jugadors[$j] = [$value2["usr_id"], $value2["jug_nom"], $value2["jug_punts"], $value2["jug_aciertos"]];
+      $j++;
+    }
+    $nompartida = $value2["part_nom"];
+
+    print_r($jugadors);
+    // print_r($nompartida);
 
     //print_r ($preguntes[2], false);
     //print_r ($preguntes[2], false);
@@ -95,7 +115,7 @@
         
       </div>
       <div class="p-1">
-        <h5 class="text-light text-center m-0">Partida X</h5>
+        <h5 class="text-light text-center m-0">Partida <?php echo $_COOKIE["NOMPARTIDA"] ?></h5>
       </div>
     </div>
     <div class="container-fluid">
@@ -170,21 +190,26 @@
         </div>
         <div class="col-12 col-lg-5 col-xl-4 p-0 d-flex flex-column">
           <div class="p-1 flex-grow-1">
-            <div class="scoreboard bg-whats rounded"><!-- Per cada jugador de la partida loop -->
-              <div class=""><div>
-                <div class="float-left ml-1">
-                  <div><span class="badge badge-dark">1</span> Jugador 1
+            <?php 
+              for ($i = 1; $i <= count($jugadors); $i++) {
+                echo `<div class="scoreboard bg-whats rounded"><!-- Per cada jugador de la partida loop -->
+                <div class=""><div>
+                  <div class="float-left ml-1">
+                    <div><span class="badge badge-dark">1</span> `.$jugadors[$i][1].`
+                  </div>
+                  <div>
+                  </div>
                 </div>
-                <div>
+                <div class="float-right mr-1">
+                  <div>`.$jugadors[$i][2].` puntos</div>
+                  <div>`.$jugadors[$i][3].` aciertos</div></div><div class="clearfix">
+  
+                  </div>
                 </div>
-              </div>
-              <div class="float-right mr-1">
-                <div>0 puntos</div>
-                <div>0 aciertos</div></div><div class="clearfix">
-
-                </div>
-              </div>
-            </div>
+              </div>`;
+            }
+             ?>
+            
           </div>
         </div>
   </div>

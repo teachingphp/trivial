@@ -63,5 +63,14 @@ class Partida
 
     }
     
+    function load($conexion, $id){
+        $sql = "SELECT * from partida where ID=". $id;
+        $resultPartida = $conexion -> query($sql);
+        //print_r($resultPartida, false);
+        foreach ($resultPartida as $value){
+            //print_r($value, false);
+            $this->nom = $value["part_nom"];
+        }
+    }
 }
 ?>
