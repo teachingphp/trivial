@@ -1,5 +1,4 @@
 
-/* https://www.youtube.com/watch?v=q_jDixroQkw */
 <!DOCTYPE html>
 <html>
 <head>
