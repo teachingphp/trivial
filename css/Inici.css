@@ -101,11 +101,12 @@ footer {
 }
 /*Barra*/
 hr{
-    color:rgb(1, 70, 29);
+    color:rgb(225, 235, 229);
     font-size: 10%;
     /*width: 75%;*/
     padding: 2px 2px 2px 2px;  
-    margin-top: 10px; 
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 /*Text peu de pagina*/
 p-footer{
@@ -132,19 +133,16 @@ p-footer{
     margin-bottom: 2%;
     margin-right: 2%;
     text-align: center;
-    min-height: 100%;
     background-color: #9dfcfc;
     border: 1px color:rgb(10, 10, 10);
-   
     border-radius:20px;
     /*padding:auto;*/
 }
 
 #myDIV3{
     text-align: center;
-    height: 100%;
-    background-color:#34e693;
-    background-color:transparent;
+    background-color: #9dfcfc;
+    
     border: 1px color:rgb(10, 10, 10);;
     border-radius:20px;
     /*padding:auto;*/
@@ -159,7 +157,18 @@ p-footer{
     border-radius:20px;
     border-radius-bottom:20px;
     /*padding:auto;*/
-
-/*.accordion-body {
-    background-color: rgb(252, 239, 59);
 }
+
+#myDIV5{
+    margin-left: 8%;
+    margin-bottom: 4%;
+    text-align: center;
+    
+}
+
+.panel-body {background-color:black;}
+
+#button.accordion-body{
+    background-color: #34e693;
+}
+

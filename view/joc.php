@@ -37,7 +37,42 @@
   </head>
   <body>
   <?php
-    include 'menu.php';
+    //include 'menu.php';
+
+    //Conexión con BBDD
+    require_once dirname(__FILE__).'/../connection/Conectar.php';
+
+    $conectar=new Conectar();
+    $conexion=$conectar->conexion();
+
+    $sql = "SELECT * FROM preguntes p inner join respostes r on p.id = r.preg_id order by RAND()";
+    $result = $conexion -> query($sql);
+    
+    $respostes_correctes = array();
+    $preguntes = array();
+    $respostes = array();
+    $imatges = array();
+    $i = 1;
+    foreach ($result as $value){
+      //print_r ($value, false);
+      $respostes_correctes[$value["preg_pregunta"]] = $value["resp_correcte"];
+      $preguntes[$i] = $value["preg_pregunta"];
+      $respostes[$value["preg_pregunta"]] = $value["resp_correcte"] . ";" . $value["resp_incorrecte_1"] . ";" . $value["resp_incorrecte_2"] . ";" . $value["resp_incorrecte_3"] ;
+      $imatges[$value["preg_pregunta"]]= $value["preg_img"];
+      $i++;
+    }
+
+    //print_r ($preguntes[2], false);
+    //print_r ($preguntes[2], false);
+    //print_r ($preguntes[3], false);
+    //print_r ($respostes_correctes[$preguntes[2]], false);
+    //print_r ($respostes[$preguntes[2]], false);
+    //$todas_respuestas = explode(";", $respostes[$preguntes[2]]);
+    $preg = json_encode($preguntes,JSON_UNESCAPED_UNICODE);
+    $resp = json_encode($respostes,JSON_UNESCAPED_UNICODE);
+    $correctes = json_encode($respostes_correctes,JSON_UNESCAPED_UNICODE);
+    $img = json_encode($imatges,JSON_UNESCAPED_UNICODE);
+    //print_r (, false);
   ?>
 
 
@@ -51,7 +86,7 @@
   <div class="bg-dark bg-dark rounded">
     <div class="p-1">
       <div class="float-end">
-        <a href="" class="btn btn-sm btn-danger">
+        <a href="./inici.php" class="btn btn-sm btn-danger">
           Abandonar
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
             <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
@@ -94,7 +129,7 @@
                     <div class="col-0 col-md-2 col-xl-3">
                     </div>
                     <div class="col-12 col-md-8 col-xl-6">
-                      <button class="btn btn-lg btn-primary btn-block" onclick=startGame()>¡A jugar!</button>
+                      <button class="btn btn-lg btn-primary btn-block" onclick='startGame(<?php echo $preg . ",". $resp . ",". $correctes .",". $img;?>)'>¡A jugar!</button>
                       <button type="button" class="btn btn-lg btn-secondary btn-block" data-bs-toggle="modal" data-bs-target="#ModalConfig">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
                             <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>

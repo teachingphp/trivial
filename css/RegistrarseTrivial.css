@@ -37,8 +37,8 @@
   }
 
   input[type=text], input[type=email], input[type=password]{
-    margin:auto;
-    width: 30%;
+
+    width: 60%;
     height: 56px;
     background-color: #fff;
     padding: 16px;
@@ -56,9 +56,11 @@
     border-radius: 0;
   }
   
-
+  #Gradi {
+    background-image: linear-gradient(to bottom right,rgb(162, 6, 252),rgb(189, 74, 255) );
+  }
   body{
-    background-color: rgb(34 34 34);
+    background-color: rgb(162, 6, 252);
   }
 
   h1 span{
@@ -81,9 +83,114 @@ h1{
 }
 
 #RegistBTN{
-  
+  transition-duration: 0.2s;
   background-color: #d98f40;
     color: #fff;
     border: none;
+    padding: 16px 24px;
+    border-radius: 2px;
 }
 
+#RegistBTN:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  background-color: #cc7920;
+
+}
+#RegistBTN:active{
+  background-color: #b65e00;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.container{
+
+}
+
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+
+form {
+  margin: 2em 0;
+}
+/**
+* Make the field a flex-container, reverse the order so label is on top.
+*/
+ 
+.field {
+  display: flex;
+  flex-flow: column-reverse;
+  margin-bottom: 1em;
+}
+/**
+* Add a transition to the label and input.
+* I'm not even sure that touch-action: manipulation works on
+* inputs, but hey, it's new and cool and could remove the 
+* pesky delay.
+*/
+label, input {
+  transition: all 0.2s;
+  touch-action: manipulation;
+}
+
+/* input {
+  font-size: 1.5em;
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  font-family: inherit;
+  -webkit-appearance: none;
+  border-radius: 0;
+  padding: 0;
+  cursor: text;
+} */
+
+input:focus {
+  outline: 0;
+  border-bottom: 1px solid #666;
+}
+
+label {
+
+  letter-spacing: 0.05em;
+}
+/**
+* Translate down and scale the label up to cover the placeholder,
+* when following an input (with placeholder-shown support).
+* Also make sure the label is only on one row, at max 2/3rds of the
+* field—to make sure it scales properly and doesn't wrap.
+*/
+input:placeholder-shown + label {
+  cursor: text;
+  max-width: 66.66%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform-origin: left bottom;
+  transform: translate(0, 2.125rem) scale(1.5);
+}
+/**
+* By default, the placeholder should be transparent. Also, it should 
+* inherit the transition.
+*/
+::-webkit-input-placeholder {
+  opacity: 0;
+  transition: inherit;
+}
+/**
+* Show the placeholder when the input is focused.
+*/
+input:focus::-webkit-input-placeholder {
+  opacity: 1;
+}
+/**
+* When the element is focused, remove the label transform.
+* Also, do this when the placeholder is _not_ shown, i.e. when 
+* there's something in the input at all.
+*/
+input:not(:placeholder-shown) + label,
+input:focus + label {
+  transform: translate(0, 0) scale(1);
+  cursor: pointer;
+}

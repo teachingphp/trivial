@@ -107,12 +107,12 @@ $conexion=$conectar->conexion();
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-       <img src="../files/sources/imatges/titol.gif"width="60" height="60"> 
+       <img src="../files/sources/imatges/titol.gif"width="60" height="60">
         
       </a> 
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 link-dark"><?php echo $traduccions["Inicio"] ?></a></li>
+          <li><a href="../view/inici.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Inicio"] ?></a></li>
           <li><a href="../view/hallfame.php" class="nav-link px-2 link-dark"><?php echo $traduccions["salon de la fama"] ?></a></li>
           <li><a href="#" class="nav-link px-2 link-dark"><?php echo $traduccions["Crear Partida"] ?></a></li>
           <li><a href="../view/faqs.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Preguntas Frecuentes"] ?></a></li>
@@ -129,8 +129,8 @@ $conexion=$conectar->conexion();
 
         <div class="dropdown text-end">
          <div class="text-end">
-          <button type="button" onclick="login()" class="btn btn-light text-dark me-2 <?php echo $classe_amagar ?>"><?php echo $traduccions["registrarse"]?></button>
-          <button type="button" onclick="SingOut()" class="btn btn-primary <?php echo $classe_amagar ?>"><?php echo $traduccions["inicia sesión"] ?></button>
+          <button type="button"  onclick="login()" class="btn btn-light text-dark me-2 <?php echo $classe_amagar ?>"><?php echo $traduccions["registrarse"]?></button>
+          <button type="button" onclick="SingOut()"  class="btn btn-primary <?php echo $classe_amagar ?>"><?php echo $traduccions["inicia sesión"] ?></button>
         </div>
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle <?php echo $classe_escondite ?>" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
@@ -154,12 +154,16 @@ $conexion=$conectar->conexion();
 
 <script>
   function login (){
-    alert("login ok");
+   // alert("login ok");
+    location.href="./RegistrarseTrivial.php";
+
   }
 
   function SingOut (){
     alert("hola putos ok");
+
   }
+
 /*funcio idioma per crear cookie*/ 
   function idioma (idioma){
     console.log(idioma);
