@@ -64,15 +64,15 @@
   }
 
   h1 span{
-    font-family: Montserrat,Helvetica,sans-serif;
+    font-family:'NoiceFx' ;
     font-weight: 700;
     color: #d98f40;
   }
 
 h1{
-  font-family: Montserrat,Helvetica,sans-serif;
+  font-family: 'NoiceFx';
     font-weight: lighter;
-    font-size: 40px;
+    font-size: 50px;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
@@ -108,12 +108,12 @@ h1{
 
 .column {
   float: left;
-  width: 50%;
+  width: 40%;
 }
 
 
 form {
-  margin: 2em 0;
+  margin: 1em 0;
 }
 /**
 * Make the field a flex-container, reverse the order so label is on top.
@@ -122,7 +122,7 @@ form {
 .field {
   display: flex;
   flex-flow: column-reverse;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 /**
 * Add a transition to the label and input.
@@ -193,4 +193,11 @@ input:not(:placeholder-shown) + label,
 input:focus + label {
   transform: translate(0, 0) scale(1);
   cursor: pointer;
+}
+
+@font-face {
+  font-family: 'NoiceFx';
+  src: url('../files/sources/fuentes/ferrum.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
