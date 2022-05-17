@@ -1,5 +1,4 @@
 
-/* https://www.youtube.com/watch?v=q_jDixroQkw */
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,16 +30,16 @@
         <label for="Usuario">Usuario</label>
     </div>
     <div class="field">
-    	<input id="email" type="email" placeholder="email" required>
-        <label for="email">eMail:</label>
+    	<input id="email" type="email" placeholder=" " required>
+        <label for="email">eMail</label>
     </div>    
     <div class="field">
         
-        <input type="password" placeholder="Contraseña" id="Contra" required><i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+        <input type="password" placeholder=" " id="Contra" required><div id="Ojo1"><i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i></div>
         <label for="Contraseña">Contraseña:</label>
     </div>
     <div class="field">
-        <input type="password" placeholder=" " id="ConfirmContra" required><i class="far fa-eye" id="togglePassword2" style="margin-left: -30px; cursor: pointer;"></i>
+        <input type="password" placeholder=" " id="ConfirmContra" required><div id="Ojo2"><i class="far fa-eye" id="togglePassword2" style="margin-left: -30px; cursor: pointer;"></i></div>
         <label for="Confirma Contraseña">Confirma Contraseña:</label>
     </div>
         <br><br>
@@ -133,50 +132,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</html>

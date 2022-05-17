@@ -26,6 +26,9 @@ else if (isset($_POST["accio"]) && $_POST["accio"] == "pujarfitxer"){
 }else if (isset($_POST["accio"]) && $_POST["accio"] == "registrarse"){
     //echo print_r($_FILES);
     $controller->registrarse();
+}else if (isset($_GET["accio"]) && $_GET["accio"] == "crearpartida"){
+    //echo print_r($_FILES);
+    $controller->crearpartida();
 }
 else{
     //Ejecuto el método
