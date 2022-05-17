@@ -1,8 +1,11 @@
 
 body {
 font-family: Arial, Helvetica, sans-serif;
-background-image: url("https://img.pixers.pics/pho_wat(s3:700/FO/69/33/54/82/700_FO69335482_1a545b3b83877653eae83ec280e580f2.jpg,700,700,cms:2018/10/5bd1b6b8d04b8_220x50-watermark.png,over,480,650,jpg)/fotomurales-azteca-modelo-inconsutil-tribal-en-el-fondo-cosmico.jpg.jpg");
+background-image: url("https://img.freepik.com/vector-gratis/arte-lineal-semicirculos-oriental-patrones-fisuras-vector-vintage-fondo-abstracto-blanco-semicirculos-decorativos-lineas-finas-elegante-fondo-pantalla-repetitivo-textura-sutil-patron-celosia-moda_87538-2241.jpg?w=2000");
+/*"https://c8.alamy.com/compes/e0t2y8/tribales-patron-sin-fisuras-azteca-de-fondo-azul-y-rosa-e0t2y8.jpg");*/
 font-style: oblique;
+background-color: rgb(252, 239, 59);
+
 }
 
 /* Style the header */
@@ -100,7 +103,7 @@ hr{
 }
 /*Text peu de pagina*/
 p-footer{
-    color:#c7fafa;
+    color:#000000;
     font-size: medium;
     font-family:Georgia, 'Times New Roman', Times, serif;
     padding: auto;
