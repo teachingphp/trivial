@@ -117,6 +117,14 @@ class TrivialController
 
     }
 
+    public function crearpartida(){
+        $partida = new Partida("partida1", date('d-m-Y'));
+        $partida->guardarPartida($this->adapter);
+    
+
+
+    }
+
 }
 
 ?>
