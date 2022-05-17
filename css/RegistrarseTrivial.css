@@ -64,15 +64,15 @@
   }
 
   h1 span{
-    font-family: Montserrat,Helvetica,sans-serif;
+    font-family:'NoiceFx' ;
     font-weight: 700;
     color: #d98f40;
   }
 
 h1{
-  font-family: Montserrat,Helvetica,sans-serif;
+  font-family: 'NoiceFx';
     font-weight: lighter;
-    font-size: 40px;
+    font-size: 50px;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
@@ -83,23 +83,23 @@ h1{
 }
 
 #RegistBTN{
-  transition-duration: 0.2s;
-  background-color: #d98f40;
-    color: #fff;
-    border: none;
-    padding: 16px 24px;
-    border-radius: 2px;
+transition-duration: 0.2s;
+background-color: #d98f40;
+  color: #fff;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 2px;
 }
 
 #RegistBTN:hover{
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-  background-color: #cc7920;
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+background-color: #cc7920;
 
 }
 #RegistBTN:active{
-  background-color: #b65e00;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+background-color: #b65e00;
+box-shadow: 0 5px #666;
+transform: translateY(4px);
 }
 .container{
 
@@ -108,21 +108,21 @@ h1{
 
 .column {
   float: left;
-  width: 50%;
+  width: 40%;
 }
 
 
 form {
-  margin: 2em 0;
+  margin: 1em 0;
 }
 /**
 * Make the field a flex-container, reverse the order so label is on top.
 */
- 
+
 .field {
   display: flex;
   flex-flow: column-reverse;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 /**
 * Add a transition to the label and input.
@@ -131,29 +131,29 @@ form {
 * pesky delay.
 */
 label, input {
-  transition: all 0.2s;
-  touch-action: manipulation;
+transition: all 0.2s;
+touch-action: manipulation;
 }
 
 /* input {
-  font-size: 1.5em;
-  border: 0;
-  border-bottom: 1px solid #ccc;
-  font-family: inherit;
-  -webkit-appearance: none;
-  border-radius: 0;
-  padding: 0;
-  cursor: text;
+font-size: 1.5em;
+border: 0;
+border-bottom: 1px solid #ccc;
+font-family: inherit;
+-webkit-appearance: none;
+border-radius: 0;
+padding: 0;
+cursor: text;
 } */
 
 input:focus {
-  outline: 0;
-  border-bottom: 1px solid #666;
+outline: 0;
+border-bottom: 1px solid #666;
 }
 
 label {
 
-  letter-spacing: 0.05em;
+letter-spacing: 0.05em;
 }
 /**
 * Translate down and scale the label up to cover the placeholder,
@@ -162,27 +162,27 @@ label {
 * field—to make sure it scales properly and doesn't wrap.
 */
 input:placeholder-shown + label {
-  cursor: text;
-  max-width: 66.66%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transform-origin: left bottom;
-  transform: translate(0, 2.125rem) scale(1.5);
+cursor: text;
+max-width: 66.66%;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+transform-origin: left bottom;
+transform: translate(0, 2.125rem) scale(1.5);
 }
 /**
 * By default, the placeholder should be transparent. Also, it should 
 * inherit the transition.
 */
 ::-webkit-input-placeholder {
-  opacity: 0;
-  transition: inherit;
+opacity: 0;
+transition: inherit;
 }
 /**
 * Show the placeholder when the input is focused.
 */
 input:focus::-webkit-input-placeholder {
-  opacity: 1;
+opacity: 1;
 }
 /**
 * When the element is focused, remove the label transform.
@@ -193,4 +193,19 @@ input:not(:placeholder-shown) + label,
 input:focus + label {
   transform: translate(0, 0) scale(1);
   cursor: pointer;
+}
+
+@font-face {
+  font-family: 'NoiceFx';
+  src: url('../files/sources/fuentes/ferrum.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#Ojo1{
+  text-align: center;
+}
+
+#Ojo2{
+  text-align: center;
 }
