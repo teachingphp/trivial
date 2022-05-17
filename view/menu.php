@@ -129,8 +129,8 @@ $conexion=$conectar->conexion();
 
         <div class="dropdown text-end">
          <div class="text-end">
-          <button type="button" onclick="login()" class="btn btn-light text-dark me-2 <?php echo $classe_amagar ?>"><?php echo $traduccions["registrarse"]?></button>
-          <button type="button" onclick="SingOut()" class="btn btn-primary <?php echo $classe_amagar ?>"><?php echo $traduccions["inicia sesión"] ?></button>
+          <button type="button"  onclick="login()" class="btn btn-light text-dark me-2 <?php echo $classe_amagar ?>"><?php echo $traduccions["registrarse"]?></button>
+          <button type="button" onclick="SingOut()"  class="btn btn-primary <?php echo $classe_amagar ?>"><?php echo $traduccions["inicia sesión"] ?></button>
         </div>
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle <?php echo $classe_escondite ?>" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
@@ -154,12 +154,16 @@ $conexion=$conectar->conexion();
 
 <script>
   function login (){
-    alert("login ok");
+   // alert("login ok");
+    location.href="./RegistrarseTrivial.php";
+
   }
 
   function SingOut (){
     alert("hola putos ok");
+
   }
+
 /*funcio idioma per crear cookie*/ 
   function idioma (idioma){
     console.log(idioma);
