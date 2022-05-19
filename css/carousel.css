@@ -15,14 +15,30 @@ body {
   padding-bottom: 3rem;
   color: #000000;
   font-family: quieloprobartuboca;
-  background-image:url("../files/sources/imatges/colorines fondo.jpg");
+  background-image:url("../files/sources/imatges/globo.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+
   
 }
 
+.bgimg {
+
+  filter:blur(8px);
+  -webkit-filter: blur(8px);
+  height: 100px;
+  width: 100px;
+
+
+}
+
+
+h2{
+color:rgb(255, 55, 0);
+
+}
 
 
 
