@@ -30,21 +30,31 @@
         }
       }
     </style>
+    <?php 
+      $PROTOCOL = (!empty($_SERVER['HTTPS'])) ? 'https' : 'http';
+      $DOC_ROOT = $PROTOCOL.'://'.$_SERVER['SERVER_NAME'];
+      
+      //The project path points to the root file (index.php, or whatever your index file is).
+      $projectRoot = dirname($DOC_ROOT.$_SERVER['SCRIPT_NAME']).'/';
+      
+      print_r($projectRoot);
+      print_r(dirname(__DIR__));
 
+    ?>
     
     <!-- Custom styles for this template -->
-    <link href="../css/joc.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="<?php echo $projectRoot;?>/css/joc.css?v=<?php echo time(); ?>" rel="stylesheet">
   </head>
   <body>
   <?php
     //include 'menu.php';
-
     //Conexión con BBDD
-    require_once dirname(__FILE__).'/../connection/Conectar.php';
+    // require_once dirname(__FILE__).'/../connection/Conectar.php';
+    // print_r($_SERVER['DOCUMENT_ROOT']);
+    // $conectar=new Conectar();
+    // $conexion=$conectar->conexion();
 
-    $conectar=new Conectar();
-    $conexion=$conectar->conexion();
-
+    
     $sql = "SELECT * FROM preguntes p inner join respostes r on p.id = r.preg_id order by RAND()";
     $result = $conexion -> query($sql);
     
@@ -53,7 +63,7 @@
     on j.ID = pj.jug_id 
     inner join partida p
     on p.ID = pj.part_id
-    where p.id =4 ";
+    where p.id =".$_COOKIE["IDPARTIDA"] ;
 
     $resultJugadors = $conexion -> query($sqlJugadors);
    
@@ -77,9 +87,7 @@
       $jugadors[$j] = [$value2["usr_id"], $value2["jug_nom"], $value2["jug_punts"], $value2["jug_aciertos"]];
       $j++;
     }
-    $nompartida = $value2["part_nom"];
-
-    print_r($jugadors);
+    // print_r($jugadors);
     // print_r($nompartida);
 
     //print_r ($preguntes[2], false);
@@ -223,7 +231,7 @@
 
  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="../js/joc.js?v=<?php echo time();?>"></script>
+<script src="<?php echo $projectRoot;?>./js/joc.js?v=<?php echo time();?>"></script>
       
   </body>
 </html>

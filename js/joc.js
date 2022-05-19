@@ -29,7 +29,8 @@ function copiarPortapapeles() {
     //console.log(quantes_preguntes);
     indicador++;
     if (indicador > quantes_preguntes){
-      indicador = 1;
+      finalitzaPartida();
+      return;
     }
     data = preguntes[indicador];
     resp4 = respostes[data];
@@ -83,7 +84,7 @@ function copiarPortapapeles() {
                     </div>
                     <hr>
                     <button class="btn btn-lg btn-warning btn-block" onclick ="next()">Next</button>
-                    <button class="btn btn-lg btn-warning btn-block" onclick ="previous()">Previous</button>
+                    <!-- <button class="btn btn-lg btn-warning btn-block" onclick ="previous()">Previous</button> -->
                   </div>
                 </div>
               </div>
@@ -139,7 +140,25 @@ function copiarPortapapeles() {
     location.href = "../index.php?accio=crearpartida";
   }
 
-  function startGame(preguntesjson, respostesjson, correctesjson){
+  function finalitzaPartida(){
+    document.getElementById("joc").innerHTML = 
+
+`
+    <div class="bg-whats rounded py-5 px-1 text-center flex-grow-1">
+                 <h1>RESUMEN</h1>
+                <div class="container-fluid py-3">
+                  <div class="row">
+                    <div class="col-0 col-md-2 col-xl-3">
+                    </div>
+                    <div class="col-12 col-md-8 col-xl-6">
+                    </div>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+`
+  }
+
   function startGame(preguntesjson, respostesjson, correctesjson,imatgesjson){
     preguntes = preguntesjson;
     respostes = respostesjson;
@@ -180,7 +199,7 @@ function copiarPortapapeles() {
                     </div>
                     <hr>
                     <button class="btn btn-lg btn-warning" btn-block" onclick ="next()">Next</button>
-                    <button class="btn btn-lg btn-warning" btn-block" onclick ="previous()">Previous</button>
+                    <!-- <button class="btn btn-lg btn-warning" btn-block" onclick ="previous()">Previous</button> -->
                   </div>
                 </div>
               </div>
@@ -195,5 +214,4 @@ function shuffleArray(array) {
       array[i] = array[j];
       array[j] = temp;
   }
-}
 }

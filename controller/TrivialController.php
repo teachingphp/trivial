@@ -124,6 +124,7 @@ class TrivialController
         print_r($partida->getNom(), false);
         setcookie("NOMPARTIDA", $partida->getNom(), time() + (86400 * 30), "/"); // 86400 = 1 day
         setcookie("IDPARTIDA", $_GET["id"], time() + (86400 * 30), "/");
+        $conexion = $this->adapter;
         require("view/joc.php");
 
     }
