@@ -34,8 +34,9 @@
   </head>
   
   <body>
+   
     <main class="MAIN">
-
+    
     <?php
       $files = scandir('../files/sources/imatges');
       $i = 1;
@@ -56,6 +57,7 @@
       
         <!-- Three columns of text below the carousel -->
         <div class="row">
+        <div class="bgimg"></div>
           <div class="col-lg-20">
             <h2>Selecciona tu avatar</h2>
             <img id="imagen-avatar" class="bd-placeholder-img rounded-circle" width="140" height="140" src="../files/sources/imatges/pato lucas.jpg"></img>
@@ -99,6 +101,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="../js/perfil.js?v=<?php echo time(); ?>"></script>
-       
+    <br><br><br><br><br><br><br><br>                                
   </body>
 </html>
