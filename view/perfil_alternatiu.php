@@ -1,10 +1,25 @@
 <!doctype html>
 <html lang="es">
 <?php
+
+include 'menu.php';
+
   if (isset($_COOKIE["nomusuari"])){
     //echo ($_COOKIE["nomusuari"]);
     $usuari = ($_COOKIE["nomusuari"]);
   }
+
+  $sql = "SELECT * FROM usuaris_registrats";
+  $result = $conexion -> query($sql);
+  $jugadors = array();
+    $i = 1; 
+    foreach ($result as $value){
+      if ($_GET["ID"] == $value["ID"]){
+        $jugador_perfil = $value;
+      }
+      //print_r ($value, false);
+      //$traduccions[$value["IDIOMA_ES"]] = $value[$nom_columna];
+    }
 ?>
   <head>
     <meta charset="utf-8">
@@ -84,8 +99,8 @@
             <label for="username" class="form-label">Username</label>
             <div class="input-group has-validation">
               <span class="input-group-text">@</span>
-              <input type="text" class="form-control" id="username" placeholder="Username" required>
-            <div class="invalid-feedback">
+              <input type="text" class="form-control" id="username" value="<?php echo $jugador_perfil["usr_username"];  ?>" placeholder="<?php echo $jugador_perfil["usr_username"];  ?>" required> 
+            <div class="invalid-feedback"> 
                 Your username is required.
               </div>
             </div>
@@ -93,12 +108,12 @@
 
           <div class="col-12">
             <label for="password" class="form-label">password </label>
-            <input type="password" class="form-control" id="password" placeholder="" >           
+            <input type="password" class="form-control" id="password" placeholder="**********" >           
           </div>
 
           <div class="col-12">
             <label for="email" class="form-label">Email </label>
-            <input type="email" class="form-control" id="email" placeholder="you@example.com" disabled>
+            <input type="email" class="form-control" id="email" placeholder="<?php echo $jugador_perfil["usr_email"];  ?>" disabled>
             <div class="invalid-feedback">
               Please enter a valid email address for shipping updates.
             </div>
@@ -114,8 +129,22 @@
       <h4 class="mb-3">Informació del jugador</h4>
 
           <div class="col-12">
-            <label for="email" class="form-label">Email </label>
-            <input type="email" class="form-control" id="email" placeholder="you@example.com" disabled>
+            <label for="ranking" class="form-label">Ranking </label>
+            <input type="email" class="form-control" id="ranking" placeholder=" <?php echo $jugador_perfil["usr_exp"];  ?>" disabled>
+            <div class="invalid-feedback">
+              Please enter a valid email address for shipping updates.
+            </div>
+
+            <div class="col-12">
+            <label for="ranking" class="form-label">Partides Guanyades </label>
+            <input type="email" class="form-control" id="Partides guanyades" placeholder=" " disabled>
+            <div class="invalid-feedback">
+              Please enter a valid email address for shipping updates.
+            </div>
+
+            <div class="col-12">
+            <label for="ranking" class="form-label">Última connexió </label>
+            <input type="email" class="form-control" id="Respostes correctes" placeholder="<?php echo $jugador_perfil["usr_lastLogin"];  ?> " disabled>
             <div class="invalid-feedback">
               Please enter a valid email address for shipping updates.
             </div>

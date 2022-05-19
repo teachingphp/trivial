@@ -8,24 +8,33 @@
     </head>
     <body>
         <footer>
-        <hr></hr>
+        <hr style="width:86%;text-align:left;margin-left:7%"></hr>
+            <!-- width:86%;text-align:left;margin-left:7%" !-->
             <div class="container col-sm-8";>
                 <div class="row">
                     <div class="col-sm-2"></div>
                     <div class="col-sm-2">
-                        <p-footer >Terminos de Servicio</p-footer>
+                        <button-f onclick="window.location.href='./avislegal.php';">
+                            <p-footer >Terminos de Servicio</p-footer>
+                        </button-f>
                     </div>
                     <div class="col-sm-2">
-                        <p-footer>Gestion de Cookies</p-footer>
+                        <button-f onclick="window.location.href='./peu_pagina.php';">
+                            <p-footer>Gestion de Cookies</p-footer>
+                        </button-f>
                     </div>
                     <div class="col-sm-2">
-                        <p-footer>Faqs</p-footer>
+                        <button-f onclick="window.location.href='./faqs.php';">
+                            <p-footer>Faqs</p-footer>
+                        </button-f>   
                     </div>
                     <div class="col-sm-2">
-                        <p-footer style="line-height: normal">Contactos<br></p-footer>
-                        <img src="../files/sources/imatges/facebook.png" alt="" width="25" height="25"></img>
-                        <img src="../files/sources/imatges/instagram.png" alt="" width="25" height="25"></img>
-                        <img src="../files/sources/imatges/twitter.png" alt="" width="25" height="25"></img>
+                        <button-f onclick="window.location.href='./peu_pagina.php';"> 
+                            <p-footer style="line-height: normal">Contactos<br></p-footer>
+                            <img src="../files/sources/imatges/facebook.png" alt="" width="25" height="25"></img>
+                            <img src="../files/sources/imatges/instagram.png" alt="" width="25" height="25"></img>
+                            <img src="../files/sources/imatges/twitter.png" alt="" width="25" height="25"></img>
+                        </button-f>
                     </div>                    
                 </div>
             </div>
