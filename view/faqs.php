@@ -2,7 +2,7 @@
 <h1 class="h1">Preguntas frecuentes</h1>
 <hr>
 <br>
-ho ls
+
 <details>
 <summary class= "h2">¿Como puedo crear partida?</summary>
 <p class= "p">Atraves de la paguina de incio, en el menu se puede acceder al apartado de crear partida.</p>
@@ -27,9 +27,16 @@ ho ls
 </details>
 <br>
 <details>
-<summary class= "h2">¿Tienes algun problema tecnico con el juego?</summary>
-<p class= "p"> Accede a nuestro correo electronico o atencion al cliente 24h de Lunes a Viernes (Sabado mindfuldness opcional). </p>
+<summary class= "h2">¿Como encuentro a mi amigo para unirme a su partida?</summary>
+<p class= "p"> Buscas la ID del jugador o el codigo de la partida y accedes jugar juntos.
 </details>
+<br>
+<details>
+<summary class= "h2">¿Atencion al cliente?</summary>
+<p class= "p"> Accede a nuestro correo electronico o atencion al cliente de Lunes a Viernes 24h. (Sabado mindfuldness opcional). </p>
+</details>
+
+
 <br>
 
 <script>
