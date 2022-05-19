@@ -117,6 +117,26 @@ class TrivialController
 
     }
 
+    public function obrir_partida(){
+        print_r($_GET, false);
+        $partida = new Partida("aux", date("d-m-Y"));
+        $partida->load($this->adapter, $_GET["id"]);
+        print_r($partida->getNom(), false);
+        setcookie("NOMPARTIDA", $partida->getNom(), time() + (86400 * 30), "/"); // 86400 = 1 day
+        setcookie("IDPARTIDA", $_GET["id"], time() + (86400 * 30), "/");
+        require("view/joc.php");
+
+    }
+
+
+    public function crearpartida(){
+        $partida = new Partida("partida2", date('d-m-Y'));
+        $partida->guardarPartida($this->adapter);
+    
+
+
+    }
+
 }
 
 ?>

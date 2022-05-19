@@ -5,7 +5,7 @@ var indicador = 1;
 var quantes_preguntes =0;
 var puntuacio = 0;
 var num_aciertos = 0;
-
+var respostesJoc;
 function copiarPortapapeles() {
     /* Get the text field */
     var copyText = document.getElementById("linkCopiar");
@@ -55,6 +55,13 @@ function copiarPortapapeles() {
   }
 
   function changeHMTL(pregunta, totes_respostes, imatge){
+    elementos = [0,1,2,3];
+    shuffleArray(elementos);
+    respostesJoc = "";
+    //console.log(elementos);
+    for (let i = 0; i < elementos.length; i++) {
+      respostesJoc = respostesJoc + `<button id ="resp`+elementos[i]+`" class="btn btn-lg btn-secondary btn-block" onclick="validaResposta(`+indicador+',' + elementos[i] +`)">`+totes_respostes[elementos[i]]+`</button>`;
+    }
     document.getElementById("joc").innerHTML = 
 
 `
@@ -66,15 +73,17 @@ function copiarPortapapeles() {
                     <div class="col-0 col-md-2 col-xl-3">
                     </div>
                     <div class="col-12 col-md-8 col-xl-6">
-                      <button id ="resp0" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 0 +`)">`+totes_respostes[0]+`</button>
-                      <button id ="resp1" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 1 +`)">`+totes_respostes[1]+`</button>
-                      <button id ="resp2" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 2 +`)">`+totes_respostes[2]+`</button>
-                      <button id ="resp3" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 3 +`)">`+totes_respostes[3]+`</button>
-
+                    `
+                    +respostesJoc+
+                      // <button id ="resp0" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 0 +`)">`+totes_respostes[0]+`</button>
+                      // <button id ="resp1" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 1 +`)">`+totes_respostes[1]+`</button>
+                      // <button id ="resp2" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 2 +`)">`+totes_respostes[2]+`</button>
+                      // <button id ="resp3" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 3 +`)">`+totes_respostes[3]+`</button>
+`
                     </div>
                     <hr>
-                    <button class="btn btn-lg btn-primary btn-block" onclick ="next()">Next</button>
-                    <button class="btn btn-lg btn-primary btn-block" onclick ="previous()">Previous</button>
+                    <button class="btn btn-lg btn-warning btn-block" onclick ="next()">Next</button>
+                    <button class="btn btn-lg btn-warning btn-block" onclick ="previous()">Previous</button>
                   </div>
                 </div>
               </div>
@@ -125,6 +134,12 @@ function copiarPortapapeles() {
     }
   }
 
+  function crearPartida(){
+    alert("YA TIENES LA PARTIDA CREADA");
+    location.href = "../index.php?accio=crearpartida";
+  }
+
+  function startGame(preguntesjson, respostesjson, correctesjson){
   function startGame(preguntesjson, respostesjson, correctesjson,imatgesjson){
     preguntes = preguntesjson;
     respostes = respostesjson;
@@ -136,7 +151,14 @@ function copiarPortapapeles() {
     //data.forEach(myFunction);
     resposta1 = respostes[preguntes[1]].split(";");
     imatge = imatges[preguntes[1]];
-    //console.log(resposta1.split(";"));
+    elementos = [0,1,2,3];
+    shuffleArray(elementos);
+    respostesJoc = "";
+    //console.log(elementos);
+    for (let i = 0; i < elementos.length; i++) {
+      respostesJoc = respostesJoc + `<button id ="resp`+elementos[i]+`" class="btn btn-lg btn-secondary btn-block" onclick="validaResposta(`+indicador+',' + elementos[i] +`)">`+resposta1[elementos[i]]+`</button>`;
+    }
+    //console.log(respostesJoc);
     document.getElementById("joc").innerHTML = 
 
 `
@@ -147,16 +169,18 @@ function copiarPortapapeles() {
                   <div class="row">
                     <div class="col-0 col-md-2 col-xl-3">
                     </div>
-                    <div class="col-12 col-md-8 col-xl-6">
-                      <button id ="resp0" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 0 +`)">`+resposta1[0]+`</button>
-                      <button id ="resp1" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 1 +`)">`+resposta1[1]+`</button>
-                      <button id ="resp2" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 2 +`)">`+resposta1[2]+`</button>
-                      <button id ="resp3" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 3 +`)">`+resposta1[3]+`</button>
-
+                    <div class="col-12 col-md-8 col-xl-6">`
+                    +respostesJoc+
+                    
+                     // <button id ="resp0" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 0 +`)">`+resposta1[0]+`</button>
+                      //<button id ="resp1" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 1 +`)">`+resposta1[1]+`</button>
+                      //<button id ="resp2" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 2 +`)">`+resposta1[2]+`</button>
+                      //<button id ="resp3" class="btn btn-lg btn-primary btn-block" onclick="validaResposta(`+indicador+',' + 3 +`)">`+resposta1[3]+`</button>
+                    `
                     </div>
                     <hr>
-                    <button class="btn btn-lg btn-primary btn-block" onclick ="next()">Next</button>
-                    <button class="btn btn-lg btn-primary btn-block" onclick ="previous()">Previous</button>
+                    <button class="btn btn-lg btn-warning" btn-block" onclick ="next()">Next</button>
+                    <button class="btn btn-lg btn-warning" btn-block" onclick ="previous()">Previous</button>
                   </div>
                 </div>
               </div>
@@ -171,4 +195,5 @@ function shuffleArray(array) {
       array[i] = array[j];
       array[j] = temp;
   }
+}
 }

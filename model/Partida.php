@@ -62,6 +62,21 @@ class Partida
         return $this->fecha_final;
 
     }
+
+    function guardarPartida($conexion){
+        $sql = "INSERT INTO partida (part_nom, part_fechaInicio) values ('".$this->nom."',NOW())";   ;
+        print_r($sql);
+        $result = $conexion -> query($sql);
+    }
     
+    function load($conexion, $id){
+        $sql = "SELECT * from partida where ID=". $id;
+        $resultPartida = $conexion -> query($sql);
+        //print_r($resultPartida, false);
+        foreach ($resultPartida as $value){
+            //print_r($value, false);
+            $this->nom = $value["part_nom"];
+        }
+    }
 }
 ?>
