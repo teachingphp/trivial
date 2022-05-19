@@ -2,7 +2,7 @@
 <h1 class="h1">Preguntas frecuentes</h1>
 <hr>
 <br>
-
+ho ls
 <details>
 <summary class= "h2">¿Como puedo crear partida?</summary>
 <p class= "p">Atraves de la paguina de incio, en el menu se puede acceder al apartado de crear partida.</p>
