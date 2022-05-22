@@ -83,7 +83,7 @@ function copiarPortapapeles() {
 `
                     </div>
                     <hr>
-                    <button class="btn btn-lg btn-warning btn-block" onclick ="next()">Next</button>
+                    <button class="btn btn-lg btn-warning btn-block disabled" id="nextButton" onclick ="next()">Next</button>
                     <!-- <button class="btn btn-lg btn-warning btn-block" onclick ="previous()">Previous</button> -->
                   </div>
                 </div>
@@ -133,6 +133,8 @@ function copiarPortapapeles() {
       console.log("num_aciertos: " + num_aciertos);
       console.log("puntuacio: " + puntuacio);
     }
+    var butoNext = document.getElementById("nextButton");
+    butoNext.classList.remove("disabled");
   }
 
   function crearPartida(){
@@ -198,8 +200,8 @@ function copiarPortapapeles() {
                     `
                     </div>
                     <hr>
-                    <button class="btn btn-lg btn-warning" btn-block" onclick ="next()">Next</button>
-                    <!-- <button class="btn btn-lg btn-warning" btn-block" onclick ="previous()">Previous</button> -->
+                    <button class="btn btn-lg btn-warning btn-block disabled" id="nextButton" onclick ="next()">Next</button>
+                    <!-- <button class="btn btn-lg btn-warning" btn-block " onclick ="previous()">Previous</button> -->
                   </div>
                 </div>
               </div>
