@@ -120,24 +120,53 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     $correctes = json_encode($respostes_correctes,JSON_UNESCAPED_UNICODE);
     $img = json_encode($imatges,JSON_UNESCAPED_UNICODE);
     //print_r (, false);
-    // if (!isset($_COOKIE["USR_ID"])){
-    //   //Usuari anònim
-    //   if (!isset($_COOKIE["NOMJUGADOR"])){
-    //     //El jugador no existeix (ens arriba desde obrir partida, el jugador entra per el link compartit)
-    //     $hide = false;
+    // setcookie("USR_ID", 1, time() + (86400 * 30), "/"); // 86400 = 1 day
+    // $_COOKIE['USR_ID'] = 1;
+    if (!isset($_COOKIE["USR_ID"])){
+      //Usuari anònim
+      if (!isset($_COOKIE["NOMJUGADOR"])){
+        //El jugador no existeix (ens arriba desde obrir partida, el jugador entra per el link compartit)
+       
     
-    //   } else{
-    //     //El jugador existeix (host esta creant la partida)
-    //     $hide = true;
-    //   }
-    // }else{
-    //   //Usuari registrat
-    // }
+      }else{
+        $isNotAnon = 'd-none';
+      }
+    }else{
+      //Usuari registrat
+      $isNotAnon = 'd-none';
+    }
   
   ?>
 
-
 <div class="container px-1">
+  <div id = "anon" class="bg-whats rounded py-5 px-1 text-center flex-grow-1 <?php echo $isNotAnon; ?> ">
+                <h1>NICKNAME</h1>
+                <div class="container-fluid py-3">
+                  <div class="row">
+                    <div class="col-0 col-md-2 col-xl-3">
+                    </div>
+                    <div class="col-12 col-md-8 col-xl-6">
+                    <form>
+                      <div class="form-row align-items-center" action="../index.php" method="post">
+                        <div class="col-auto">
+                          <label class="sr-only" for="inlineFormInputGroup">Introdueix el vostre nickname</label>
+                          <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">@</div>
+                            </div>
+                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+                          </div>
+                        </div>
+                        <div class="col-auto">
+                          <button id = "crearplayer" type="submit" class="btn btn-primary mb-2" onclick = "">Submit</button>
+                        </div>
+                      </div>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+ 
 
 <div id="game">
   <div class="bg-dark bg-dark rounded">

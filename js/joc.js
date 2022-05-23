@@ -25,6 +25,10 @@ function copiarPortapapeles() {
     text += index + ": " + item + "<br>"; 
   }
 
+  function createplayer(){
+
+  }
+
   function next(){
     //console.log(quantes_preguntes);
     indicador++;
