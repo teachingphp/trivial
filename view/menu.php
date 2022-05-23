@@ -112,13 +112,13 @@ $conexion=$conectar->conexion();
       </a> 
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="../view/inici.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Inicio"] ?></a></li>
-          <li><a href="../view/hallfame.php" class="nav-link px-2 link-dark"><?php echo $traduccions["salon de la fama"] ?></a></li>
-          <li><a href="#" class="nav-link px-2 link-dark"><?php echo $traduccions["Crear Partida"] ?></a></li>
-          <li><a href="../view/faqs.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Preguntas Frecuentes"] ?></a></li>
-          <li><a href="http://localhost/trivial/view/avislegal.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Aviso legal"] ?></a></li>
+          <li><a href="./inici.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Inicio"] ?></a></li>
+          <li><a href="./hallfame.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Salón de la Fama"] ?></a></li>
+          <li><a href="./crearpartida.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Crear Partida"] ?></a></li>
+          <li><a href="./faqs.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Preguntas Frecuentes"] ?></a></li>
+          <li><a href="./avislegal.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Aviso legal"] ?></a></li>
           
-          <li><a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"><?php echo $traduccions["idiomas"] ?></a>
+          <li><a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"><?php echo $traduccions["Idiomas"] ?></a>
           <ul class="dropdown-menu">
       <li><a class="dropdown-item" onclick="idioma('ES')">ES</a></li>
       <li><a class="dropdown-item" onclick="idioma('CAT')">CAT</a></li>
@@ -129,8 +129,8 @@ $conexion=$conectar->conexion();
 
         <div class="dropdown text-end">
          <div class="text-end">
-          <button type="button"  onclick="login()" class="btn btn-light text-dark me-2 <?php echo $classe_amagar ?>"><?php echo $traduccions["registrarse"]?></button>
-          <button type="button" onclick="SingOut()"  class="btn btn-primary <?php echo $classe_amagar ?>"><?php echo $traduccions["inicia sesión"] ?></button>
+          <button type="button"  onclick="login()" class="btn btn-light text-dark me-2 <?php echo $classe_amagar ?>"><?php echo $traduccions["Registrarse"]?></button>
+          <button type="button" onclick="SingOut()"  class="btn btn-primary <?php echo $classe_amagar ?>"><?php echo $traduccions["Inicia sesión"] ?></button>
         </div>
           <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle <?php echo $classe_escondite ?>" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
@@ -138,7 +138,7 @@ $conexion=$conectar->conexion();
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
             <li><a class="dropdown-item" href="#">Metas</a></li>
             <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="../index.php?accio=veureperfil">Perfil</a></li>
+            <li><a class="dropdown-item" href="./crear-avatar.php">Perfil</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="../index.php?accio=cerrarsesion">Sign out</a></li>
           </ul>
@@ -147,8 +147,9 @@ $conexion=$conectar->conexion();
     </div>
   </header>
 
-</main>
-
+</main> 
+<!--href="../index.php?accio=veureperfil"
+    -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
       
 
