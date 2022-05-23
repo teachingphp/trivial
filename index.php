@@ -35,13 +35,13 @@ else if (isset($_POST["accio"]) && $_POST["accio"] == "pujarfitxer"){
     //echo print_r($_FILES);
     $controller->finalitzaPartida();
 }
-else if (isset($_POST["accio"]) && $_POST["accio"] == "validarUsr"){
+else if (isset($_GET["accio"]) && $_GET["accio"] == "validarUsr"){
     //echo print_r($_FILES);
     $controller->validarUsr();
 }
 else{
     //Ejecuto el método
-    //$controller->index();
+    $controller->index();
 
 }
 

@@ -29,6 +29,7 @@
         <input id="Usuario" name="Usuario" onfocusout = "validateUsername()" type="text" placeholder=" " required>
         <label for="Usuario">Usuario</label>
     </div>
+    <label id ="UsuarioErr" forerr="UsuarioErr" hidden>Usuario ya registrado, escoge otro</label>
     <div class="field">
     	<input id="email" name = "email"  type="email" placeholder=" " required>
         <label for="email">eMail</label>
