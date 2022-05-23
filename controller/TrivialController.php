@@ -140,6 +140,19 @@ class TrivialController
 
     }
 
+    public function validarUsr(){
+        $user = $_POST["username"];
+        $sql = " SELECT * from usuaris_registrats where usr_username ='". $user  ;  
+        $result = $this->adapter -> query($sql);
+        if ($result->num_rows > 0){
+            print_r("USUARI JA REIGSTRAT"); 
+            return 0;   
+        }else{
+            print_r("USUARI NO REIGSTRAT");    
+            return 1;
+        }
+    }
+
 }
 
 ?>

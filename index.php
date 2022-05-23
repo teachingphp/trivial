@@ -32,9 +32,13 @@ else if (isset($_POST["accio"]) && $_POST["accio"] == "pujarfitxer"){
     //echo print_r($_FILES);
     $controller->crearpartida();
 }
+else if (isset($_POST["accio"]) && $_POST["accio"] == "validarUsr"){
+    //echo print_r($_FILES);
+    $controller->validarUsr();
+}
 else{
     //Ejecuto el método
-    $controller->index();
+    //$controller->index();
 
 }
 
