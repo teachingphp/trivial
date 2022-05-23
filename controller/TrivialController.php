@@ -108,11 +108,13 @@ class TrivialController
         }
         print_r($_POST, false);
         $usuari = new Usuari(); //DEFINIR AQUESTA CLASSE A Usuari.php
-        $usuari->setNom($_POST["Usuario"]);
+        $usuari->setcname($_POST["Usuario"]);
 
-        $usuari->setPassword($_POST["Contra"]);
+        $usuari->setcontra($_POST["Contra"]);
 
-        $usuari->guardar(); //DEFINIR AQUESTA funcio dins  Usuari.php
+        $usuari->setcorreo($_POST["email"]);
+
+        $usuari->save($this->adapter); //DEFINIR AQUESTA funcio dins  Usuari.php
         
 
     }
@@ -124,6 +126,7 @@ class TrivialController
         print_r($partida->getNom(), false);
         setcookie("NOMPARTIDA", $partida->getNom(), time() + (86400 * 30), "/"); // 86400 = 1 day
         setcookie("IDPARTIDA", $_GET["id"], time() + (86400 * 30), "/");
+        $conexion = $this->adapter;
         require("view/joc.php");
 
     }
