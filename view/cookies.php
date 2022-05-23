@@ -1,5 +1,21 @@
-<link href="../css/faqs.css?v=<?php echo time(); ?>" rel=stylesheet>
-<h1 class="h1">Cookies</h1>
+<link href="../css/cookies.css?v=<?php echo time(); ?>" rel=stylesheet>
+<?php
+
+$_classe_amagar = "";
+if(isset($_COOKIE["galleta"])){
+
+echo $_COOKIE["galleta"];
+
+$_classe_amagar = "amagar";
+
+}
+
+
+?>
+
+<body>
+
+<h1 class="h1 <?php echo $_classe_amagar?>">Cookies</h1>
 <br>
 <h2>POLÍTICA DE COOKIES
 www.trivial.com
@@ -17,14 +33,15 @@ Son aquellas cookies que son enviadas al ordenador o dispositivo del Usuario y g
 Cookies de redes sociales
 TRIVIAL incorpora plugins de redes sociales, que permiten acceder a las mismas a partir del Sitio Web. Por esta razón, las cookies de redes sociales pueden almacenarse en el navegador del Usuario. Los titulares de dichas redes sociales disponen de sus propias políticas de protección de datos y de cookies, siendo ellos mismos, en cada caso, responsables de sus propios ficheros y de sus propias prácticas de privacidad. El Usuario debe referirse a las mismas para informarse acerca de dichas cookies y, en su caso, del tratamiento de sus datos personales. Únicamente a título informativo se indican a continuación los enlaces en los que se pueden consultar dichas políticas de privacidad y/o de cookies:
 
-Facebook: https://www.facebook.com/policies/cookies/
-Twitter: https://twitter.com/es/privacy
-Instagram: https://help.instagram.com/1896641480634370?ref=ig
-YouTube: https://policies.google.com/privacy?hl=es-419&gl=mx
-Pinterest: https://policy.pinterest.com/es/privacy-policy
-LinkedIn: https://www.linkedin.com/legal/cookie-policy?trk=hp-cookies
+Facebook: https://www.Ceinatrivial.com/policies/cookies/
+Twitter: https://Ceinatrivial.com/es/privacy
+Instagram: https://Ceinatrivial/1896641480634370?ref=ig
+YouTube: https://Ceinatrivial.com/privacy?hl=es-419&gl=mx
+Pinterest: https://Ceinatrivial.com/es/privacy-policy
+LinkedIn: https://www.Ceinatrivial.com/legal/cookie-policy?trk=hp-cookies
 Deshabilitar, rechazar y eliminar cookies
 El Usuario puede deshabilitar, rechazar y eliminar las cookies —total o parcialmente— instaladas en su dispositivo mediante la configuración de su navegador (entre los que se encuentran, por ejemplo, Chrome, Firefox, Safari, Explorer). En este sentido, los procedimientos para rechazar y eliminar las cookies pueden diferir de un navegador de Internet a otro. En consecuencia, el Usuario debe acudir a las instrucciones facilitadas por el propio navegador de Internet que esté utilizando. En el supuesto de que rechace el uso de cookies —total o parcialmente— podrá seguir usando el Sitio Web, si bien podrá tener limitada la utilización de algunas de las prestaciones del mismo.
 
 Este documento de Política de Cookies ha sido creado mediante el generador de plantilla de política de cookies online el día 19/05/2022.</h2>
 
+</body>
