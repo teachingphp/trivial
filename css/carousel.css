@@ -12,6 +12,11 @@
   }  
   
   body {
+
+  
+  }
+
+  .container_dani{
     padding-top: 3rem;
     padding-bottom: 3rem;
     color: #000000;
@@ -21,7 +26,6 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-  
   
   }
   
