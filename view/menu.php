@@ -113,7 +113,7 @@ $conexion=$conectar->conexion();
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="./inici.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Inicio"] ?></a></li>
-          <li><a href="./hallfame.php" class="nav-link px-2 link-dark"><?php echo $traduccions["salon de la fama"] ?></a></li>
+          <li><a href="./hallfame.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Salón de la Fama"] ?></a></li>
           <li><a href="./crearpartida.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Crear Partida"] ?></a></li>
           <li><a href="./faqs.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Preguntas Frecuentes"] ?></a></li>
           <li><a href="./avislegal.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Aviso legal"] ?></a></li>
