@@ -12,10 +12,10 @@ class TrivialController
         $this->conectar=new Conectar();
         $this->adapter=$this->conectar->conexion();
 
-        $this->jugadors = [
-            1 => new Jugador("Jugador1","15000",1,0,0),
-            2 => new Jugador("Jugador2","434",1,4,6)
-        ];
+        // $this->jugadors = [
+        //     1 => new Jugador("Jugador1","15000",1,0,0),
+        //     2 => new Jugador("Jugador2","434",1,4,6)
+        // ];
     }
 
     public function index(){
@@ -126,6 +126,7 @@ class TrivialController
         print_r($partida->getNom(), false);
         setcookie("NOMPARTIDA", $partida->getNom(), time() + (86400 * 30), "/"); // 86400 = 1 day
         setcookie("IDPARTIDA", $_GET["id"], time() + (86400 * 30), "/");
+        setcookie("NUMPREG", $partida->getPreguntes(), time() + (86400 * 30), "/");
         $conexion = $this->adapter;
         require("view/joc.php");
 
@@ -140,6 +141,15 @@ class TrivialController
 
     }
 
+    public function crearJugador(){
+        $jugador = new Jugador("NomJugador",1);
+
+
+    }
+
+    public function FinalitzaPartida(){
+        
+    }
 }
 
 ?>

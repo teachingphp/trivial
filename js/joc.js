@@ -153,12 +153,17 @@ function copiarPortapapeles() {
                     <div class="col-0 col-md-2 col-xl-3">
                     </div>
                     <div class="col-12 col-md-8 col-xl-6">
+                    
+                    <canvas id="ChartResumen" style="width:100%;max-width:700px"></canvas>
+                    <br>
+                    <button type="button" class="btn btn-info">Puntuación total: `+puntuacio+`</button>
                     </div>
                     <hr>
                   </div>
                 </div>
               </div>
 `
+  generateGraph();
   }
 
   function startGame(preguntesjson, respostesjson, correctesjson,imatgesjson){
@@ -216,4 +221,29 @@ function shuffleArray(array) {
       array[i] = array[j];
       array[j] = temp;
   }
+}
+
+function generateGraph(){
+  
+  var errores = (quantes_preguntes-num_aciertos);
+  var xValues = ["Aciertos", "Errores"];
+  var yValues = [num_aciertos, errores];
+  var barColors = ["green", "red"];
+
+  new Chart("ChartResumen", {
+    type: "pie",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: "Resumen"
+      }
+    }
+  });
 }
