@@ -14,6 +14,10 @@
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+ 
+      <script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
 
     <style>
       .bd-placeholder-img {
@@ -30,21 +34,46 @@
         }
       }
     </style>
+    <?php 
+      $PROTOCOL = (!empty($_SERVER['HTTPS'])) ? 'https' : 'http';
+      $DOC_ROOT = $PROTOCOL.'://'.$_SERVER['SERVER_NAME'];
+      
+      //The project path points to the root file (index.php, or whatever your index file is).
+      $projectRoot = dirname($DOC_ROOT.$_SERVER['SCRIPT_NAME']).'/';
+      
+      print_r($projectRoot);
+      print_r(dirname(__DIR__));
 
+
+
+      // $access_token =  'c3dc2b098fbbaf633d9c5e68bcde57db4bd0d8a3';
+      // $long_url='http://localhost/ProjecteCEINA/trivial/index.php?accio=obrepartida&id=4';
+      // $url = 'https://api-ssl.bitly.com/v3/shorten?access_token='.$access_token.'&longUrl='.$long_url;
+      // $ch1 = curl_init($url);  //open connection
+      // curl_setopt($ch1, CURLOPT_CUSTOMREQUEST, "GET"); 
+      // curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, 0 );
+      // curl_setopt($ch1, CURLOPT_SSL_VERIFYHOST, 0 );
+      // curl_setopt($ch1, CURLOPT_RETURNTRANSFER, 1 );
+      // $resultURL = curl_exec($ch1); //execute post
+      // $data_array = json_decode($resultURL);
+      // echo "<pre>";
+      // echo 'Long url:  '.$long_url.'<br>';
+      // echo 'shortened url: '.$data_array->data->url;
+    ?>
     
     <!-- Custom styles for this template -->
-    <link href="../css/joc.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="<?php echo $projectRoot;?>/css/joc.css?v=<?php echo time(); ?>" rel="stylesheet">
   </head>
   <body>
   <?php
     //include 'menu.php';
-
     //Conexión con BBDD
-    require_once dirname(__FILE__).'/../connection/Conectar.php';
+    // require_once dirname(__FILE__).'/../connection/Conectar.php';
+    // print_r($_SERVER['DOCUMENT_ROOT']);
+    // $conectar=new Conectar();
+    // $conexion=$conectar->conexion();
 
-    $conectar=new Conectar();
-    $conexion=$conectar->conexion();
-
+    
     $sql = "SELECT * FROM preguntes p inner join respostes r on p.id = r.preg_id order by RAND()";
     $result = $conexion -> query($sql);
     
@@ -53,7 +82,7 @@
     on j.ID = pj.jug_id 
     inner join partida p
     on p.ID = pj.part_id
-    where p.id =4 ";
+    where p.id =".$_COOKIE["IDPARTIDA"] ;
 
     $resultJugadors = $conexion -> query($sqlJugadors);
    
@@ -77,9 +106,7 @@
       $jugadors[$j] = [$value2["usr_id"], $value2["jug_nom"], $value2["jug_punts"], $value2["jug_aciertos"]];
       $j++;
     }
-    $nompartida = $value2["part_nom"];
-
-    print_r($jugadors);
+    // print_r($jugadors);
     // print_r($nompartida);
 
     //print_r ($preguntes[2], false);
@@ -93,14 +120,53 @@
     $correctes = json_encode($respostes_correctes,JSON_UNESCAPED_UNICODE);
     $img = json_encode($imatges,JSON_UNESCAPED_UNICODE);
     //print_r (, false);
+    // setcookie("USR_ID", 1, time() + (86400 * 30), "/"); // 86400 = 1 day
+    // $_COOKIE['USR_ID'] = 1;
+    if (!isset($_COOKIE["USR_ID"])){
+      //Usuari anònim
+      if (!isset($_COOKIE["NOMJUGADOR"])){
+        //El jugador no existeix (ens arriba desde obrir partida, el jugador entra per el link compartit)
+       
+    
+      }else{
+        $isNotAnon = 'd-none';
+      }
+    }else{
+      //Usuari registrat
+      $isNotAnon = 'd-none';
+    }
+  
   ?>
 
-
-
-
 <div class="container px-1">
-
-
+  <div id = "anon" class="bg-whats rounded py-5 px-1 text-center flex-grow-1 <?php echo $isNotAnon; ?> ">
+                <h1>NICKNAME</h1>
+                <div class="container-fluid py-3">
+                  <div class="row">
+                    <div class="col-0 col-md-2 col-xl-3">
+                    </div>
+                    <div class="col-12 col-md-8 col-xl-6">
+                    <form>
+                      <div class="form-row align-items-center" action="../index.php" method="post">
+                        <div class="col-auto">
+                          <label class="sr-only" for="inlineFormInputGroup">Introdueix el vostre nickname</label>
+                          <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">@</div>
+                            </div>
+                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+                          </div>
+                        </div>
+                        <div class="col-auto">
+                          <button id = "crearplayer" type="submit" class="btn btn-primary mb-2" onclick = "">Submit</button>
+                        </div>
+                      </div>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+ 
 
 <div id="game">
   <div class="bg-dark bg-dark rounded">
@@ -141,6 +207,7 @@
                 </div>
               </div>
             </div>
+
             <div class="p-1 flex-grow-1 d-flex flex-column" id="joc">
               <div class="bg-whats rounded py-5 px-1 text-center flex-grow-1">
                 <h1>Inicia la partida</h1>
@@ -223,7 +290,7 @@
 
  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="../js/joc.js?v=<?php echo time();?>"></script>
+<script src="<?php echo $projectRoot;?>./js/joc.js?v=<?php echo time();?>"></script>
       
   </body>
 </html>

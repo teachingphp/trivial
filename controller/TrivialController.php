@@ -12,10 +12,10 @@ class TrivialController
         $this->conectar=new Conectar();
         $this->adapter=$this->conectar->conexion();
 
-        $this->jugadors = [
-            1 => new Jugador("Jugador1","15000",1,0,0),
-            2 => new Jugador("Jugador2","434",1,4,6)
-        ];
+        // $this->jugadors = [
+        //     1 => new Jugador("Jugador1","15000",1,0,0),
+        //     2 => new Jugador("Jugador2","434",1,4,6)
+        // ];
     }
 
     public function index(){
@@ -30,9 +30,17 @@ class TrivialController
     }
 
     public function pujarfitxer(){
-        $target_dir = "./files/sources/imatges/";
+        $target_dir = "./files/sources/imatges/imatges-usuaris/";
+        if (isset($_COOKIE["ID"])){
+            $identificador = $_COOKIE["ID"];
+            $target_file = $target_dir . "imagenmolonga" . $identificador . ".jpg";
+        }else{
+            $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        }
+        
+        
         //echo print_r($_FILES, false);
-        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -108,11 +116,13 @@ class TrivialController
         }
         print_r($_POST, false);
         $usuari = new Usuari(); //DEFINIR AQUESTA CLASSE A Usuari.php
-        $usuari->setNom($_POST["Usuario"]);
+        $usuari->setcname($_POST["Usuario"]);
 
-        $usuari->setPassword($_POST["Contra"]);
+        $usuari->setcontra($_POST["Contra"]);
 
-        $usuari->guardar(); //DEFINIR AQUESTA funcio dins  Usuari.php
+        $usuari->setcorreo($_POST["email"]);
+
+        $usuari->save($this->adapter); //DEFINIR AQUESTA funcio dins  Usuari.php
         
 
     }
@@ -124,6 +134,8 @@ class TrivialController
         print_r($partida->getNom(), false);
         setcookie("NOMPARTIDA", $partida->getNom(), time() + (86400 * 30), "/"); // 86400 = 1 day
         setcookie("IDPARTIDA", $_GET["id"], time() + (86400 * 30), "/");
+        setcookie("NUMPREG", $partida->getPreguntes(), time() + (86400 * 30), "/");
+        $conexion = $this->adapter;
         require("view/joc.php");
 
     }
@@ -137,6 +149,28 @@ class TrivialController
 
     }
 
+    public function validarUsr(){
+        $user = $_GET["username"];
+        $sql = " SELECT * from usuaris_registrats where usr_username ='". $user ."'" ;  
+        $result = $this->adapter -> query($sql);
+        if ($result->num_rows > 0){
+            //print_r("USUARI JA REIGSTRAT"); 
+            echo 0;   
+        }else{
+            //print_r("USUARI NO REIGSTRAT");    
+            echo 1;
+        }
+    }
+
+    public function crearJugador(){
+        $jugador = new Jugador("NomJugador",1);
+
+
+    }
+
+    public function FinalitzaPartida(){
+        
+    }
 }
 
 ?>

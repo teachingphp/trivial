@@ -25,11 +25,16 @@ function copiarPortapapeles() {
     text += index + ": " + item + "<br>"; 
   }
 
+  function createplayer(){
+
+  }
+
   function next(){
     //console.log(quantes_preguntes);
     indicador++;
     if (indicador > quantes_preguntes){
-      indicador = 1;
+      finalitzaPartida();
+      return;
     }
     data = preguntes[indicador];
     resp4 = respostes[data];
@@ -82,8 +87,8 @@ function copiarPortapapeles() {
 `
                     </div>
                     <hr>
-                    <button class="btn btn-lg btn-warning btn-block" onclick ="next()">Next</button>
-                    <button class="btn btn-lg btn-warning btn-block" onclick ="previous()">Previous</button>
+                    <button class="btn btn-lg btn-warning btn-block disabled" id="nextButton" onclick ="next()">Next</button>
+                    <!-- <button class="btn btn-lg btn-warning btn-block" onclick ="previous()">Previous</button> -->
                   </div>
                 </div>
               </div>
@@ -132,6 +137,8 @@ function copiarPortapapeles() {
       console.log("num_aciertos: " + num_aciertos);
       console.log("puntuacio: " + puntuacio);
     }
+    var butoNext = document.getElementById("nextButton");
+    butoNext.classList.remove("disabled");
   }
 
   function crearPartida(){
@@ -139,7 +146,30 @@ function copiarPortapapeles() {
     location.href = "../index.php?accio=crearpartida";
   }
 
-  function startGame(preguntesjson, respostesjson, correctesjson){
+  function finalitzaPartida(){
+    document.getElementById("joc").innerHTML = 
+
+`
+    <div class="bg-whats rounded py-5 px-1 text-center flex-grow-1">
+                 <h1>RESUMEN</h1>
+                <div class="container-fluid py-3">
+                  <div class="row">
+                    <div class="col-0 col-md-2 col-xl-3">
+                    </div>
+                    <div class="col-12 col-md-8 col-xl-6">
+                    
+                    <canvas id="ChartResumen" style="width:100%;max-width:700px"></canvas>
+                    <br>
+                    <button type="button" class="btn btn-info">Puntuación total: `+puntuacio+`</button>
+                    </div>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+`
+  generateGraph();
+  }
+
   function startGame(preguntesjson, respostesjson, correctesjson,imatgesjson){
     preguntes = preguntesjson;
     respostes = respostesjson;
@@ -179,8 +209,8 @@ function copiarPortapapeles() {
                     `
                     </div>
                     <hr>
-                    <button class="btn btn-lg btn-warning" btn-block" onclick ="next()">Next</button>
-                    <button class="btn btn-lg btn-warning" btn-block" onclick ="previous()">Previous</button>
+                    <button class="btn btn-lg btn-warning btn-block disabled" id="nextButton" onclick ="next()">Next</button>
+                    <!-- <button class="btn btn-lg btn-warning" btn-block " onclick ="previous()">Previous</button> -->
                   </div>
                 </div>
               </div>
@@ -196,4 +226,28 @@ function shuffleArray(array) {
       array[j] = temp;
   }
 }
+
+function generateGraph(){
+  
+  var errores = (quantes_preguntes-num_aciertos);
+  var xValues = ["Aciertos", "Errores"];
+  var yValues = [num_aciertos, errores];
+  var barColors = ["green", "red"];
+
+  new Chart("ChartResumen", {
+    type: "pie",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: "Resumen"
+      }
+    }
+  });
 }

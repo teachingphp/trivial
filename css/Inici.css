@@ -148,8 +148,12 @@ p-footer{
     /*padding:auto;*/
 }
 
+
 #myDIV4{
-    
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    margin-right: 2%;
     text-align: center;
     background-color: #c7fafa;
     border: 1px color:rgb(10, 10, 10);;
