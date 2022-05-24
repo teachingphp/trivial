@@ -55,12 +55,10 @@
                             </h3>     
                             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body"></div>
-                                    <!-- <p>
-                                        <?php
-                                            //  include './hallfame.php';
-                                        ?>
-                                    </p> -->
-                            </div>
+                                    
+                                    <iframe src="./hallfame.php" title="Hallfame"></iframe>
+                                
+                                </div>
                         </div>
                     </div>
                     
