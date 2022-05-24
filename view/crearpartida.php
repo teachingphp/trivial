@@ -29,6 +29,19 @@
           font-size: 3.5rem;
         }
       }
+      .modal-footer{
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0.75rem;
+        border-top: 1px solid #dee2e6;
+        border-bottom-right-radius: calc(0.3rem - 1px);
+        border-bottom-left-radius: calc(0.3rem - 1px);
+      }
+     
     </style>
 
     
@@ -48,28 +61,7 @@
     $sql = "SELECT * FROM preguntes p inner join respostes r on p.id = r.preg_id";
     $result = $conexion -> query($sql);
     
-    $respostes_correctes = array();
-    $preguntes = array();
-    $respostes = array();
-    $i = 1;
-    foreach ($result as $value){
-      //print_r ($value, false);
-      $respostes_correctes[$value["preg_pregunta"]] = $value["resp_correcte"];
-      $preguntes[$i] = $value["preg_pregunta"];
-      $respostes[$value["preg_pregunta"]] = $value["resp_correcte"] . ";" . $value["resp_incorrecte_1"] . ";" . $value["resp_incorrecte_2"] . ";" . $value["resp_incorrecte_3"] ;
-      $i++;
-    }
-
-    //print_r ($preguntes[2], false);
-    //print_r ($preguntes[2], false);
-    //print_r ($preguntes[3], false);
-    //print_r ($respostes_correctes[$preguntes[2]], false);
-    //print_r ($respostes[$preguntes[2]], false);
-    //$todas_respuestas = explode(";", $respostes[$preguntes[2]]);
-    $preg = json_encode($preguntes,JSON_UNESCAPED_UNICODE);
-    $resp = json_encode($respostes,JSON_UNESCAPED_UNICODE);
-    $correctes = json_encode($respostes_correctes,JSON_UNESCAPED_UNICODE);
-    //print_r (, false);
+  
   ?>
 
 
@@ -149,11 +141,37 @@
                               </a>
                             </div>
                             <div class="modal-body">
-                              Configuracio de la partida 
+                            <div class="form-check form-switch">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Tiempo por turno</label>
+                          <input class="form-check-input" type="checkbox" onclick="activarTiempo()" role="switch" id="idactivar">
+                        </div>
+                          
+                          <br>
+                          <label for="disabledRange" class="form-label">Tiempo (Min)</label>
+                          <br>
+                          <input type="range" class="form-range" min="5" max="20" step="5" id="idtiempo"disabled oninput="this.nextElementSibling.value = this.value"> <output>5</output>    
+                          <br>
+                          <br>
+                            <div class="form-check form-switch">
+                              <input class="form-check-input" type="checkbox" onclick="activarComodin()" role="switch" id="activarComodin">
+                              <label class="form-check-label" for="flexSwitchCheckDefault">Activar comodin</label>
+                            </div>
+                              <br>
+                              <br>
+                              <label class="form-check-label" for="comodin">
+                              ComodinesX
+                              </label>
+                              <br>
+                              
+                                 <input class="form-check-input" type="checkbox" onclick="" value="" id="comodin1" disabled> 
+                                 
+                              
+                              </div>
+                            </div>
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                              <button type="button" class="btn btn-primary">Guardar configuracion</button>
+                              <button type="button" class="btn btn-primary" onclick="GuardarC()">Guardar configuracion</button>
                             </div>
                           </div>
                         </div>
@@ -196,6 +214,29 @@
  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="../js/joc.js?v=<?php echo time();?>"></script>
+<script> 
+
+  function activarTiempo(){
+    if (document.getElementById("idactivar").checked ){
+      document.getElementById("idtiempo").disabled = false;
+    }else {
+      document.getElementById("idtiempo").disabled = true;
+    }
+  }
+    function GuardarC(){
+
+     alert ("La configuración se ha guardado correctamente");
+     }
+        function activarComodin(){
+            alert(1);
+           if (document.getElementById("activarComodin").checked ){
+            document.getElementById("comodin1").disabled = false;
+           }else {
+            document.getElementById("comodin1").disabled = true;
+           }
+          }
+        
+</script>
       
   </body>
 </html>
