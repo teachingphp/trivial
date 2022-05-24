@@ -162,6 +162,19 @@ class TrivialController
         }
     }
 
+    public function validaremail(){
+        $useremail = $_GET["email"];
+        $sql = " SELECT * from usuaris_registrats where usr_email ='". $useremail ."'" ;  
+        $result = $this->adapter -> query($sql);
+        if ($result->num_rows > 0){
+            //print_r("USUARI JA REIGSTRAT"); 
+            echo 0;   
+        }else{
+            //print_r("USUARI NO REIGSTRAT");    
+            echo 1;
+        }
+    }
+
     public function crearJugador(){
         $jugador = new Jugador("NomJugador",1);
 
