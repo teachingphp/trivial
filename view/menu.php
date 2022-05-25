@@ -147,7 +147,7 @@ global $conexion;
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
             <li><a class="dropdown-item" href="#"><?php echo $traduccions["Metas"] ?></a></li>
             <li><a class="dropdown-item" href="#"><?php echo $traduccions["Opciones"] ?></a></li>
-            <li><a class="dropdown-item" href="./crear-avatar.php"><?php echo $traduccions["Perfil"] ?></a></li>
+            <li><a class="dropdown-item" href="./perfil_alternatiu.php?ID=1"><?php echo $traduccions["Perfil"] ?></a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="../index.php?accio=cerrarsesion"><?php echo $traduccions["Cerrar session"] ?></a></li>
           </ul>

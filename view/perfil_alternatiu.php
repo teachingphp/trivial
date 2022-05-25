@@ -121,7 +121,7 @@ include 'menu.php';
               Please enter a valid email address for shipping updates.
             </div>
           </div>
-
+          <br>
          
 
           <button type="submit" onclick ="actualitzaPerfil()" class="btn btn-primary">Actualitzar</button>
