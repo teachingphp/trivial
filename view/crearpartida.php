@@ -9,7 +9,8 @@
     <title>Trivial CEINA</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/modals/">
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+ 
     
 
     <!-- Bootstrap core CSS -->
@@ -50,13 +51,13 @@
   </head>
   <body>
   <?php
-    //include 'menu.php';
+    include 'menu.php';
 
     //Conexión con BBDD
-    require_once dirname(__FILE__).'/../connection/Conectar.php';
+    //require_once dirname(__FILE__).'/../connection/Conectar.php';
 
-    $conectar=new Conectar();
-    $conexion=$conectar->conexion();
+    //$conectar=new Conectar();
+    //$conexion=$conectar->conexion();
 
     $sql = "SELECT * FROM preguntes p inner join respostes r on p.id = r.preg_id";
     $result = $conexion -> query($sql);

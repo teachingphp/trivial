@@ -18,6 +18,8 @@
       <script
 src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 
     <style>
       .bd-placeholder-img {
@@ -41,8 +43,8 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
       //The project path points to the root file (index.php, or whatever your index file is).
       $projectRoot = dirname($DOC_ROOT.$_SERVER['SCRIPT_NAME']).'/';
       
-      print_r($projectRoot);
-      print_r(dirname(__DIR__));
+      //print_r($projectRoot);
+      //print_r(dirname(__DIR__));
 
 
 
@@ -62,17 +64,27 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     ?>
     
     <!-- Custom styles for this template -->
-    <link href="<?php echo $projectRoot;?>/css/joc.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="../css/joc.css?v=<?php echo time(); ?>" rel="stylesheet">
   </head>
   <body>
   <?php
-    //include 'menu.php';
+    include 'menu.php';
     //Conexión con BBDD
     // require_once dirname(__FILE__).'/../connection/Conectar.php';
     // print_r($_SERVER['DOCUMENT_ROOT']);
     // $conectar=new Conectar();
     // $conexion=$conectar->conexion();
-
+    
+    if (!isset($_COOKIE["IDPARTIDA"])){
+      $idpartida = 1;
+    }else{
+      $idpartida = $_COOKIE["IDPARTIDA"];
+    }
+    if (!isset($_COOKIE["NOMPARTIDA"])){
+      $nompartida = "Cool Trivial";
+    }else{
+      $nompartida = $_COOKIE["NOMPARTIDA"];
+    }
     
     $sql = "SELECT * FROM preguntes p inner join respostes r on p.id = r.preg_id order by RAND()";
     $result = $conexion -> query($sql);
@@ -82,7 +94,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     on j.ID = pj.jug_id 
     inner join partida p
     on p.ID = pj.part_id
-    where p.id =".$_COOKIE["IDPARTIDA"] ;
+    where p.id =".$idpartida ;
 
     $resultJugadors = $conexion -> query($sqlJugadors);
    
@@ -190,7 +202,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
         
       </div>
       <div class="p-1">
-        <h5 class="text-light text-center m-0">Partida <?php echo $_COOKIE["NOMPARTIDA"] ?></h5>
+        <h5 class="text-light text-center m-0">Partida <?php echo $nompartida ?></h5>
       </div>
     </div>
     <div class="container-fluid">
@@ -299,7 +311,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 
  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="<?php echo $projectRoot;?>./js/joc.js?v=<?php echo time();?>"></script>
+<script src="../js/joc.js?v=<?php echo time();?>"></script>
       
   </body>
 </html>

@@ -37,6 +37,7 @@ require_once dirname(__FILE__).'/../connection/Conectar.php';
 
 $conectar=new Conectar();
 $conexion=$conectar->conexion();
+global $conexion;
 
     $sql = "SELECT * FROM traduccions";
     $result = $conexion -> query($sql);
