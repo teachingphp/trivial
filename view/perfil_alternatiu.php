@@ -88,9 +88,16 @@ include 'menu.php';
       <img id="imatge_perfil"  class="bd-placeholder-img rounded-circle" width="100%" height="350" src="<?php echo $rutaimatge;  ?>" </img>
 
       <form class="card p-2">
-        <a  class="btn btn-secondary" onclick="next('<?php echo $rutas;  ?>')" >Next</a> 
-        <br>
+      <div class="row">
+        <div class="col" style = "text-align: center;">
+        <a  class="btn btn-secondary" onclick="next('<?php echo $rutas;  ?>')" >Next</a>
+        </div>
+        <div class="col" style = "text-align: center;">
         <a  class="btn btn-secondary" onclick="previous('<?php echo $rutas;  ?>') " >Previous</a>
+        </div>
+      </div>
+         
+        
         </form>
       
         
