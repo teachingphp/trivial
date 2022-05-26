@@ -18,7 +18,7 @@
                 <div id ="myDIV2" class="container col-lg-6">
                     <div class="row">
                         <div id ="myDIV4" class="col-lg-10 ">
-                            <h3>Anónim</h3>
+                            <h3><?php echo $traduccions["Anónimo"] ?></h3>
                             
                             <?php
                                 include './crear-avatar.php';
@@ -50,7 +50,7 @@
                         <div class="accordion-item">
                             <h3 class="accordion-header" id="headingOne">
                                 <button  class="accordion-button card text-white bg-dark mb-3 btn-block " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <h3 >Hall of Fame</h3>
+                                    <h3 ><?php echo $traduccions["Salón de la Fama"] ?></h3>
                                 </button>       
                             </h3>     
                             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
