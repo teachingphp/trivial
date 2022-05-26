@@ -125,10 +125,11 @@ p-footer{
     margin-bottom: 2%;
     margin-right: 2%;
     text-align: center;
+
     background-color: #c7fafa;
     border: 1px color:rgb(10, 10, 10);
     border-radius:20px;
-    /*padding:auto;*/
+    
 }
 
 #myDIV3{
