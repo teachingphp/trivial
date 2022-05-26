@@ -21,7 +21,7 @@
   .container_dani{
     padding-top: 3rem;
     padding-bottom: 3rem;
-    color: #000000;
+    color: #f60fb0;
     font-family: quieloprobartuboca;
     background-image:url("../files/sources/imatges/globo.png");
     background-repeat: no-repeat;
@@ -43,14 +43,14 @@
   
   
   #titulo1{
-  color:rgb(255, 55, 0);
+  color:rgb(255, 72, 0);
   text-align: center;
-  
+  font-family: quieloprobartuboca;
   }
   
   #p1{
     text-align: center;
-    
+    font-family: quieloprobartuboca;
     }
 
 /* CUSTOMIZE THE CAROUSEL
