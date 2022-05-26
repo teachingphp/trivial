@@ -96,18 +96,18 @@
       <!-- /.container -->
       </div>
 
-      <h2 id="titulo1">¿Quieres tener musculatura de dios griego?</h2>
+      <h2 id="titulo1"><?php echo $traduccions["¿Quieres tener musculatura de dios griego?"] ?></h2>
 
-      <p id="p1">¡¡ESTAS DE SUERTE!!.</p>
+      <p id="p1"><?php echo $traduccions["¡¡ESTAS DE SUERTE!!."] ?></p>
 
-<p id="p1">Crea tu propio avatar para tranformate en una bestia de musculos.</p>
+      <p id="p1"><?php echo $traduccions["Crea tu propio avatar para transformarte en una bestia de musculos."] ?></p>
 
 <div style ="text-align:center;">
-<button onclick="document.getElementById('myImage').src='../files/sources/imatges/mamado.png '">Despues de crear avatar</button>
+<button onclick="document.getElementById('myImage').src='../files/sources/imatges/mamado.png '"><?php echo $traduccions["Despues de crear avatar"] ?></button>
 
 <img id="myImage" src="../files/sources/imatges/gordinflon.png" style="width:100px">
 
-<button onclick="document.getElementById('myImage').src='../files/sources/imatges/gordinflon.png'">Antes de crear avatar</button>
+<button onclick="document.getElementById('myImage').src='../files/sources/imatges/gordinflon.png'"<?php echo $traduccions["Antes de crear avatar"] ?>></button>
     </div>
     
 

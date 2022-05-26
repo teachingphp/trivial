@@ -37,7 +37,7 @@
                         <div id = "myDIV5" class="container col-lg-10">
                             <div class="row">
                                 <button onclick="window.location.href='./crearpartida.php';">
-                                    <h2>Crear Partida</h2>
+                                    <h2><?php echo $traduccions["Crear Partida"] ?></h2>
                                 </button>
                             </div>
                         </div>  
