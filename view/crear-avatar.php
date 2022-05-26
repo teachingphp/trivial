@@ -56,7 +56,7 @@
         <!-- Three columns of text below the carousel -->
         <div class="row">
         
-          <div class="col-lg-20">
+          <div class="col-lg-20" style="padding-left:100px;">
             <h2>Selecciona tu avatar</h2>
             <img id="imagen-avatar" class="bd-placeholder-img rounded-circle" width="140" height="140" src="../files/sources/imatges/pato lucas.jpg"></img>
         
@@ -68,7 +68,7 @@
           </div><!-- /.col-lg-4 -->
           
           
-          <div class="col-lg-20">
+          <div class="col-lg-20" style="padding-left:100px;">
           Sube una imagen:
             <form action="../index.php" form="form1" method="POST" enctype="multipart/form-data">
               <div class="image-upload">
