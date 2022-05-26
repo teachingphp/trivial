@@ -12,7 +12,7 @@
   }  
   
   body {
-
+  background-color: #76408d;
   
   }
 
@@ -21,7 +21,7 @@
   .container_dani{
     padding-top: 3rem;
     padding-bottom: 3rem;
-    color: #000000;
+    color: #f60f0f;
     font-family: quieloprobartuboca;
     background-image:url("../files/sources/imatges/globo.png");
     background-repeat: no-repeat;
@@ -31,6 +31,14 @@
   
   }
   
+  .bi-clipboard-plus{
+    cursor: pointer;
+  }
+
+  .bi-box-arrow-in-up{
+    cursor: grab;
+  }
+
   .bgimg {
   
     filter:blur(8px);
@@ -43,14 +51,14 @@
   
   
   #titulo1{
-  color:rgb(255, 55, 0);
+  color:rgb(255, 72, 0);
   text-align: center;
-  
+  font-family: quieloprobartuboca;
   }
   
   #p1{
     text-align: center;
-    
+    font-family: quieloprobartuboca;
     }
 
 /* CUSTOMIZE THE CAROUSEL

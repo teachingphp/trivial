@@ -45,7 +45,7 @@
 
 <script>
 function reportarP(){
-    alert("reportado por tonto");
+    alert("reportado satisfactoriamente por tonto");
 
 
 }
