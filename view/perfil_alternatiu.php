@@ -110,7 +110,7 @@ include 'menu.php';
           </div>
 
           <div class="col-12">
-            <label for="password" class="form-label">password </label>
+            <label for="password" class="form-label">Password </label>
             <input type="password" class="form-control" id="password" placeholder="**********" >           
           </div>
 
@@ -161,7 +161,7 @@ include 'menu.php';
 </div>
 
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script >
 
     var i = 1;  
@@ -191,6 +191,23 @@ include 'menu.php';
       console.log(i);
       image.src = rutasImg[i];
       
+    }
+
+    function actualitzaPerfil(){
+      //alert(2);
+      $.ajax({  
+          type: 'GET',  
+          url: '../index.php?accio=actualitzaPerfil', 
+          data: { username: document.getElementById("username").value, password: document.getElementById("password").value, id: <?php echo $_GET["ID"];  ?> },
+          success: function(response) {
+                //console.log(response);
+               if(response==1){
+                alert("Los datos han sido actualizados");
+                }
+               
+ 
+          }
+    });
     }
 
     </script>

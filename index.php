@@ -39,6 +39,10 @@ else if (isset($_GET["accio"]) && $_GET["accio"] == "validarUsr"){
     //echo print_r($_FILES);
     $controller->validarUsr();
 }
+else if (isset($_GET["accio"]) && $_GET["accio"] == "actualitzaPerfil"){
+    //echo print_r($_FILES);
+    $controller->actualitzaPerfil();
+}
 else{
     //Ejecuto el método
     $controller->index();

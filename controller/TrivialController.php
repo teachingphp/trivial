@@ -162,6 +162,18 @@ class TrivialController
         }
     }
 
+    public function actualitzaPerfil(){
+        $user = $_GET["username"];
+        $pass = $_GET["password"];
+        $id = $_GET["id"];
+        $sql = " UPDATE usuaris_registrats SET usr_username = '".$user."',usr_pwd = '".$pass."' WHERE (ID = '".$id."')";
+          
+        $result = $this->adapter -> query($sql);
+
+        echo 1;
+        
+    }
+
     public function crearJugador(){
         $jugador = new Jugador("NomJugador",1);
 
