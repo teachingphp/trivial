@@ -18,6 +18,10 @@ class TrivialController
         // ];
     }
 
+    public function getConexion(){
+        return $this->adapter;
+    }
+
     public function index(){
 
         //Asigno los coches a una variable que estará esperando la vista
@@ -190,6 +194,14 @@ class TrivialController
         $_GET["jug_id"];
         $sql = " SELECT * from partida where id =". $_GET["id"];  
         $result = $this->adapter -> query($sql);
+    }
+
+    public function jugar(){
+
+        //Le paso los datos a la vista
+        //require("./view/joc.php");
+        header("Location: ./view/joc.php");
+
     }
 }
 

@@ -16,6 +16,8 @@ foreach(glob(dirname(__FILE__)."/model/*.php") as $file){
 //Instancio el controlador
 $controller = new TrivialController;
 
+$conexion_trivial = $controller->getConexion();
+
 
 if (isset($_GET["accio"]) && $_GET["accio"] == "cerrarsesion"){
     $controller->cerrarsesion();
@@ -46,6 +48,10 @@ else if (isset($_GET["accio"]) && $_GET["accio"] == "crearJugador"){
 else if (isset($_GET["accio"]) && $_GET["accio"] == "validaremail"){
     //echo print_r($_FILES);
     $controller->validaremail();
+}
+else if (isset($_GET["accio"]) && $_GET["accio"] == "jugar"){
+    //echo print_r($_FILES);
+    $controller->jugar();
 }
 else{
     //Ejecuto el método
