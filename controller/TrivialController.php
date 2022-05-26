@@ -142,7 +142,7 @@ class TrivialController
 
 
     public function crearpartida(){
-        $partida = new Partida("partida2", date('d-m-Y'));
+        $partida = new Partida( $_GET["nombrepartida"], date('d-m-Y'));
         $partida->guardarPartida($this->adapter);
     
 
@@ -190,6 +190,24 @@ class TrivialController
         $_GET["jug_id"];
         $sql = " SELECT * from partida where id =". $_GET["id"];  
         $result = $this->adapter -> query($sql);
+    }
+
+    public function guardarConf(){
+
+        $idtiempo = $_GET["idtiempo"];
+        $idcomodin1 = $_GET["idcomodin1"];
+        $idcomodin2 = $_GET["idcomodin2"];
+        $idcomodin3 = $_GET["idcomodin3"];
+        $idcomodin4 = $_GET["idcomodin4"];
+        $sql =  "UPDATE `partida` SET `part_tiempoTurno` = ". $idtiempo 
+        . ", part_comodin1 = ". $idcomodin1 
+        . ", part_comodin2 = ". $idcomodin2
+        . ", part_comodin3 = ". $idcomodin3
+        . ", part_comodin4 = ". $idcomodin4
+        .  " WHERE (`ID` = '3')";
+        $result = $this->adapter -> query($sql);
+        echo 1;
+        
     }
 }
 

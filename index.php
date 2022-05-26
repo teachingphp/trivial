@@ -47,6 +47,12 @@ else if (isset($_GET["accio"]) && $_GET["accio"] == "validaremail"){
     //echo print_r($_FILES);
     $controller->validaremail();
 }
+else if (isset($_GET["accio"]) && $_GET["accio"] == "guardarConf"){
+    //echo print_r($_FILES);
+    $controller->guardarConf();
+}
+
+
 else{
     //Ejecuto el método
     $controller->index();
