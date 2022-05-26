@@ -60,7 +60,7 @@
 
  <!--Amb això tenim la barra de menú a dalt-->
 <?php
-    include 'menu.php';
+    //include 'menu.php';
   ?>
 
  
@@ -70,9 +70,9 @@
 
   <!--Connexió-->
   <?php
-  //require_once dirname(__FILE__).'/../connection/Conectar.php';
-  //$conectar=new Conectar();
-  //$conexion=$conectar->conexion();
+  require_once dirname(__FILE__).'/../connection/Conectar.php';
+  $conectar=new Conectar();
+  $conexion=$conectar->conexion();
   
   //Base de dades -> S'hauria de canviar a la base que ha fet el Pol
   $sql = "SELECT * FROM jugadors ORDER BY jug_punts DESC limit 10";
