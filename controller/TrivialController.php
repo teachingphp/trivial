@@ -114,7 +114,7 @@ class TrivialController
         foreach($result as $value){
             
         }
-        print_r($_POST, false);
+        //print_r($_POST, false);
         $usuari = new Usuari(); //DEFINIR AQUESTA CLASSE A Usuari.php
         $usuari->setcname($_POST["Usuario"]);
 
@@ -123,7 +123,7 @@ class TrivialController
         $usuari->setcorreo($_POST["email"]);
 
         $usuari->save($this->adapter); //DEFINIR AQUESTA funcio dins  Usuari.php
-        
+        require("view/LoginTrivial.php");
 
     }
 
@@ -136,7 +136,7 @@ class TrivialController
         setcookie("IDPARTIDA", $_GET["id"], time() + (86400 * 30), "/");
         setcookie("NUMPREG", $partida->getPreguntes(), time() + (86400 * 30), "/");
         $conexion = $this->adapter;
-        require("view/joc.php");
+        
 
     }
 
@@ -165,6 +165,32 @@ class TrivialController
     public function validaremail(){
         $useremail = $_GET["email"];
         $sql = " SELECT * from usuaris_registrats where usr_email ='". $useremail ."'" ;  
+        $result = $this->adapter -> query($sql);
+        if ($result->num_rows > 0){
+            //print_r("USUARI JA REIGSTRAT"); 
+            echo 0;   
+        }else{
+            //print_r("USUARI NO REIGSTRAT");    
+            echo 1;
+        }
+    }
+
+    public function validarUsrL(){
+        $userL = $_GET["usernameL"];
+        $sql = " SELECT * from usuaris_registrats where usr_username ='". $userL ."'" ;  
+        $result = $this->adapter -> query($sql);
+        if ($result->num_rows > 0){
+            //print_r("USUARI JA REIGSTRAT"); 
+            echo 0;   
+        }else{
+            //print_r("USUARI NO REIGSTRAT");    
+            echo 1;
+        }
+    }
+
+    public function validarConL(){
+        $passL = $_GET["passwordL"];
+        $sql = " SELECT * from usuaris_registrats where usr_pwd ='". $passL ."'" ;  
         $result = $this->adapter -> query($sql);
         if ($result->num_rows > 0){
             //print_r("USUARI JA REIGSTRAT"); 

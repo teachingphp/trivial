@@ -46,7 +46,17 @@ else if (isset($_GET["accio"]) && $_GET["accio"] == "crearJugador"){
 else if (isset($_GET["accio"]) && $_GET["accio"] == "validaremail"){
     //echo print_r($_FILES);
     $controller->validaremail();
+    
 }
+else if (isset($_GET["accio"]) && $_GET["accio"] == "validarUsrL"){
+    //echo print_r($_FILES);
+    $controller->validarUsrL();
+}
+else if (isset($_GET["accio"]) && $_GET["accio"] == "validarConL"){
+    //echo print_r($_FILES);
+    $controller->validarConL();
+}
+
 else{
     //Ejecuto el método
     $controller->index();
