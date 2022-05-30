@@ -147,8 +147,35 @@ class TrivialController
 
     public function crearpartida(){
         $partida = new Partida( $_GET["nombrepartida"], date('d-m-Y'));
-        $partida->guardarPartida($this->adapter);
+        $ultimo_reg = $partida->guardarPartida($this->adapter);
+
+        setcookie("IDPARTIDA", $ultimo_reg, time() + 86400);
     
+        if (isset($_COOKIE["CONF"])){
+            $params = $_COOKIE["CONF"];
+            parse_str ( $params, $array_params);
+
+        }
+
+        $idtiempo = $array_params["idtiempo"];
+        $idcomodin1 = $array_params["idcomodin1"];
+        $idcomodin2 = $array_params["idcomodin2"];
+        $idcomodin3 = $array_params["idcomodin3"];
+        $idcomodin4 = $array_params["idcomodin4"];
+
+        $sql =  "UPDATE `partida` SET `part_tiempoTurno` = ". $idtiempo 
+        . ", part_comodin1 = ". $idcomodin1 
+        . ", part_comodin2 = ". $idcomodin2
+        . ", part_comodin3 = ". $idcomodin3
+        . ", part_comodin4 = ". $idcomodin4
+        .  " WHERE (`ID` = '". $ultimo_reg."')";
+        $result = $this->adapter -> query($sql);
+        echo 1;
+
+        header("Location: ./view/joc.php?id_partida=" . $ultimo_reg);
+
+        //$url_compartir = "http://localhost/triviaL/view/joc.php?id_partida=" . $ultimo_reg;
+
 
 
     }
@@ -229,14 +256,20 @@ class TrivialController
         $idcomodin2 = $_GET["idcomodin2"];
         $idcomodin3 = $_GET["idcomodin3"];
         $idcomodin4 = $_GET["idcomodin4"];
-        $sql =  "UPDATE `partida` SET `part_tiempoTurno` = ". $idtiempo 
-        . ", part_comodin1 = ". $idcomodin1 
-        . ", part_comodin2 = ". $idcomodin2
-        . ", part_comodin3 = ". $idcomodin3
-        . ", part_comodin4 = ". $idcomodin4
-        .  " WHERE (`ID` = '3')";
-        $result = $this->adapter -> query($sql);
+
+        $params = "idtiempo=" . $idtiempo 
+        . "&idcomodin1=" . $idcomodin1 . 
+        "&idcomodin2=" . $idcomodin2 . 
+        "&idcomodin3=" . $idcomodin3 . 
+        "&idcomodin4=" . $idcomodin4;
+
+        //print_r($params);
+
+        setcookie("CONF", $params, time() + 86400);
+
         echo 1;
+
+    }
         
     public function jugar(){
 
