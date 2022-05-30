@@ -239,7 +239,7 @@ class TrivialController
         .  " WHERE (`ID` = '3')";
         $result = $this->adapter -> query($sql);
         echo 1;
-        
+    }
     public function jugar(){
 
         //Le paso los datos a la vista
