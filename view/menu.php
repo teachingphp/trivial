@@ -28,6 +28,7 @@ $idioma ="ES";
 if(isset($_COOKIE["idioma"])){
   $idioma = $_COOKIE["idioma"];
 }
+
 $nom_columna = "IDIOMA_" . $idioma;
 
 require("../controller/TrivialController.php");
@@ -171,7 +172,7 @@ global $conexion;
   }
 
   function SingOut (){
-    alert("hola putos ok");
+    location.href="./LoginTrivial.php";
 
   }
 
