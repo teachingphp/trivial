@@ -50,6 +50,12 @@ else if (isset($_GET["accio"]) && $_GET["accio"] == "validaremail"){
     $controller->validaremail();
     
 }
+else if (isset($_GET["accio"]) && $_GET["accio"] == "guardarConf"){
+    //echo print_r($_FILES);
+    $controller->guardarConf();
+}
+
+
 else if (isset($_GET["accio"]) && $_GET["accio"] == "validarUsrL"){
     //echo print_r($_FILES);
     $controller->validarUsrL();
