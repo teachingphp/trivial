@@ -82,7 +82,7 @@ function validateUsername(){
       $.ajax({  
             type: 'GET',  
             url: '../index.php?accio=validarConL', 
-            data: { passwordL: document.getElementById("ContraL").value },
+            data: { passwordL: document.getElementById("ContraL").value, usernameL: document.getElementById("UsuarioL").value },
             success: function(response) {
                   //console.log(response);
                  if(response==1){

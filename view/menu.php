@@ -25,9 +25,20 @@ if(! isset($_COOKIE["usuari"])){
 /* definicio de idiomes i crida a la DB*/
 
 $idioma ="ES"; 
+$url_avis = "./avislegal.php";
 if(isset($_COOKIE["idioma"])){
   $idioma = $_COOKIE["idioma"];
+
+  //avislegal.php ES
+  //avislegalENG.php
+  //avislegalCAT.php
+  if ($idioma <> "ES"){
+    $url_avis = "./avislegal".$idioma.".php";
+  } 
+  
+
 }
+
 $nom_columna = "IDIOMA_" . $idioma;
 
 require("../controller/TrivialController.php");
@@ -126,7 +137,7 @@ global $conexion;
           <li><a href="./hallfame.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Salón de la Fama"] ?></a></li>
           <li><a href="./crearpartida.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Crear Partida"] ?></a></li>
           <li><a href="./faqs.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Preguntas Frecuentes"] ?></a></li>
-          <li><a href="./avislegal.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Aviso legal"] ?></a></li>
+          <li><a href="<?php echo $url_avis?>" class="nav-link px-2 link-dark"><?php echo $traduccions["Aviso legal"] ?></a></li>
           
           <li><a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"><?php echo $traduccions["Idiomas"] ?></a>
           <ul class="dropdown-menu">
@@ -171,7 +182,7 @@ global $conexion;
   }
 
   function SingOut (){
-    alert("hola putos ok");
+    location.href="./LoginTrivial.php";
 
   }
 

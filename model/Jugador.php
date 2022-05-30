@@ -67,10 +67,10 @@ class Jugador
     function guardarJugador($conexion){
         if (!isset($this->usr_id)){
             $sql = "INSERT INTO jugadors (usr_id, jug_nom) values (null".",'".$this->nom."');";
-            $sql .= "INSERT INTO jugadors_partida (part_id,jug_id) select ".$_COOKIE["IDPARTIDA"].", ID from jugadors where jug_nom =".$this->nom.";";
+            $sql .= "INSERT INTO jugadors_partida (part_id,jug_id) select ".$_GET["IDPARTIDA"].", ID from jugadors where jug_nom =".$this->nom.";";
         }else{
             $sql = "INSERT INTO jugadors (usr_id, jug_nom) values (".$this->usr_id.",'".$this->nom."');";
-            $sql .= "INSERT INTO jugadors_partida (part_id,jug_id) select ".$_COOKIE["IDPARTIDA"].", ID from jugadors where jug_nom =".$this->nom.";";
+            $sql .= "INSERT INTO jugadors_partida (part_id,jug_id) select ".$_GET["IDPARTIDA"].", ID from jugadors where jug_nom =".$this->nom.";";
 
         }
      
