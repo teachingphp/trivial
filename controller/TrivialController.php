@@ -18,6 +18,10 @@ class TrivialController
         // ];
     }
 
+    public function getConexion(){
+        return $this->adapter;
+    }
+
     public function index(){
 
         //Asigno los coches a una variable que estará esperando la vista
@@ -208,6 +212,12 @@ class TrivialController
         $result = $this->adapter -> query($sql);
         echo 1;
         
+    public function jugar(){
+
+        //Le paso los datos a la vista
+        //require("./view/joc.php");
+        header("Location: ./view/joc.php");
+
     }
 }
 
