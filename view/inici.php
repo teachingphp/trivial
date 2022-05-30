@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
     <head>
-        <title>AlbertV</title>
+        <title>Trivial</title>
         <link rel="stylesheet" type="text/css" href="../css/Inici.css?v=<?php echo time(); ?>">
                
     </head>
