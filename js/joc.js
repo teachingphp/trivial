@@ -171,6 +171,45 @@ function finalitzaPartida() {
     generateGraph();
 }
 
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  function crearJugadorAssigPartida(){
+      $.ajax({  
+        type: 'GET',  
+        url: '../index.php?accio=crearJugador', 
+        data: { nom_jugador: getCookie ("NOMJUGADOR"), id_partida : 1 },
+        success: function(response) {
+              //console.log(response);
+            if(response==0){
+              location.reload();
+            }
+            else if(response==1){
+              alert("Vamos a jugar");
+            }
+
+        }
+  });
+
+  }
+
+  function startGame(preguntesjson, respostesjson, correctesjson,imatgesjson){
+
+    crearJugadorAssigPartida();
+
 function startGame(preguntesjson, respostesjson, correctesjson, imatgesjson) {
     preguntes = preguntesjson;
     respostes = respostesjson;
@@ -259,4 +298,5 @@ function submitUsername() {
         document.getElementById("anon").classList.remove("d-none");
         location.reload();
     }
+}
 }
