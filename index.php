@@ -72,6 +72,7 @@ else if (isset($_GET["accio"]) && $_GET["accio"] == "jugar"){
 else if (isset($_POST["accio"]) && $_POST["accio"] == "login"){
     //echo print_r($_FILES);
     $controller->login();
+}
 else if (isset($_GET["accio"]) && $_GET["accio"] == "resultatsPartida"){
     //echo print_r($_FILES);
     $controller->resultatsPartida();

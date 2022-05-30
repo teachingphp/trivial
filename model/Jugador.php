@@ -67,19 +67,19 @@ class Jugador
     function guardarJugador($conexion){
         if (!isset($this->usr_id)){
             $sql = "INSERT INTO jugadors (usr_id, jug_nom) values (null".",'".$this->nom."');";
-            $sql .= "INSERT INTO jugadors_partida (part_id,jug_id) select ".$_GET["IDPARTIDA"].", ID from jugadors where jug_nom =".$this->nom.";";
+            $sql .= "INSERT INTO jugadors_partida (part_id,jug_id) select ".$_COOKIE["IDPARTIDA"].", ID from jugadors where jug_nom ='".$this->nom."';";
         }else{
             $sql = "INSERT INTO jugadors (usr_id, jug_nom) values (".$this->usr_id.",'".$this->nom."');";
-            $sql .= "INSERT INTO jugadors_partida (part_id,jug_id) select ".$_GET["IDPARTIDA"].", ID from jugadors where jug_nom =".$this->nom.";";
+            $sql .= "INSERT INTO jugadors_partida (part_id,jug_id) select ".$_COOKIE["IDPARTIDA"].", ID from jugadors where jug_nom ='".$this->nom."';";
 
         }
      
-        print_r($sql);
+        // print_r($sql);
         // MULTI_QUERY DEIXA EXECUTAR CONSULTES MÚLTIPLES (Falta probar)
-        //return $conexion->multi_query($sql);
+        // $conexion->multi_query($sql);
         // $result = $conexion -> query($sql);
     }
-    function updateJugador($conexion, $id_partida,$id_jug,$puntsJug,$aciertosJug,$usr_id){
+    function updateJugador($conexion,$id_jug,$puntsJug,$aciertosJug,$usr_id){
         $sql = "UPDATE JUGADORS SET jug_punts =".$puntsJug.", jug_aciertos =".$aciertosJug. " WHERE ID=". $id_jug;
         if (isset($usr_id)){
             //Usuari registrat, fem update de la seva experiencia
