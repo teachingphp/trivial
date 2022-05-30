@@ -305,7 +305,7 @@ class TrivialController
 
     }
         
-    }
+    
     public function jugar(){
 
         //Le paso los datos a la vista
