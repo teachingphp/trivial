@@ -12,7 +12,7 @@
   }  
   
   body {
-
+  background-color: #76408d;
   
   }
 
@@ -21,7 +21,7 @@
   .container_dani{
     padding-top: 3rem;
     padding-bottom: 3rem;
-    color: #f60fb0;
+    color: #f60f0f;
     font-family: quieloprobartuboca;
     background-image:url("../files/sources/imatges/globo.png");
     background-repeat: no-repeat;
@@ -31,6 +31,14 @@
   
   }
   
+  .bi-clipboard-plus{
+    cursor: pointer;
+  }
+
+  .bi-box-arrow-in-up{
+    cursor: grab;
+  }
+
   .bgimg {
   
     filter:blur(8px);

@@ -5,7 +5,7 @@ $imgusu = "";
 $classe_escondite = "";
 $classe_amagar = "";
 if(isset($_COOKIE["usuari"])){
-  echo $_COOKIE["usuari"];
+  //echo $_COOKIE["usuari"];
   $nomusuari = $_COOKIE["usuari"];
   $classe_amagar = "amagar";
 } 
@@ -145,7 +145,7 @@ global $conexion;
         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle <?php echo $classe_escondite ?>" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="<?php echo $ruta_imatge?>" alt="mdo" width="32" height="32" class="rounded-circle"></img></a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="#"><?php echo $traduccions["Metas"] ?></a></li>
+            <li><a class="dropdown-item" href="../index.php?accio=jugar"><?php echo $traduccions["Metas"] ?></a></li>
             <li><a class="dropdown-item" href="#"><?php echo $traduccions["Opciones"] ?></a></li>
             <li><a class="dropdown-item" href="./perfil_alternatiu.php?ID=1"><?php echo $traduccions["Perfil"] ?></a></li>
             <li><hr class="dropdown-divider"></li>
