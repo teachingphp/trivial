@@ -85,7 +85,7 @@
         
       </div>
       <div class="p-1">
-        <h5 class="text-light text-center m-0">Partida X</h5>
+        <h5 id ="namePartida" class="text-light text-center m-0">Partida X</h5>
       </div>
     </div>
     <div class="container-fluid">
@@ -93,6 +93,21 @@
         <div class="col-12 col-lg-7 col-xl-8 p-0 d-flex flex-column">
           <div class="flex-grow-1 d-flex flex-column">
             <div class="p-1">
+
+
+            <div class="alert alert-primary p-1 m-0">
+                <div class="d-none d-sm-block float-left pr-2">
+                </div>
+                <strong>Escribe el nombre de tu partida</strong>
+                <div class="input-group link-input">
+                  <input type="text" class="form-control" placeholder="Nombre de la partida" id="nombreDeLaPartida">
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary" data-clipboard-text="" title="Confirmar" onclick="confirmarNombrePartida()"> Confirmar
+                    </button>
+                  </div>
+                </div>
+              </div>
+
               <div class="alert alert-primary p-1 m-0">
                 <div class="d-none d-sm-block float-left pr-2">
                   
@@ -165,7 +180,9 @@
                               <br>
                               
                                  <input class="form-check-input" type="checkbox" onclick="" value="" id="comodin1" disabled> 
-                                 
+                                 <input class="form-check-input" type="checkbox" onclick="" value="" id="comodin2" disabled> 
+                                 <input class="form-check-input" type="checkbox" onclick="" value="" id="comodin3" disabled> 
+                                 <input class="form-check-input" type="checkbox" onclick="" value="" id="comodin4" disabled> 
                               
                               </div>
                             </div>
@@ -215,27 +232,62 @@
  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="../js/joc.js?v=<?php echo time();?>"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script> 
 
-  function activarTiempo(){
-    if (document.getElementById("idactivar").checked ){
-      document.getElementById("idtiempo").disabled = false;
-    }else {
-      document.getElementById("idtiempo").disabled = true;
+    function activarTiempo(){
+      if (document.getElementById("idactivar").checked ){
+        document.getElementById("idtiempo").disabled = false;
+      }else {
+        document.getElementById("idtiempo").disabled = true;
+      }
     }
-  }
+    
     function GuardarC(){
 
-     alert ("La configuración se ha guardado correctamente");
-     }
-        function activarComodin(){
-            alert(1);
-           if (document.getElementById("activarComodin").checked ){
-            document.getElementById("comodin1").disabled = false;
-           }else {
-            document.getElementById("comodin1").disabled = true;
-           }
+      console.log("esto: " + document.getElementById("comodin1").checked);
+
+      $.ajax ({  
+          type: 'GET', 
+          url: '../index.php?accio=guardarConf', 
+          data: { idtiempo: document.getElementById("idtiempo").value, 
+            idcomodin1: document.getElementById("comodin1").checked, 
+            idcomodin2: document.getElementById("comodin2").checked, 
+            idcomodin3: document.getElementById("comodin3").checked, 
+            idcomodin4: document.getElementById("comodin4").checked },
+          success: function(response) {
+                //console.log(response);
+               if(response==1){
+                alert ("La configuración se ha guardado correctamente");
+                }
+              
+ 
           }
+    });
+
+      
+    }
+        
+     
+    function activarComodin(){
+      //alert(1);
+      if (document.getElementById("activarComodin").checked ){
+      document.getElementById("comodin1").disabled = false;
+      document.getElementById("comodin2").disabled = false;
+      document.getElementById("comodin3").disabled = false;
+      document.getElementById("comodin4").disabled = false;
+      }else {
+        document.getElementById("comodin1").disabled = true;
+        document.getElementById("comodin2").disabled = true;
+        document.getElementById("comodin3").disabled = true;
+        document.getElementById("comodin4").disabled = true;
+      }
+    }
+
+    function confirmarNombrePartida(){
+        document.getElementById("namePartida").innerHTML = "Partida " +  document.getElementById("nombreDeLaPartida").value;
+    }
+
         
 </script>
       

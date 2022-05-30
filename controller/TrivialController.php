@@ -118,7 +118,7 @@ class TrivialController
         foreach($result as $value){
             
         }
-        print_r($_POST, false);
+        //print_r($_POST, false);
         $usuari = new Usuari(); //DEFINIR AQUESTA CLASSE A Usuari.php
         $usuari->setcname($_POST["Usuario"]);
 
@@ -127,7 +127,8 @@ class TrivialController
         $usuari->setcorreo($_POST["email"]);
 
         $usuari->save($this->adapter); //DEFINIR AQUESTA funcio dins  Usuari.php
-        
+        header("location: ./view/LoginTrivial.php");
+
 
     }
 
@@ -140,13 +141,13 @@ class TrivialController
         setcookie("IDPARTIDA", $_GET["id"], time() + (86400 * 30), "/");
         setcookie("NUMPREG", $partida->getPreguntes(), time() + (86400 * 30), "/");
         $conexion = $this->adapter;
-        require("view/joc.php");
+        
 
     }
 
 
     public function crearpartida(){
-        $partida = new Partida("partida2", date('d-m-Y'));
+        $partida = new Partida( $_GET["nombrepartida"], date('d-m-Y'));
         $partida->guardarPartida($this->adapter);
     
 
@@ -169,6 +170,33 @@ class TrivialController
     public function validaremail(){
         $useremail = $_GET["email"];
         $sql = " SELECT * from usuaris_registrats where usr_email ='". $useremail ."'" ;  
+        $result = $this->adapter -> query($sql);
+        if ($result->num_rows > 0){
+            //print_r("USUARI JA REIGSTRAT"); 
+            echo 0;   
+        }else{
+            //print_r("USUARI NO REIGSTRAT");    
+            echo 1;
+        }
+    }
+
+    public function validarUsrL(){
+        $userL = $_GET["usernameL"];
+        $sql = " SELECT * from usuaris_registrats where usr_username ='". $userL ."'" ;  
+        $result = $this->adapter -> query($sql);
+        if ($result->num_rows > 0){
+            //print_r("USUARI JA REIGSTRAT"); 
+            echo 0;   
+        }else{
+            //print_r("USUARI NO REIGSTRAT");    
+            echo 1;
+        }
+    }
+
+    public function validarConL(){
+        $passL = $_GET["passwordL"];
+        $userL = $_GET["usernameL"];
+        $sql = " SELECT * from usuaris_registrats where usr_pwd ='". $passL ."' and usr_username ='". $userL ."'" ;  
         $result = $this->adapter -> query($sql);
         if ($result->num_rows > 0){
             //print_r("USUARI JA REIGSTRAT"); 
@@ -202,6 +230,22 @@ class TrivialController
         $result = $this->adapter -> query($sql);
     }
 
+    public function guardarConf(){
+
+        $idtiempo = $_GET["idtiempo"];
+        $idcomodin1 = $_GET["idcomodin1"];
+        $idcomodin2 = $_GET["idcomodin2"];
+        $idcomodin3 = $_GET["idcomodin3"];
+        $idcomodin4 = $_GET["idcomodin4"];
+        $sql =  "UPDATE `partida` SET `part_tiempoTurno` = ". $idtiempo 
+        . ", part_comodin1 = ". $idcomodin1 
+        . ", part_comodin2 = ". $idcomodin2
+        . ", part_comodin3 = ". $idcomodin3
+        . ", part_comodin4 = ". $idcomodin4
+        .  " WHERE (`ID` = '3')";
+        $result = $this->adapter -> query($sql);
+        echo 1;
+    }
     public function jugar(){
 
         //Le paso los datos a la vista

@@ -22,3 +22,10 @@ IDIOMA_ENG	 varchar(50),
 APARTAT varchar(25),
 PRIMARY KEY(ID)	
 );
+
+ALTER TABLE `partida` 
+ADD COLUMN `part_tiempoTurno` INT(11) NULL AFTER `part_fechaFinalizacion`,
+ADD COLUMN `part_comodin1` TINYINT(1) NULL AFTER `part_tiempoTurno`,
+ADD COLUMN `part_comodin2` TINYINT(1) NULL AFTER `part_comodin1`,
+ADD COLUMN `part_comodin3` TINYINT(1) NULL AFTER `part_comodin2`,
+ADD COLUMN `part_comodin4` TINYINT(1) NULL AFTER `part_comodin3`;
