@@ -107,7 +107,7 @@
 
 <img id="myImage" src="../files/sources/imatges/gordinflon.png" style="width:100px">
 
-<button onclick="document.getElementById('myImage').src='../files/sources/imatges/gordinflon.png'"<?php echo $traduccions["Antes de crear avatar"] ?>></button>
+<button onclick="document.getElementById('myImage').src='../files/sources/imatges/gordinflon.png '"><?php echo $traduccions["Antes de crear avatar"] ?></button>
     </div>
     
 
