@@ -9,7 +9,7 @@
 
 <details>
 <summary class= "h2">¿Como puedo crear partida?</summary>
-<p class= "p">Atraves de la paguina de incio, en el menu se puede acceder al apartado de crear partida.</p>
+<p class= "p">A traves de la página de incio, en el menu se puede acceder al apartado de crear partida.</p>
 </details>
 <br>
 <details>
@@ -39,9 +39,14 @@
 <summary class= "h2">¿Atencion al cliente?</summary>
 <p class= "p"> Accede a nuestro correo electronico o atencion al cliente de Lunes a Viernes 24h. (Sabado mindfuldness opcional). </p>
 </details>
-
-
 <br>
+<details>
+<summary class= "h2">¿Como recupero el email con el que me he registrado?</summary>
+<p class= "p"> Introduce tu usuario y te mandaremos un sms al movil para verificar que eres tu . </p>
+</details>
+
+
+
 
 <script>
 function reportarP(){
