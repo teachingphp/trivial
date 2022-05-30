@@ -225,8 +225,34 @@ class TrivialController
 
     }
     public function finalitzaPartida(){
-        $_GET["jug_id"];
-        $sql = " SELECT * from partida where id =". $_GET["id"];  
+        $jugadorID= $_GET["id_jugador"];
+        $partidaID= $_GET["id_partida"];
+        $puntos= $_GET["punts"];
+        $aciertos= $_GET["acerts"];
+        try{
+            if (!isset($_COOKIE["USR_ID"])){
+                //Jugador anonim, sense USR_ID
+                $jugador = new Jugador(null,$_GET["nom_jugador"]);
+                $jugador->UpdateJugador($this->adapter, $partidaID, $jugadorID, $puntos, $aciertos, null );
+            }else{
+                //Jugador logat, utilitzem USR_ID
+                $jugador = new Jugador($_COOKIE["USR_ID"],$_GET["nom_jugador"]);
+                $jugador->UpdateJugador($this->adapter, $partidaID, $jugadorID, $puntos, $aciertos, $_COOKIE["USR_ID"] );
+            }
+            
+            echo 1; //HA ANAT BE
+        }catch(Exception $e){
+            echo 0; //HA ANAT MALAMENT
+
+        }
+   
+    }
+
+    public function resultatsPartida(){
+        $idPartida = $_GET["id_partida"];
+        $sql = "SELECT j.jug_nom, j.jug_punts, j.jug_aciertos from jugadors j left join jugadors_partida jp 
+        on j.ID = jp.jug_id 
+        where jp.part_id = ".$idPartida." order by jug_punts";
         $result = $this->adapter -> query($sql);
     }
 

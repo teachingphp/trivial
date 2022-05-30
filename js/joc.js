@@ -147,6 +147,44 @@ function crearPartida() {
     location.href = "../index.php?accio=crearpartida&nombrepartida=" + document.getElementById("nombreDeLaPartida").value;
 }
 
+function finalitzaPartidaAjax(){
+  $.ajax({  
+    type: 'GET',  
+    url: '../index.php?accio=finalitzaPartida', 
+    data: { nom_jugador: getCookie ("NOMJUGADOR"), id_partida : 1, id_jugador: 1, punts: puntuacio, acerts: aciertos },
+    success: function(response) {
+          //console.log(response);
+        if(response==0){
+          
+        }
+        else if(response==1){
+          
+        }
+
+    }
+});
+
+}
+
+function resultsAjax(){
+  $.ajax({  
+    type: 'GET',  
+    url: '../index.php?accio=resultatsPartida', 
+    data: { id_partida : 4},
+    success: function(response) {
+          //console.log(response);
+        if(response==0){
+          
+        }
+        else if(response==1){
+          
+        }
+
+    }
+});
+
+}
+
 function finalitzaPartida() {
     document.getElementById("joc").innerHTML =
 
@@ -169,6 +207,7 @@ function finalitzaPartida() {
               </div>
 `
     generateGraph();
+    finalitzaPartidaAjax();
 }
 
   function getCookie(cname) {
@@ -206,11 +245,8 @@ function finalitzaPartida() {
 
   }
 
-  function startGame(preguntesjson, respostesjson, correctesjson,imatgesjson){
-
-    crearJugadorAssigPartida();
-
 function startGame(preguntesjson, respostesjson, correctesjson, imatgesjson) {
+    crearJugadorAssigPartida();
     preguntes = preguntesjson;
     respostes = respostesjson;
     correctes = correctesjson;
@@ -298,5 +334,4 @@ function submitUsername() {
         document.getElementById("anon").classList.remove("d-none");
         location.reload();
     }
-}
 }

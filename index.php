@@ -69,6 +69,10 @@ else if (isset($_GET["accio"]) && $_GET["accio"] == "jugar"){
     //echo print_r($_FILES);
     $controller->jugar();
 }
+else if (isset($_GET["accio"]) && $_GET["accio"] == "resultatsPartida"){
+    //echo print_r($_FILES);
+    $controller->resultatsPartida();
+}
 else{
     //Ejecuto el método
     $controller->index();
