@@ -4,7 +4,7 @@
 $_classe_amagar = "";
 if(isset($_COOKIE["galleta"])){
 
-echo $_COOKIE["galleta"];
+//echo $_COOKIE["galleta"];
 
 $_classe_amagar = "amagar";
 
@@ -33,19 +33,43 @@ Son aquellas cookies que son enviadas al ordenador o dispositivo del Usuario y g
 Cookies de redes sociales
 TRIVIAL incorpora plugins de redes sociales, que permiten acceder a las mismas a partir del Sitio Web. Por esta razón, las cookies de redes sociales pueden almacenarse en el navegador del Usuario. Los titulares de dichas redes sociales disponen de sus propias políticas de protección de datos y de cookies, siendo ellos mismos, en cada caso, responsables de sus propios ficheros y de sus propias prácticas de privacidad. El Usuario debe referirse a las mismas para informarse acerca de dichas cookies y, en su caso, del tratamiento de sus datos personales. Únicamente a título informativo se indican a continuación los enlaces en los que se pueden consultar dichas políticas de privacidad y/o de cookies:
 
-Facebook: https://www.Ceinatrivial.com/policies/cookies/
-Twitter: https://Ceinatrivial.com/es/privacy
-Instagram: https://Ceinatrivial/1896641480634370?ref=ig
-YouTube: https://Ceinatrivial.com/privacy?hl=es-419&gl=mx
-Pinterest: https://Ceinatrivial.com/es/privacy-policy
-LinkedIn: https://www.Ceinatrivial.com/legal/cookie-policy?trk=hp-cookies
+    <br>
+    <br>
+    <a href="https://www.Ceinatrivial.com/policies/cookies/ ">Facebook: https://www.Ceinatrivial.com/policies/cookies/</a><br>
+    <a href="https://www.Ceinatrivial.com/policies/cookies/ ">Twitter:  https://Ceinatrivial.com/es/privacy</a><br>
+
+    <a href="https://www.Ceinatrivial.com/policies/cookies/ ">Instagram: https://Ceinatrivial/1896641480634370?ref=ig</a><br>
+    <a href="https://www.Ceinatrivial.com/policies/cookies/ ">YouTube: https://Ceinatrivial.com/privacy?hl=es-419&gl=mx</a><br>
+    <a href="https://www.Ceinatrivial.com/policies/cookies/ ">Pinterest: https://Ceinatrivial.com/es/privacy-policy</a><br>
+    <a href="https://www.Ceinatrivial.com/policies/cookies/ ">LinkedIn: https://www.Ceinatrivial.com/legal/cookie-policy?trk=hp-cookies</a><br>
+
+<br>
 Deshabilitar, rechazar y eliminar cookies
 El Usuario puede deshabilitar, rechazar y eliminar las cookies —total o parcialmente— instaladas en su dispositivo mediante la configuración de su navegador (entre los que se encuentran, por ejemplo, Chrome, Firefox, Safari, Explorer). En este sentido, los procedimientos para rechazar y eliminar las cookies pueden diferir de un navegador de Internet a otro. En consecuencia, el Usuario debe acudir a las instrucciones facilitadas por el propio navegador de Internet que esté utilizando. En el supuesto de que rechace el uso de cookies —total o parcialmente— podrá seguir usando el Sitio Web, si bien podrá tener limitada la utilización de algunas de las prestaciones del mismo.
 
 Este documento de Política de Cookies ha sido creado mediante el generador de plantilla de política de cookies online el día 19/05/2022.</h2>
 <div>
-<button class="button" type="button">Aceptar</button>
-<button class="button" type="button">Cancelar</button>
+<button class="button <?php echo $_classe_amagar?>" onclick="aceptar()" type="button">Aceptar Cookies</button>
+<button class="button <?php echo $_classe_amagar?>" onclick="Rechazar()" type="button">Rechazar Cookies</button>
 </div>
+
+<script>
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+    function aceptar(){
+        setCookie("galleta", "aceptar", 30);
+        location.href = "./inici.php";
+    }
+
+    function Rechazar(){
+        alert("Para poder jugar al Trivial tienes que aceptar las cookies. Gracias!")
+    }
+
+</script>
 
 </body>

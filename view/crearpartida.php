@@ -9,7 +9,8 @@
     <title>Trivial CEINA</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/modals/">
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+ 
     
 
     <!-- Bootstrap core CSS -->
@@ -29,6 +30,19 @@
           font-size: 3.5rem;
         }
       }
+      .modal-footer{
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0.75rem;
+        border-top: 1px solid #dee2e6;
+        border-bottom-right-radius: calc(0.3rem - 1px);
+        border-bottom-left-radius: calc(0.3rem - 1px);
+      }
+     
     </style>
 
     
@@ -37,39 +51,18 @@
   </head>
   <body>
   <?php
-    //include 'menu.php';
+    include 'menu.php';
 
     //Conexión con BBDD
-    require_once dirname(__FILE__).'/../connection/Conectar.php';
+    //require_once dirname(__FILE__).'/../connection/Conectar.php';
 
-    $conectar=new Conectar();
-    $conexion=$conectar->conexion();
+    //$conectar=new Conectar();
+    //$conexion=$conectar->conexion();
 
     $sql = "SELECT * FROM preguntes p inner join respostes r on p.id = r.preg_id";
     $result = $conexion -> query($sql);
     
-    $respostes_correctes = array();
-    $preguntes = array();
-    $respostes = array();
-    $i = 1;
-    foreach ($result as $value){
-      //print_r ($value, false);
-      $respostes_correctes[$value["preg_pregunta"]] = $value["resp_correcte"];
-      $preguntes[$i] = $value["preg_pregunta"];
-      $respostes[$value["preg_pregunta"]] = $value["resp_correcte"] . ";" . $value["resp_incorrecte_1"] . ";" . $value["resp_incorrecte_2"] . ";" . $value["resp_incorrecte_3"] ;
-      $i++;
-    }
-
-    //print_r ($preguntes[2], false);
-    //print_r ($preguntes[2], false);
-    //print_r ($preguntes[3], false);
-    //print_r ($respostes_correctes[$preguntes[2]], false);
-    //print_r ($respostes[$preguntes[2]], false);
-    //$todas_respuestas = explode(";", $respostes[$preguntes[2]]);
-    $preg = json_encode($preguntes,JSON_UNESCAPED_UNICODE);
-    $resp = json_encode($respostes,JSON_UNESCAPED_UNICODE);
-    $correctes = json_encode($respostes_correctes,JSON_UNESCAPED_UNICODE);
-    //print_r (, false);
+  
   ?>
 
 
@@ -92,7 +85,7 @@
         
       </div>
       <div class="p-1">
-        <h5 class="text-light text-center m-0">Partida X</h5>
+        <h5 id ="namePartida" class="text-light text-center m-0">Partida X</h5>
       </div>
     </div>
     <div class="container-fluid">
@@ -100,6 +93,21 @@
         <div class="col-12 col-lg-7 col-xl-8 p-0 d-flex flex-column">
           <div class="flex-grow-1 d-flex flex-column">
             <div class="p-1">
+
+
+            <div class="alert alert-primary p-1 m-0">
+                <div class="d-none d-sm-block float-left pr-2">
+                </div>
+                <strong>Escribe el nombre de tu partida</strong>
+                <div class="input-group link-input">
+                  <input type="text" class="form-control" placeholder="Nombre de la partida" id="nombreDeLaPartida">
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary" data-clipboard-text="" title="Confirmar" onclick="confirmarNombrePartida()"> Confirmar
+                    </button>
+                  </div>
+                </div>
+              </div>
+
               <div class="alert alert-primary p-1 m-0">
                 <div class="d-none d-sm-block float-left pr-2">
                   
@@ -149,11 +157,39 @@
                               </a>
                             </div>
                             <div class="modal-body">
-                              Configuracio de la partida 
+                            <div class="form-check form-switch">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Tiempo por turno</label>
+                          <input class="form-check-input" type="checkbox" onclick="activarTiempo()" role="switch" id="idactivar">
+                        </div>
+                          
+                          <br>
+                          <label for="disabledRange" class="form-label">Tiempo (Min)</label>
+                          <br>
+                          <input type="range" class="form-range" min="5" max="20" step="5" id="idtiempo"disabled oninput="this.nextElementSibling.value = this.value"> <output>5</output>    
+                          <br>
+                          <br>
+                            <div class="form-check form-switch">
+                              <input class="form-check-input" type="checkbox" onclick="activarComodin()" role="switch" id="activarComodin">
+                              <label class="form-check-label" for="flexSwitchCheckDefault">Activar comodin</label>
+                            </div>
+                              <br>
+                              <br>
+                              <label class="form-check-label" for="comodin">
+                              ComodinesX
+                              </label>
+                              <br>
+                              
+                                 <input class="form-check-input" type="checkbox" onclick="" value="" id="comodin1" disabled> 
+                                 <input class="form-check-input" type="checkbox" onclick="" value="" id="comodin2" disabled> 
+                                 <input class="form-check-input" type="checkbox" onclick="" value="" id="comodin3" disabled> 
+                                 <input class="form-check-input" type="checkbox" onclick="" value="" id="comodin4" disabled> 
+                              
+                              </div>
+                            </div>
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                              <button type="button" class="btn btn-primary">Guardar configuracion</button>
+                              <button type="button" class="btn btn-primary" onclick="GuardarC()">Guardar configuracion</button>
                             </div>
                           </div>
                         </div>
@@ -196,6 +232,64 @@
  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="../js/joc.js?v=<?php echo time();?>"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script> 
+
+    function activarTiempo(){
+      if (document.getElementById("idactivar").checked ){
+        document.getElementById("idtiempo").disabled = false;
+      }else {
+        document.getElementById("idtiempo").disabled = true;
+      }
+    }
+    
+    function GuardarC(){
+
+      console.log("esto: " + document.getElementById("comodin1").checked);
+
+      $.ajax ({  
+          type: 'GET', 
+          url: '../index.php?accio=guardarConf', 
+          data: { idtiempo: document.getElementById("idtiempo").value, 
+            idcomodin1: document.getElementById("comodin1").checked, 
+            idcomodin2: document.getElementById("comodin2").checked, 
+            idcomodin3: document.getElementById("comodin3").checked, 
+            idcomodin4: document.getElementById("comodin4").checked },
+          success: function(response) {
+                //console.log(response);
+               if(response==1){
+                alert ("La configuración se ha guardado correctamente");
+                }
+              
+ 
+          }
+    });
+
+      
+    }
+        
+     
+    function activarComodin(){
+      //alert(1);
+      if (document.getElementById("activarComodin").checked ){
+      document.getElementById("comodin1").disabled = false;
+      document.getElementById("comodin2").disabled = false;
+      document.getElementById("comodin3").disabled = false;
+      document.getElementById("comodin4").disabled = false;
+      }else {
+        document.getElementById("comodin1").disabled = true;
+        document.getElementById("comodin2").disabled = true;
+        document.getElementById("comodin3").disabled = true;
+        document.getElementById("comodin4").disabled = true;
+      }
+    }
+
+    function confirmarNombrePartida(){
+        document.getElementById("namePartida").innerHTML = "Partida " +  document.getElementById("nombreDeLaPartida").value;
+    }
+
+        
+</script>
       
   </body>
 </html>

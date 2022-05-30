@@ -18,6 +18,10 @@ class TrivialController
         // ];
     }
 
+    public function getConexion(){
+        return $this->adapter;
+    }
+
     public function index(){
 
         //Asigno los coches a una variable que estará esperando la vista
@@ -114,7 +118,7 @@ class TrivialController
         foreach($result as $value){
             
         }
-        print_r($_POST, false);
+        //print_r($_POST, false);
         $usuari = new Usuari(); //DEFINIR AQUESTA CLASSE A Usuari.php
         $usuari->setcname($_POST["Usuario"]);
 
@@ -123,7 +127,8 @@ class TrivialController
         $usuari->setcorreo($_POST["email"]);
 
         $usuari->save($this->adapter); //DEFINIR AQUESTA funcio dins  Usuari.php
-        
+        header("location: ./view/LoginTrivial.php");
+
 
     }
 
@@ -136,13 +141,13 @@ class TrivialController
         setcookie("IDPARTIDA", $_GET["id"], time() + (86400 * 30), "/");
         setcookie("NUMPREG", $partida->getPreguntes(), time() + (86400 * 30), "/");
         $conexion = $this->adapter;
-        require("view/joc.php");
+        
 
     }
 
 
     public function crearpartida(){
-        $partida = new Partida("partida2", date('d-m-Y'));
+        $partida = new Partida( $_GET["nombrepartida"], date('d-m-Y'));
         $partida->guardarPartida($this->adapter);
     
 
@@ -162,15 +167,122 @@ class TrivialController
         }
     }
 
+    public function validaremail(){
+        $useremail = $_GET["email"];
+        $sql = " SELECT * from usuaris_registrats where usr_email ='". $useremail ."'" ;  
+        $result = $this->adapter -> query($sql);
+        if ($result->num_rows > 0){
+            //print_r("USUARI JA REIGSTRAT"); 
+            echo 0;   
+        }else{
+            //print_r("USUARI NO REIGSTRAT");    
+            echo 1;
+        }
+    }
+
+    public function validarUsrL(){
+        $userL = $_GET["usernameL"];
+        $sql = " SELECT * from usuaris_registrats where usr_username ='". $userL ."'" ;  
+        $result = $this->adapter -> query($sql);
+        if ($result->num_rows > 0){
+            //print_r("USUARI JA REIGSTRAT"); 
+            echo 0;   
+        }else{
+            //print_r("USUARI NO REIGSTRAT");    
+            echo 1;
+        }
+    }
+
+    public function validarConL(){
+        $passL = $_GET["passwordL"];
+        $userL = $_GET["usernameL"];
+        $sql = " SELECT * from usuaris_registrats where usr_pwd ='". $passL ."' and usr_username ='". $userL ."'" ;  
+        $result = $this->adapter -> query($sql);
+        if ($result->num_rows > 0){
+            //print_r("USUARI JA REIGSTRAT"); 
+            echo 0;   
+        }else{
+            //print_r("USUARI NO REIGSTRAT");    
+            echo 1;
+        }
+    }
+
     public function crearJugador(){
-        $jugador = new Jugador("NomJugador",1);
+        try{
+            if (!isset($_COOKIE["USR_ID"])){
+                //Jugador anonim, sense USR_ID
+                $jugador = new Jugador(null,$_GET["nom_jugador"]);
+            }else{
+                //Jugador logat, utilitzem USR_ID
+                $jugador = new Jugador($_COOKIE["USR_ID"],$_GET["nom_jugador"]);
+            }
+            $jugador->guardarJugador($this->adapter,);
+            echo 1; //HA ANAT BE
+        }catch(Exception $e){
+            echo 0; //HA ANAT MALAMENT
 
+        }
+
+    }
+    public function finalitzaPartida(){
+        $_GET["jug_id"];
+        $sql = " SELECT * from partida where id =". $_GET["id"];  
+        $result = $this->adapter -> query($sql);
+    }
+
+    public function guardarConf(){
+
+        $idtiempo = $_GET["idtiempo"];
+        $idcomodin1 = $_GET["idcomodin1"];
+        $idcomodin2 = $_GET["idcomodin2"];
+        $idcomodin3 = $_GET["idcomodin3"];
+        $idcomodin4 = $_GET["idcomodin4"];
+        $sql =  "UPDATE `partida` SET `part_tiempoTurno` = ". $idtiempo 
+        . ", part_comodin1 = ". $idcomodin1 
+        . ", part_comodin2 = ". $idcomodin2
+        . ", part_comodin3 = ". $idcomodin3
+        . ", part_comodin4 = ". $idcomodin4
+        .  " WHERE (`ID` = '3')";
+        $result = $this->adapter -> query($sql);
+        echo 1;
+    }
+    public function jugar(){
+
+        //Le paso los datos a la vista
+        //require("./view/joc.php");
+        header("Location: ./view/joc.php");
 
     }
 
-    public function FinalitzaPartida(){
-        
-    }
+    public function enviaMailJet($email_desti, $template_id, $from_user, $obs_comanda){
+        //1972416 - COMANDA Pagada TemplateID
+        //1908508 - NOVA COMANDA TemplateID
+        //file_put_contents('log_ligths10.log', "enviaMailJet1" . PHP_EOL, FILE_APPEND);
+        $mj = new \Mailjet\Client('94d4075b8a28605b560b8eebb1a57fd2','4b17c59089c5f8140810b0311471baff',true,['version' => 'v3.1']);
+  
+        $body = [
+  
+          'Messages' => [
+               [
+            'FromEmail' => "info@cooltrivial.es",
+            'FromName' => "Cool Trivial",
+          //  'Text-part' => "Parece que se ha creado un nuevo pedido",
+          //  'Html-part' => "Revisa sus caracteristicas dentro del apartado de pedidos",
+            'MJ-TemplateID' => $template_id,
+            'MJ-TemplateLanguage' => true,
+            vars => json_decode('{"usuari": "'.$from_user.'", "comanda":"'.$obs_comanda.'"}', true),
+            'Recipients' => [['Email' => $email_desti]]
+  
+            ] //end message 1
+           ] //end message 2
+        ];
+  
+        //file_put_contents('log_ligths10.log', "enviaMailJet4" . PHP_EOL, FILE_APPEND);
+        $response = $mj->post(Resources::$Email, ['body' => $body]);
+        //file_put_contents('log_ligths10.log', "enviaMailJet5" . print_r($response,true). PHP_EOL, FILE_APPEND);
+        $response->success() && var_dump($response->getData());
+        //file_put_contents('log_ligths10.log', "enviaMailJet6" . PHP_EOL, FILE_APPEND);
+      }
 }
 
 ?>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
     <head>
-        <title>AlbertV</title>
+        <title>Trivial</title>
         <link rel="stylesheet" type="text/css" href="../css/Inici.css?v=<?php echo time(); ?>">
                
     </head>
@@ -18,7 +18,7 @@
                 <div id ="myDIV2" class="container col-lg-6">
                     <div class="row">
                         <div id ="myDIV4" class="col-lg-10 ">
-                            <h3>Anónim</h3>
+                            <h3><?php echo $traduccions["Anónimo"] ?></h3>
                             
                             <?php
                                 include './crear-avatar.php';
@@ -37,7 +37,7 @@
                         <div id = "myDIV5" class="container col-lg-10">
                             <div class="row">
                                 <button onclick="window.location.href='./crearpartida.php';">
-                                    <h2>Crear Partida</h2>
+                                    <h2><?php echo $traduccions["Crear Partida"] ?></h2>
                                 </button>
                             </div>
                         </div>  
@@ -50,17 +50,13 @@
                         <div class="accordion-item">
                             <h3 class="accordion-header" id="headingOne">
                                 <button  class="accordion-button card text-white bg-dark mb-3 btn-block " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <h3 >Hall of Fame</h3>
+                                    <h3 ><?php echo $traduccions["Salón de la Fama"] ?></h3>
                                 </button>       
                             </h3>     
                             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="accordion-body"></div>
-                                    <!-- <p>
-                                        <?php
-                                            //  include './hallfame.php';
-                                        ?>
-                                    </p> -->
-                            </div>
+
+                                 <iframe class ="iframe" src="./hallfame_iframe.php"></iframe>
+                                
                         </div>
                     </div>
                     
@@ -72,7 +68,7 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
                             <button class="accordion-button text-white bg-dark mb-3 btn-block" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <h2>Instruccions</h2>
+                            <h2><?php echo $traduccions["Instrucciones"] ?></h2>
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse " aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -80,7 +76,7 @@
                                 <section>   
                                     <article>
                                         <p>
-                                            !!!!!!!!!!!!!!!!!!!!!Juga al nostre Trivial!!!!!!!! SIIIIIIIIIIIIIII
+                                            !!!!!!!!!!!!!!!!!!!!<?php echo $traduccions["!Juega a nuestro Trivial!"] ?>!!!!!!!! SIIIIIIIIIIIIIII
                                             <br></br>
                                                 Sabias que Alemania hasen cossas buenas?
                                             <br></br>
@@ -98,6 +94,8 @@
                 </div>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+ 
         
         <?php
             include './peu_pagina.php';

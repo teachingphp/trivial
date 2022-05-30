@@ -16,6 +16,8 @@ foreach(glob(dirname(__FILE__)."/model/*.php") as $file){
 //Instancio el controlador
 $controller = new TrivialController;
 
+$conexion_trivial = $controller->getConexion();
+
 
 if (isset($_GET["accio"]) && $_GET["accio"] == "cerrarsesion"){
     $controller->cerrarsesion();
@@ -38,6 +40,34 @@ else if (isset($_POST["accio"]) && $_POST["accio"] == "pujarfitxer"){
 else if (isset($_GET["accio"]) && $_GET["accio"] == "validarUsr"){
     //echo print_r($_FILES);
     $controller->validarUsr();
+}
+else if (isset($_GET["accio"]) && $_GET["accio"] == "crearJugador"){
+    //echo print_r($_FILES);
+    $controller->crearJugador();
+}
+else if (isset($_GET["accio"]) && $_GET["accio"] == "validaremail"){
+    //echo print_r($_FILES);
+    $controller->validaremail();
+    
+}
+else if (isset($_GET["accio"]) && $_GET["accio"] == "guardarConf"){
+    //echo print_r($_FILES);
+    $controller->guardarConf();
+}
+
+
+else if (isset($_GET["accio"]) && $_GET["accio"] == "validarUsrL"){
+    //echo print_r($_FILES);
+    $controller->validarUsrL();
+}
+else if (isset($_GET["accio"]) && $_GET["accio"] == "validarConL"){
+    //echo print_r($_FILES);
+    $controller->validarConL();
+}
+
+else if (isset($_GET["accio"]) && $_GET["accio"] == "jugar"){
+    //echo print_r($_FILES);
+    $controller->jugar();
 }
 else{
     //Ejecuto el método

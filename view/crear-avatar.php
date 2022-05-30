@@ -56,8 +56,8 @@
         <!-- Three columns of text below the carousel -->
         <div class="row">
         
-          <div class="col-lg-20">
-            <h2>Selecciona tu avatar</h2>
+          <div class="col-lg-20" style="padding-left:100px;">
+            <h2> <?php echo $traduccions["Selecciona tu avatar"] ?></h2>
             <img id="imagen-avatar" class="bd-placeholder-img rounded-circle" width="140" height="140" src="../files/sources/imatges/pato lucas.jpg"></img>
         
             <svg xmlns="http://www.w3.org/2000/svg" onclick="next('<?php echo $rutas ?>')" width="30" height="30" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
@@ -68,7 +68,7 @@
           </div><!-- /.col-lg-4 -->
           
           
-          <div class="col-lg-20">
+          <div class="col-lg-20" style="padding-left:100px;">
           Sube una imagen:
             <form action="../index.php" form="form1" method="POST" enctype="multipart/form-data">
               <div class="image-upload">
@@ -96,9 +96,23 @@
       <!-- /.container -->
       </div>
 
+      <h2 id="titulo1"><?php echo $traduccions["¿Quieres tener musculatura de dios griego?"] ?></h2>
+
+      <p id="p1"><?php echo $traduccions["¡¡ESTAS DE SUERTE!!."] ?></p>
+
+      <p id="p1"><?php echo $traduccions["Crea tu propio avatar para transformarte en una bestia de musculos."] ?></p>
+
+<div style ="text-align:center;">
+<button onclick="document.getElementById('myImage').src='../files/sources/imatges/mamado.png '"><?php echo $traduccions["Despues de crear avatar"] ?></button>
+
+<img id="myImage" src="../files/sources/imatges/gordinflon.png" style="width:100px">
+
+<button onclick="document.getElementById('myImage').src='../files/sources/imatges/gordinflon.png '"><?php echo $traduccions["Antes de crear avatar"] ?></button>
+    </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="../js/perfil.js?v=<?php echo time(); ?>"></script>
-    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>                               
+    <br> <br> <br> <br> <br>                          
   </body>
 </html>

@@ -18,6 +18,8 @@
       <script
 src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 
     <style>
       .bd-placeholder-img {
@@ -41,8 +43,8 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
       //The project path points to the root file (index.php, or whatever your index file is).
       $projectRoot = dirname($DOC_ROOT.$_SERVER['SCRIPT_NAME']).'/';
       
-      print_r($projectRoot);
-      print_r(dirname(__DIR__));
+      //print_r($projectRoot);
+      //print_r(dirname(__DIR__));
 
 
 
@@ -62,17 +64,27 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     ?>
     
     <!-- Custom styles for this template -->
-    <link href="<?php echo $projectRoot;?>/css/joc.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="../css/joc.css?v=<?php echo time(); ?>" rel="stylesheet">
   </head>
   <body>
   <?php
-    //include 'menu.php';
+    include 'menu.php';
     //Conexión con BBDD
     // require_once dirname(__FILE__).'/../connection/Conectar.php';
     // print_r($_SERVER['DOCUMENT_ROOT']);
     // $conectar=new Conectar();
     // $conexion=$conectar->conexion();
-
+    
+    if (!isset($_COOKIE["IDPARTIDA"])){
+      $idpartida = 1;
+    }else{
+      $idpartida = $_COOKIE["IDPARTIDA"];
+    }
+    if (!isset($_COOKIE["NOMPARTIDA"])){
+      $nompartida = "Cool Trivial";
+    }else{
+      $nompartida = $_COOKIE["NOMPARTIDA"];
+    }
     
     $sql = "SELECT * FROM preguntes p inner join respostes r on p.id = r.preg_id order by RAND()";
     $result = $conexion -> query($sql);
@@ -82,7 +94,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     on j.ID = pj.jug_id 
     inner join partida p
     on p.ID = pj.part_id
-    where p.id =".$_COOKIE["IDPARTIDA"] ;
+    where p.id =".$idpartida ;
 
     $resultJugadors = $conexion -> query($sqlJugadors);
    
@@ -134,6 +146,12 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     }else{
       //Usuari registrat
       $isNotAnon = 'd-none';
+      $sqlUser = " SELECT * from usuaris_registrats where ID ='". $_COOKIE["USR_ID"] ."'" ;  
+      $resultUser = $conexion -> query($sqlUser);
+      foreach($resultUser as $value){
+        setcookie("NOMJUGADOR", $value["usr_username"], time() + (86400 * 30), "/"); // 86400 = 1 day
+        $_COOKIE["NOMJUGADOR"] = $value["usr_username"];
+      }
     }
   
   ?>
@@ -146,22 +164,25 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                     <div class="col-0 col-md-2 col-xl-3">
                     </div>
                     <div class="col-12 col-md-8 col-xl-6">
-                    <form>
-                      <div class="form-row align-items-center" action="../index.php" method="post">
-                        <div class="col-auto">
-                          <label class="sr-only" for="inlineFormInputGroup">Introdueix el vostre nickname</label>
-                          <div class="input-group mb-2">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">@</div>
+                      <div class="p-1">
+                        <div class="alert alert-primary p-1 m-0">
+                          <div class="d-none d-sm-block float-left pr-2">
+                            
+                          </div>
+                          <strong>¡Entra tu nickname!</strong>
+                          <br>¡Uno bonito!<br>
+                          <div class="input-group link-input">
+                            <input type="text" class="form-control" id="usernameInput">
+                            <div class="input-group-append">
+                              <button type="submit" class="btn btn-primary" data-clipboard-text=""  onclick="submitUsername()">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive" viewBox="0 0 16 16">
+                                <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                              </svg>
+                              </button>
                             </div>
-                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
                           </div>
                         </div>
-                        <div class="col-auto">
-                          <button id = "crearplayer" type="submit" class="btn btn-primary mb-2" onclick = "">Submit</button>
-                        </div>
                       </div>
-                    </form>
                     </div>
                   </div>
                 </div>
@@ -181,7 +202,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
         
       </div>
       <div class="p-1">
-        <h5 class="text-light text-center m-0">Partida <?php echo $_COOKIE["NOMPARTIDA"] ?></h5>
+        <h5 class="text-light text-center m-0">Partida <?php echo $nompartida ?></h5>
       </div>
     </div>
     <div class="container-fluid">
@@ -288,9 +309,9 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 
 
 
- 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="<?php echo $projectRoot;?>./js/joc.js?v=<?php echo time();?>"></script>
+<script src="../js/joc.js?v=<?php echo time();?>"></script>
       
   </body>
 </html>
