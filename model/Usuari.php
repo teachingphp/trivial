@@ -81,6 +81,17 @@ class Usuari
         print_r($result,false);
 
     }
+
+    function loadUsuario($connect){
+        $sql = " SELECT ID from usuaris_registrats where usr_username ='". $this->usr_cname ."' or usr_email ='". $this->email ."'" ;  
+        $result = $connect -> query($sql);
+        if ($result->num_rows > 0){
+           return   $result->ID;
+        }else{
+            return   0;
+        }
+
+    }
     
 
 

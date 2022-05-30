@@ -44,7 +44,7 @@ h1{
     color: #fff;
 }
 
-#RegistBTN{
+#RegistBTN2{
 transition-duration: 0.2s;
 background-color: #d98f40;
   color: #fff;
@@ -53,12 +53,12 @@ background-color: #d98f40;
   border-radius: 4px;
 }
 
-#RegistBTN:hover{
+#RegistBTN2:hover{
 box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 background-color: #cc7920;
 
 }
-#RegistBTN:active{
+#RegistBTN2:active{
 background-color: #b65e00;
 box-shadow: 0 5px #666;
 transform: translateY(4px);

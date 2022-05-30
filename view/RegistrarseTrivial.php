@@ -48,7 +48,7 @@
         <input id="myBtn" type="checkbox" class="form-check-input is-invalid" id="acepta_terminos1" required> Aceptar terminos y condiciones
         <input type="text" name="accio" value ="registrarse" hidden>
         <br><br>
-        <input type="submit" name="crearU" value="Registrate" id="RegistBTN">
+        <input type="submit" name="crearU" value="Registrate" id="RegistBTN"> 
         </div>
 
     </form>

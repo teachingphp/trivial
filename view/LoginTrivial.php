@@ -18,7 +18,7 @@
             <span>Cool Trivial</span>
     </h1>
     
-    <form action="../view/inici.php" method="post">
+    <form action="../index.php" method="post">
     <div class="field">
         <input id="UsuarioL" name="UsuarioL" onfocusout = "validateUsernameL()" type="text" placeholder=" " required>
         <label for="UsuarioL">Usuario</label>
@@ -32,7 +32,8 @@
     <label id ="ContraErrL" forerr="ContraErrL" hidden>Contraseña incorrecta</label>
     
         <br>
-        <input type="submit" name="LoginU" value="Entrar" id="RegistBTN">
+        <input type="text" name="accio" value ="login" hidden>
+        <input type="submit" name="LoginU" value="Entrar" id="RegistBTN2" disabled>
         </div>
 
     </form>

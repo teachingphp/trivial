@@ -111,6 +111,22 @@ class TrivialController
 
     }
 
+    public function login(){
+        
+        //print_r($_POST, false);
+        $usuari = new Usuari(); 
+
+        $usuari->setcname($_POST["UsuarioL"]);
+
+        $usuari->setcontra($_POST["ContraL"]);
+
+        $idusuari = $usuari->loadUsuario($this->adapter); 
+        setcookie ("USR_ID", $idusuari, time() + 86400);
+        //header("location: ./view/inici.php");
+
+
+    }
+
     public function registrarse(){
         //CREAR UNA NOVA CLASSE USUARI dins model Usuari.php
         $sql = "SELECT * from usuaris_registrats";

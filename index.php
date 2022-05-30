@@ -69,6 +69,10 @@ else if (isset($_GET["accio"]) && $_GET["accio"] == "jugar"){
     //echo print_r($_FILES);
     $controller->jugar();
 }
+else if (isset($_POST["accio"]) && $_POST["accio"] == "login"){
+    //echo print_r($_FILES);
+    $controller->login();
+}
 else{
     //Ejecuto el método
     $controller->index();
