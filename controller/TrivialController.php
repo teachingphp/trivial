@@ -180,14 +180,20 @@ class TrivialController
     }
 
     public function crearJugador(){
-        if (!isset($_COOKIE["USR_ID"])){
-            //Jugador anonim, sense USR_ID
-            $jugador = new Jugador(null,$_COOKIE["NOMJUGADOR"]);
-        }else{
-            //Jugador logat, utilitzem USR_ID
-            $jugador = new Jugador($_COOKIE["USR_ID"],$_COOKIE["NOMJUGADOR"]);
+        try{
+            if (!isset($_COOKIE["USR_ID"])){
+                //Jugador anonim, sense USR_ID
+                $jugador = new Jugador(null,$_GET["nom_jugador"]);
+            }else{
+                //Jugador logat, utilitzem USR_ID
+                $jugador = new Jugador($_COOKIE["USR_ID"],$_GET["nom_jugador"]);
+            }
+            $jugador->guardarJugador($this->adapter,);
+            echo 1; //HA ANAT BE
+        }catch(Exception $e){
+            echo 0; //HA ANAT MALAMENT
+
         }
-        $jugador->guardarJugador($this->adapter,);
 
     }
     public function finalitzaPartida(){
@@ -203,6 +209,36 @@ class TrivialController
         header("Location: ./view/joc.php");
 
     }
+
+    public function enviaMailJet($email_desti, $template_id, $from_user, $obs_comanda){
+        //1972416 - COMANDA Pagada TemplateID
+        //1908508 - NOVA COMANDA TemplateID
+        //file_put_contents('log_ligths10.log', "enviaMailJet1" . PHP_EOL, FILE_APPEND);
+        $mj = new \Mailjet\Client('94d4075b8a28605b560b8eebb1a57fd2','4b17c59089c5f8140810b0311471baff',true,['version' => 'v3.1']);
+  
+        $body = [
+  
+          'Messages' => [
+               [
+            'FromEmail' => "info@cooltrivial.es",
+            'FromName' => "Cool Trivial",
+          //  'Text-part' => "Parece que se ha creado un nuevo pedido",
+          //  'Html-part' => "Revisa sus caracteristicas dentro del apartado de pedidos",
+            'MJ-TemplateID' => $template_id,
+            'MJ-TemplateLanguage' => true,
+            vars => json_decode('{"usuari": "'.$from_user.'", "comanda":"'.$obs_comanda.'"}', true),
+            'Recipients' => [['Email' => $email_desti]]
+  
+            ] //end message 1
+           ] //end message 2
+        ];
+  
+        //file_put_contents('log_ligths10.log', "enviaMailJet4" . PHP_EOL, FILE_APPEND);
+        $response = $mj->post(Resources::$Email, ['body' => $body]);
+        //file_put_contents('log_ligths10.log', "enviaMailJet5" . print_r($response,true). PHP_EOL, FILE_APPEND);
+        $response->success() && var_dump($response->getData());
+        //file_put_contents('log_ligths10.log', "enviaMailJet6" . PHP_EOL, FILE_APPEND);
+      }
 }
 
 ?>
