@@ -127,7 +127,8 @@ class TrivialController
         $usuari->setcorreo($_POST["email"]);
 
         $usuari->save($this->adapter); //DEFINIR AQUESTA funcio dins  Usuari.php
-        require("view/LoginTrivial.php");
+        header("location: ./view/LoginTrivial.php");
+
 
     }
 
@@ -194,7 +195,8 @@ class TrivialController
 
     public function validarConL(){
         $passL = $_GET["passwordL"];
-        $sql = " SELECT * from usuaris_registrats where usr_pwd ='". $passL ."'" ;  
+        $userL = $_GET["usernameL"];
+        $sql = " SELECT * from usuaris_registrats where usr_pwd ='". $passL ."' and usr_username ='". $userL ."'" ;  
         $result = $this->adapter -> query($sql);
         if ($result->num_rows > 0){
             //print_r("USUARI JA REIGSTRAT"); 
