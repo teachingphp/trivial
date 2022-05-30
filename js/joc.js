@@ -7,6 +7,17 @@ var puntuacio = 0;
 var num_aciertos = 0;
 var respostesJoc;
 
+
+function getCookie(name) {
+    function escape(s) { return s.replace(/([.*+?\^$(){}|\[\]\/\\])/g, '\\$1'); }
+    var match = document.cookie.match(RegExp('(?:^|;\\s*)' + escape(name) + '=([^;]*)'));
+    return match ? match[1] : null;
+}
+window.onload = function() {
+    var ultimoReg = getCookie("IDPARTIDA");
+    document.getElementById("linkCopiar").value = "http://localhost/triviaL/view/joc.php?id_partida=" + ultimoReg;
+};
+
 function copiarPortapapeles() {
     /* Get the text field */
     var copyText = document.getElementById("linkCopiar");
@@ -144,7 +155,51 @@ function validaResposta(num_pregunta, resposta_a_revisar) {
 
 function crearPartida() {
     alert("YA TIENES LA PARTIDA CREADA");
-    location.href = "../index.php?accio=crearpartida&nombrepartida=" + document.getElementById("nombreDeLaPartida").value;
+    var nombrePartida = "";
+    if (document.getElementById("nombreDeLaPartida").value == "") {
+        nombrePartida = "Partida de Anonimo";
+    } else {
+        nombrePartida = document.getElementById("nombreDeLaPartida").value;
+    }
+    location.href = "../index.php?accio=crearpartida&nombrepartida=" + nombrePartida;
+}
+
+function finalitzaPartidaAjax(){
+  $.ajax({  
+    type: 'GET',  
+    url: '../index.php?accio=finalitzaPartida', 
+    data: { nom_jugador: getCookie ("NOMJUGADOR"), id_partida : 1, id_jugador: 1, punts: puntuacio, acerts: aciertos },
+    success: function(response) {
+          //console.log(response);
+        if(response==0){
+          
+        }
+        else if(response==1){
+          
+        }
+
+    }
+});
+
+}
+
+function resultsAjax(){
+  $.ajax({  
+    type: 'GET',  
+    url: '../index.php?accio=resultatsPartida', 
+    data: { id_partida : 4},
+    success: function(response) {
+          //console.log(response);
+        if(response==0){
+          
+        }
+        else if(response==1){
+          
+        }
+
+    }
+});
+
 }
 
 function finalitzaPartida() {
@@ -169,6 +224,7 @@ function finalitzaPartida() {
               </div>
 `
     generateGraph();
+    finalitzaPartidaAjax();
 }
 
   function getCookie(cname) {
@@ -206,11 +262,8 @@ function finalitzaPartida() {
 
   }
 
-  function startGame(preguntesjson, respostesjson, correctesjson,imatgesjson){
-
-    crearJugadorAssigPartida();
-
 function startGame(preguntesjson, respostesjson, correctesjson, imatgesjson) {
+    crearJugadorAssigPartida();
     preguntes = preguntesjson;
     respostes = respostesjson;
     correctes = correctesjson;
@@ -298,5 +351,4 @@ function submitUsername() {
         document.getElementById("anon").classList.remove("d-none");
         location.reload();
     }
-}
 }

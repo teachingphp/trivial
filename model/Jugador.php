@@ -79,9 +79,14 @@ class Jugador
         //return $conexion->multi_query($sql);
         // $result = $conexion -> query($sql);
     }
-    function updateJugador($conexion, $id,$puntsJug,$aciertosJug){
-        $sql = "UPDATE JUGADORS SET jug_punts =".$puntsJug.", jug_aciertos =".$aciertosJug. " WHERE ID=". $id;
-        $updatePlayer = $conexion -> query($sql);
+    function updateJugador($conexion, $id_partida,$id_jug,$puntsJug,$aciertosJug,$usr_id){
+        $sql = "UPDATE JUGADORS SET jug_punts =".$puntsJug.", jug_aciertos =".$aciertosJug. " WHERE ID=". $id_jug;
+        if (isset($usr_id)){
+            //Usuari registrat, fem update de la seva experiencia
+            $sql .= "UPDATE USUARIS_REGISTRATS SET usr_exp = usr_exp + ".$puntsJug."WHERE ID=".$usr_id;
+        }
+        print_r($sql);
+        // $result = $conexion -> multi_query($sql);
 
     }
 

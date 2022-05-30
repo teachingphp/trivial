@@ -108,23 +108,7 @@
                 </div>
               </div>
 
-              <div class="alert alert-primary p-1 m-0">
-                <div class="d-none d-sm-block float-left pr-2">
-                  
-                </div>
-                <strong>¡Juega con tus amigos!</strong>
-                <br>¡Comparte con ellos el enlace a la partida!<br>
-                <div class="input-group link-input">
-                  <input type="text" class="form-control" readonly="" value="Link generado" id="linkCopiar">
-                  <div class="input-group-append">
-                    <button type="submit" class="btn btn-primary" data-clipboard-text="" title="Copiar al portapapeles" onclick="copiarPortapapeles()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive" viewBox="0 0 16 16">
-                      <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-                    </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
+  
             </div>
             <div class="p-1 flex-grow-1 d-flex flex-column" id="joc">
               <div class="bg-whats rounded py-5 px-1 text-center flex-grow-1">
@@ -134,7 +118,7 @@
                     <div class="col-0 col-md-2 col-xl-3">
                     </div>
                     <div class="col-12 col-md-8 col-xl-6">
-                      <button class="btn btn-lg btn-primary btn-block" onclick='crearPartida()'>Crear partida</button>
+                      <button class="btn btn-lg btn-primary btn-block" id="idCrear" disabled onclick='crearPartida()'>Crear partida</button>
                       <button type="button" class="btn btn-lg btn-secondary btn-block" data-bs-toggle="modal" data-bs-target="#ModalConfig">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
                             <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
@@ -258,7 +242,9 @@
           success: function(response) {
                 //console.log(response);
                if(response==1){
-                alert ("La configuración se ha guardado correctamente");
+                    alert ("La configuración se ha guardado correctamente");
+                    document.getElementById("idCrear").disabled = false;
+
                 }
               
  

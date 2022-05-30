@@ -164,8 +164,35 @@ class TrivialController
 
     public function crearpartida(){
         $partida = new Partida( $_GET["nombrepartida"], date('d-m-Y'));
-        $partida->guardarPartida($this->adapter);
+        $ultimo_reg = $partida->guardarPartida($this->adapter);
+
+        setcookie("IDPARTIDA", $ultimo_reg, time() + 86400);
     
+        if (isset($_COOKIE["CONF"])){
+            $params = $_COOKIE["CONF"];
+            parse_str ( $params, $array_params);
+
+        }
+
+        $idtiempo = $array_params["idtiempo"];
+        $idcomodin1 = $array_params["idcomodin1"];
+        $idcomodin2 = $array_params["idcomodin2"];
+        $idcomodin3 = $array_params["idcomodin3"];
+        $idcomodin4 = $array_params["idcomodin4"];
+
+        $sql =  "UPDATE `partida` SET `part_tiempoTurno` = ". $idtiempo 
+        . ", part_comodin1 = ". $idcomodin1 
+        . ", part_comodin2 = ". $idcomodin2
+        . ", part_comodin3 = ". $idcomodin3
+        . ", part_comodin4 = ". $idcomodin4
+        .  " WHERE (`ID` = '". $ultimo_reg."')";
+        $result = $this->adapter -> query($sql);
+        echo 1;
+
+        header("Location: ./view/joc.php?id_partida=" . $ultimo_reg);
+
+        //$url_compartir = "http://localhost/triviaL/view/joc.php?id_partida=" . $ultimo_reg;
+
 
 
     }
@@ -241,8 +268,34 @@ class TrivialController
 
     }
     public function finalitzaPartida(){
-        $_GET["jug_id"];
-        $sql = " SELECT * from partida where id =". $_GET["id"];  
+        $jugadorID= $_GET["id_jugador"];
+        $partidaID= $_GET["id_partida"];
+        $puntos= $_GET["punts"];
+        $aciertos= $_GET["acerts"];
+        try{
+            if (!isset($_COOKIE["USR_ID"])){
+                //Jugador anonim, sense USR_ID
+                $jugador = new Jugador(null,$_GET["nom_jugador"]);
+                $jugador->UpdateJugador($this->adapter, $partidaID, $jugadorID, $puntos, $aciertos, null );
+            }else{
+                //Jugador logat, utilitzem USR_ID
+                $jugador = new Jugador($_COOKIE["USR_ID"],$_GET["nom_jugador"]);
+                $jugador->UpdateJugador($this->adapter, $partidaID, $jugadorID, $puntos, $aciertos, $_COOKIE["USR_ID"] );
+            }
+            
+            echo 1; //HA ANAT BE
+        }catch(Exception $e){
+            echo 0; //HA ANAT MALAMENT
+
+        }
+   
+    }
+
+    public function resultatsPartida(){
+        $idPartida = $_GET["id_partida"];
+        $sql = "SELECT j.jug_nom, j.jug_punts, j.jug_aciertos from jugadors j left join jugadors_partida jp 
+        on j.ID = jp.jug_id 
+        where jp.part_id = ".$idPartida." order by jug_punts";
         $result = $this->adapter -> query($sql);
     }
 
@@ -253,15 +306,22 @@ class TrivialController
         $idcomodin2 = $_GET["idcomodin2"];
         $idcomodin3 = $_GET["idcomodin3"];
         $idcomodin4 = $_GET["idcomodin4"];
-        $sql =  "UPDATE `partida` SET `part_tiempoTurno` = ". $idtiempo 
-        . ", part_comodin1 = ". $idcomodin1 
-        . ", part_comodin2 = ". $idcomodin2
-        . ", part_comodin3 = ". $idcomodin3
-        . ", part_comodin4 = ". $idcomodin4
-        .  " WHERE (`ID` = '3')";
-        $result = $this->adapter -> query($sql);
+
+        $params = "idtiempo=" . $idtiempo 
+        . "&idcomodin1=" . $idcomodin1 . 
+        "&idcomodin2=" . $idcomodin2 . 
+        "&idcomodin3=" . $idcomodin3 . 
+        "&idcomodin4=" . $idcomodin4;
+
+        //print_r($params);
+
+        setcookie("CONF", $params, time() + 86400);
+
         echo 1;
+
     }
+        
+    
     public function jugar(){
 
         //Le paso los datos a la vista
