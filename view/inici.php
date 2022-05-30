@@ -68,7 +68,7 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
                             <button class="accordion-button text-white bg-dark mb-3 btn-block" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <h2>Instruccions</h2>
+                            <h2><?php echo $traduccions["Instrucciones"] ?></h2>
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse " aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -76,7 +76,7 @@
                                 <section>   
                                     <article>
                                         <p>
-                                            !!!!!!!!!!!!!!!!!!!!!Juga al nostre Trivial!!!!!!!! SIIIIIIIIIIIIIII
+                                            !!!!!!!!!!!!!!!!!!!!<?php echo $traduccions["!Juega a nuestro Trivial!"] ?>!!!!!!!! SIIIIIIIIIIIIIII
                                             <br></br>
                                                 Sabias que Alemania hasen cossas buenas?
                                             <br></br>
