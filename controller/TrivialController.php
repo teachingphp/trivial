@@ -92,7 +92,7 @@ class TrivialController
         }
 
 
-        require("view/cerrarsesion.php");
+        
     }
 
     public function cerrarsesion(){
@@ -107,7 +107,7 @@ class TrivialController
             }
         }
         //Le paso los datos a la vista
-        require("view/cerrarsesion.php");
+        header("location: ./view/inici.php");
 
     }
 
@@ -123,7 +123,7 @@ class TrivialController
         $idusuari = $usuari->loadUsuario($this->adapter); 
         setcookie ("USR_ID", $idusuari, time() + 86400);
         setcookie ("NOMJUGADOR", $_POST["UsuarioL"], time() + 86400);
-        //header("location: ./view/inici.php");
+        header("location: ./view/inici.php");
 
 
     }

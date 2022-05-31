@@ -4,12 +4,12 @@ $imgusu = "";
 /* definicio de la cockieee */
 $classe_escondite = "";
 $classe_amagar = "";
-if(isset($_COOKIE["usuari"])){
+if(isset($_COOKIE["NOMJUGADOR"])){
   //echo $_COOKIE["usuari"];
-  $nomusuari = $_COOKIE["usuari"];
+  $nomusuari = $_COOKIE["NOMJUGADOR"];
   $classe_amagar = "amagar";
 } 
-if(! isset($_COOKIE["usuari"])){
+if(! isset($_COOKIE["NOMJUGADOR"])){
   $classe_escondite = "escondite";
 }   
   $id_usuari = 0;
@@ -160,7 +160,7 @@ global $conexion;
             <li><a class="dropdown-item" href="#"><?php echo $traduccions["Opciones"] ?></a></li>
             <li><a class="dropdown-item" href="./perfil_alternatiu.php?ID=1"><?php echo $traduccions["Perfil"] ?></a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="../index.php?accio=cerrarsesion"><?php echo $traduccions["Cerrar session"] ?></a></li>
+            <li><a class="dropdown-item" href="../index.php?accio=cerrarsesion"><?php echo $traduccions["Cerrar session"] . " (" . $nomusuari . ")" ?></a></li>
           </ul>
     
         </div>

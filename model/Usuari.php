@@ -83,10 +83,12 @@ class Usuari
     }
 
     function loadUsuario($connect){
-        $sql = " SELECT ID from usuaris_registrats where usr_username ='". $this->usr_cname ."' or usr_email ='". $this->email ."'" ;  
+        $sql = " SELECT ID from usuaris_registrats where usr_username ='". $this->usr_cname ."' and usr_pwd ='". $this->contrasenya ."'" ;  
         $result = $connect -> query($sql);
+        //print_r($result, false);
         if ($result->num_rows > 0){
-           return   $result->ID;
+            $row = $result->fetch_array(MYSQLI_NUM);
+           return   $row[0];
         }else{
             return   0;
         }
