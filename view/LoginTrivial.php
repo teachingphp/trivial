@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/RegistrarseTrivial.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" type="text/css" href="../css/LoginTrivial.css?v=<?php echo time(); ?>">
 
         <title>Cool Trivial - Login</title>
     </head>
@@ -18,26 +18,27 @@
             <span>Cool Trivial</span>
     </h1>
     
-    <form action="../view/inici.php" method="post">
+    <form action="../index.php" method="post">
     <div class="field">
-        <input id="Usuario" name="Usuario" type="text" placeholder=" " required>
-        <label for="Usuario">Usuario</label>
+        <input id="UsuarioL" name="UsuarioL" onfocusout = "validateUsernameL()" type="text" placeholder=" " required>
+        <label for="UsuarioL">Usuario</label>
     </div>
-
+    <label id ="UsuarioErrL" forerr="UsuarioErrL" hidden>Usuario no existente</label>
     <div class="field">
         
-        <input type="password" placeholder=" " name="Contra" id="Contra" required>
-        <label for="Contraseña">Contraseña</label>
+        <input type="password" placeholder=" " name="ContraL" onfocusout = "validatePasswordL()" id="ContraL" required>
+        <label for="ContraL">Contraseña</label>
     </div>
+    <label id ="ContraErrL" forerr="ContraErrL" hidden>Contraseña incorrecta</label>
     
         <br>
-        <input type="submit" name="LoginU" value="Entrar" id="RegistBTN">
+        <input type="text" name="accio" value ="login" hidden>
+        <input type="submit" name="LoginU" value="Entrar" id="RegistBTN2" disabled>
         </div>
 
     </form>
-    <!-- Trigger/Open The Modal -->
             </div>
-            <div class="column"></div>
+            <div class="column2"></div>
         </div>
         
     
@@ -45,10 +46,10 @@
 
     </div>
   
-
-
-    
-        </body>
+    </body>
+            
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script type="text/javascript" src="../js/ConfUsr.js?v=<?php echo time(); ?>"></script>
 
         
 </html>

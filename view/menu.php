@@ -5,7 +5,7 @@ $imgusu = "";
 $classe_escondite = "";
 $classe_amagar = "";
 if(isset($_COOKIE["usuari"])){
-  echo $_COOKIE["usuari"];
+  //echo $_COOKIE["usuari"];
   $nomusuari = $_COOKIE["usuari"];
   $classe_amagar = "amagar";
 } 
@@ -25,9 +25,20 @@ if(! isset($_COOKIE["usuari"])){
 /* definicio de idiomes i crida a la DB*/
 
 $idioma ="ES"; 
+$url_avis = "./avislegal.php";
 if(isset($_COOKIE["idioma"])){
   $idioma = $_COOKIE["idioma"];
+
+  //avislegal.php ES
+  //avislegalENG.php
+  //avislegalCAT.php
+  if ($idioma <> "ES"){
+    $url_avis = "./avislegal".$idioma.".php";
+  } 
+  
+
 }
+
 $nom_columna = "IDIOMA_" . $idioma;
 
 require("../controller/TrivialController.php");
@@ -126,7 +137,7 @@ global $conexion;
           <li><a href="./hallfame.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Salón de la Fama"] ?></a></li>
           <li><a href="./crearpartida.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Crear Partida"] ?></a></li>
           <li><a href="./faqs.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Preguntas Frecuentes"] ?></a></li>
-          <li><a href="./avislegal.php" class="nav-link px-2 link-dark"><?php echo $traduccions["Aviso legal"] ?></a></li>
+          <li><a href="<?php echo $url_avis?>" class="nav-link px-2 link-dark"><?php echo $traduccions["Aviso legal"] ?></a></li>
           
           <li><a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"><?php echo $traduccions["Idiomas"] ?></a>
           <ul class="dropdown-menu">
@@ -145,7 +156,7 @@ global $conexion;
         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle <?php echo $classe_escondite ?>" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="<?php echo $ruta_imatge?>" alt="mdo" width="32" height="32" class="rounded-circle"></img></a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="#"><?php echo $traduccions["Metas"] ?></a></li>
+            <li><a class="dropdown-item" href="../index.php?accio=jugar"><?php echo $traduccions["Metas"] ?></a></li>
             <li><a class="dropdown-item" href="#"><?php echo $traduccions["Opciones"] ?></a></li>
             <li><a class="dropdown-item" href="./perfil_alternatiu.php?ID=1"><?php echo $traduccions["Perfil"] ?></a></li>
             <li><hr class="dropdown-divider"></li>
@@ -171,7 +182,7 @@ global $conexion;
   }
 
   function SingOut (){
-    alert("hola putos ok");
+    location.href="./LoginTrivial.php";
 
   }
 

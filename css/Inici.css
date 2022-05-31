@@ -17,8 +17,6 @@ header {
     color: white;
 }
 
-div-1{
-}
 
 summary {
     background: rgba(98, 207, 240, 0.4);
@@ -90,7 +88,7 @@ footer {
     text-align: center;
     background: rgb(65, 219, 160);
     background-color:transparent;
-    text-color:white;
+    color:white;
 }
 /*Barra*/
 hr{
@@ -111,7 +109,7 @@ p-footer{
 
 #myDIV1{    
     
-    background: rgba(98, 207, 240, 0.4); */
+    background: rgba(98, 207, 240, 0.4); 
     min-height: 100%;
     border-radius:20px;
     border-radius-bot:10px;
@@ -125,10 +123,12 @@ p-footer{
     margin-bottom: 2%;
     margin-right: 2%;
     text-align: center;
+
     background-color: #c7fafa;
-    border: 1px color:rgb(10, 10, 10);
-    border-radius:20px;
-    /*padding:auto;*/
+    border: 1px ;
+    color: rgb(10, 10, 10);
+    border-radius:20px ;
+    
 }
 
 #myDIV3{
@@ -138,7 +138,8 @@ p-footer{
     margin-right: 2%;
     text-align: center;
     background-color: #c7fafa;
-    border: 1px color:rgb(10, 10, 10);
+    border: 1px ;
+    color:rgb(10, 10, 10);
     border-radius:20px;
     /*
     text-align: center;
@@ -156,7 +157,8 @@ p-footer{
     margin-right: 2%;
     text-align: center;
     background-color: #c7fafa;
-    border: 1px color:rgb(10, 10, 10);;
+    border: 1px; 
+    color:rgb(10, 10, 10);
     border-radius:20px;
     border-radius-bottom:20px;
     /*padding:auto;*/
@@ -169,7 +171,8 @@ p-footer{
     margin-right: 2%;
     text-align: center;
     background-color: #c7fafa;
-    border: 1px color:rgb(10, 10, 10);
+    border: 1px ;
+    color:rgb(10, 10, 10);
     border-radius:20px;
 }
 

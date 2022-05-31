@@ -85,7 +85,7 @@
         
       </div>
       <div class="p-1">
-        <h5 class="text-light text-center m-0">Partida X</h5>
+        <h5 id ="namePartida" class="text-light text-center m-0">Partida X</h5>
       </div>
     </div>
     <div class="container-fluid">
@@ -93,23 +93,22 @@
         <div class="col-12 col-lg-7 col-xl-8 p-0 d-flex flex-column">
           <div class="flex-grow-1 d-flex flex-column">
             <div class="p-1">
-              <div class="alert alert-primary p-1 m-0">
+
+
+            <div class="alert alert-primary p-1 m-0">
                 <div class="d-none d-sm-block float-left pr-2">
-                  
                 </div>
-                <strong>¡Juega con tus amigos!</strong>
-                <br>¡Comparte con ellos el enlace a la partida!<br>
+                <strong>Escribe el nombre de tu partida</strong>
                 <div class="input-group link-input">
-                  <input type="text" class="form-control" readonly="" value="Link generado" id="linkCopiar">
+                  <input type="text" class="form-control" placeholder="Nombre de la partida" id="nombreDeLaPartida">
                   <div class="input-group-append">
-                    <button type="submit" class="btn btn-primary" data-clipboard-text="" title="Copiar al portapapeles" onclick="copiarPortapapeles()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive" viewBox="0 0 16 16">
-                      <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-                    </svg>
+                    <button type="submit" class="btn btn-primary" data-clipboard-text="" title="Confirmar" onclick="confirmarNombrePartida()"> Confirmar
                     </button>
                   </div>
                 </div>
               </div>
+
+  
             </div>
             <div class="p-1 flex-grow-1 d-flex flex-column" id="joc">
               <div class="bg-whats rounded py-5 px-1 text-center flex-grow-1">
@@ -119,7 +118,7 @@
                     <div class="col-0 col-md-2 col-xl-3">
                     </div>
                     <div class="col-12 col-md-8 col-xl-6">
-                      <button class="btn btn-lg btn-primary btn-block" onclick='crearPartida()'>Crear partida</button>
+                      <button class="btn btn-lg btn-primary btn-block" id="idCrear" disabled onclick='crearPartida()'>Crear partida</button>
                       <button type="button" class="btn btn-lg btn-secondary btn-block" data-bs-toggle="modal" data-bs-target="#ModalConfig">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
                             <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
@@ -165,7 +164,9 @@
                               <br>
                               
                                  <input class="form-check-input" type="checkbox" onclick="" value="" id="comodin1" disabled> 
-                                 
+                                 <input class="form-check-input" type="checkbox" onclick="" value="" id="comodin2" disabled> 
+                                 <input class="form-check-input" type="checkbox" onclick="" value="" id="comodin3" disabled> 
+                                 <input class="form-check-input" type="checkbox" onclick="" value="" id="comodin4" disabled> 
                               
                               </div>
                             </div>
@@ -215,27 +216,64 @@
  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="../js/joc.js?v=<?php echo time();?>"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script> 
 
-  function activarTiempo(){
-    if (document.getElementById("idactivar").checked ){
-      document.getElementById("idtiempo").disabled = false;
-    }else {
-      document.getElementById("idtiempo").disabled = true;
+    function activarTiempo(){
+      if (document.getElementById("idactivar").checked ){
+        document.getElementById("idtiempo").disabled = false;
+      }else {
+        document.getElementById("idtiempo").disabled = true;
+      }
     }
-  }
+    
     function GuardarC(){
 
-     alert ("La configuración se ha guardado correctamente");
-     }
-        function activarComodin(){
-            alert(1);
-           if (document.getElementById("activarComodin").checked ){
-            document.getElementById("comodin1").disabled = false;
-           }else {
-            document.getElementById("comodin1").disabled = true;
-           }
+      console.log("esto: " + document.getElementById("comodin1").checked);
+
+      $.ajax ({  
+          type: 'GET', 
+          url: '../index.php?accio=guardarConf', 
+          data: { idtiempo: document.getElementById("idtiempo").value, 
+            idcomodin1: document.getElementById("comodin1").checked, 
+            idcomodin2: document.getElementById("comodin2").checked, 
+            idcomodin3: document.getElementById("comodin3").checked, 
+            idcomodin4: document.getElementById("comodin4").checked },
+          success: function(response) {
+                //console.log(response);
+               if(response==1){
+                    alert ("La configuración se ha guardado correctamente");
+                    document.getElementById("idCrear").disabled = false;
+
+                }
+              
+ 
           }
+    });
+
+      
+    }
+        
+     
+    function activarComodin(){
+      //alert(1);
+      if (document.getElementById("activarComodin").checked ){
+      document.getElementById("comodin1").disabled = false;
+      document.getElementById("comodin2").disabled = false;
+      document.getElementById("comodin3").disabled = false;
+      document.getElementById("comodin4").disabled = false;
+      }else {
+        document.getElementById("comodin1").disabled = true;
+        document.getElementById("comodin2").disabled = true;
+        document.getElementById("comodin3").disabled = true;
+        document.getElementById("comodin4").disabled = true;
+      }
+    }
+
+    function confirmarNombrePartida(){
+        document.getElementById("namePartida").innerHTML = "Partida " +  document.getElementById("nombreDeLaPartida").value;
+    }
+
         
 </script>
       
