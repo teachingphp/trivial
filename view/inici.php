@@ -44,8 +44,7 @@
                     </div>
                 </div>
                 
-                <div class="col-lg-1"></div>
-                <div id ="myDIV2" class="col-lg-4">
+                <div id ="myDIV2" class="col-lg-5">
                     <div class="accordion accordion-flush" id="accordionExample">
                         <div class="accordion-item">
                             <h3 class="accordion-header" id="headingOne">
