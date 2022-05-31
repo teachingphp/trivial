@@ -6,7 +6,7 @@ var quantes_preguntes = 0;
 var puntuacio = 0;
 var num_aciertos = 0;
 var respostesJoc;
-
+var IDjugador;
 
 function getCookie(name) {
     function escape(s) { return s.replace(/([.*+?\^$(){}|\[\]\/\\])/g, '\\$1'); }
@@ -168,7 +168,7 @@ function finalitzaPartidaAjax(){
   $.ajax({  
     type: 'GET',  
     url: '../index.php?accio=finalitzaPartida', 
-    data: { nom_jugador: getCookie ("NOMJUGADOR"), id_partida : 1, id_jugador: 1, punts: puntuacio, acerts: aciertos },
+    data: { nom_jugador: getCookie ("NOMJUGADOR"), id_partida : getCookie ("IDPARTIDA"), id_jugador: IDjugador, punts: puntuacio, acerts: num_aciertos },
     success: function(response) {
           //console.log(response);
         if(response==0){
@@ -187,14 +187,14 @@ function resultsAjax(){
   $.ajax({  
     type: 'GET',  
     url: '../index.php?accio=resultatsPartida', 
-    data: { id_partida : 4},
+    data: { id_partida : getCookie ("IDPARTIDA")},
     success: function(response) {
           //console.log(response);
         if(response==0){
           
         }
         else if(response==1){
-          
+            alert("Vamos a jugar");
         }
 
     }
@@ -247,14 +247,16 @@ function finalitzaPartida() {
       $.ajax({  
         type: 'GET',  
         url: '../index.php?accio=crearJugador', 
-        data: { nom_jugador: getCookie ("NOMJUGADOR"), id_partida : 1 },
+        data: { nom_jugador: getCookie ("NOMJUGADOR"), id_partida : getCookie("IDPARTIDA") },
         success: function(response) {
               //console.log(response);
             if(response==0){
               location.reload();
             }
-            else if(response==1){
-              alert("Vamos a jugar");
+            else if(response!=0){
+              IDjugador = response;
+              alert("Vamos a jugar"+IDjugador);
+              
             }
 
         }
@@ -349,6 +351,7 @@ function submitUsername() {
     if (document.getElementById("usernameInput").value !== null) {
         document.cookie = "NOMJUGADOR=" + document.getElementById("usernameInput").value;
         document.getElementById("anon").classList.remove("d-none");
+        document.getElementById("game").classList.remove("disabledbutton");
         location.reload();
     }
 }
