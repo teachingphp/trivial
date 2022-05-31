@@ -125,7 +125,8 @@ p-footer{
     text-align: center;
 
     background-color: #c7fafa;
-    border: 1px , color: rgb(10, 10, 10);
+    border: 1px ;
+    color: rgb(10, 10, 10);
     border-radius:20px ;
     
 }
@@ -137,7 +138,8 @@ p-footer{
     margin-right: 2%;
     text-align: center;
     background-color: #c7fafa;
-    border: 1px color:rgb(10, 10, 10);
+    border: 1px ;
+    color:rgb(10, 10, 10);
     border-radius:20px;
     /*
     text-align: center;
@@ -155,7 +157,8 @@ p-footer{
     margin-right: 2%;
     text-align: center;
     background-color: #c7fafa;
-    border: 1px color:rgb(10, 10, 10);;
+    border: 1px; 
+    color:rgb(10, 10, 10);
     border-radius:20px;
     border-radius-bottom:20px;
     /*padding:auto;*/
@@ -168,7 +171,8 @@ p-footer{
     margin-right: 2%;
     text-align: center;
     background-color: #c7fafa;
-    border: 1px color:rgb(10, 10, 10);
+    border: 1px ;
+    color:rgb(10, 10, 10);
     border-radius:20px;
 }
 

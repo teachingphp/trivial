@@ -92,7 +92,7 @@ class TrivialController
         }
 
 
-        require("view/cerrarsesion.php");
+        
     }
 
     public function cerrarsesion(){
@@ -107,7 +107,7 @@ class TrivialController
             }
         }
         //Le paso los datos a la vista
-        require("view/cerrarsesion.php");
+        header("location: ./view/inici.php");
 
     }
 
@@ -122,7 +122,8 @@ class TrivialController
 
         $idusuari = $usuari->loadUsuario($this->adapter); 
         setcookie ("USR_ID", $idusuari, time() + 86400);
-        //header("location: ./view/inici.php");
+        setcookie ("NOMJUGADOR", $_POST["UsuarioL"], time() + 86400);
+        header("location: ./view/inici.php");
 
 
     }
@@ -218,6 +219,19 @@ class TrivialController
             echo 1;
         }
     }
+
+    public function actualitzaPerfil(){
+        $user = $_GET["username"];
+        $pass = $_GET["password"];
+        $id = $_GET["id"];
+        $sql = " UPDATE usuaris_registrats SET usr_username = '".$user."',usr_pwd = '".$pass."' WHERE (ID = '".$id."')";
+          
+        $result = $this->adapter -> query($sql);
+
+        echo 1;
+        
+    }
+
 
     public function validaremail(){
         $useremail = $_GET["email"];
