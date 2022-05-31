@@ -122,6 +122,7 @@ class TrivialController
 
         $idusuari = $usuari->loadUsuario($this->adapter); 
         setcookie ("USR_ID", $idusuari, time() + 86400);
+        setcookie ("NOMJUGADOR", $_POST["UsuarioL"], time() + 86400);
         //header("location: ./view/inici.php");
 
 
