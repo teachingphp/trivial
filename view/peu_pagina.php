@@ -19,7 +19,7 @@
                         </button-f>
                     </div>
                     <div class="col-sm-2">
-                        <button-f onclick="window.location.href='./peu_pagina.php';">
+                        <button-f onclick="window.location.href='./cookies.php';">
                             <p-footer>Gestion de Cookies</p-footer>
                         </button-f>
                     </div>
