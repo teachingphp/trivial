@@ -14,8 +14,8 @@ if(! isset($_COOKIE["usuari"])){
 }   
   $id_usuari = 0;
   $ruta_imatge ="../files/Perfils/perfil_defecte.png";
-  if (isset($_COOKIE["Usid"])){
-    $id_usuari = $_COOKIE["Usid"];
+  if (isset($_COOKIE["USR_ID"])){
+    $id_usuari = $_COOKIE["USR_ID"];
     $ruta_imatge = "../files/Perfils/perfil_" . $id_usuari.".jpg";
     if (!file_exists($ruta_imatge) ){
       $ruta_imatge ="../files/Perfils/perfil_defecte.png";
