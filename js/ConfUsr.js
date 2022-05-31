@@ -89,11 +89,13 @@ function validateUsername(){
                   document.getElementById("ContraL").style = "color:red";
                   document.getElementById("ContraErrL").style = "display:block; color:red";
                   ContraLX.setCustomValidity("La contraseña es incorrecta");
+                  document.getElementById("RegistBTN2").disabled = true;
                   }
                  else if(response==0){
                   document.getElementById("ContraL").style = "color:green";
                   document.getElementById("ContraErrL").style = "display:none";
                   ContraLX.setCustomValidity('');
+                  document.getElementById("RegistBTN2").disabled = false;
                  }
    
             }

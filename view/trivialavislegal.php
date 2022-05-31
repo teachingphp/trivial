@@ -66,9 +66,7 @@ $textes = array("¡Maria quiere conocerte!, chatea con ella en este enlace http:
       document.getElementById("idtext").innerHTML = textes[i - 1];
         //console.log(textes[i - 1]);
       }, 5000 * i); 
-      if (i== textes.length){
-        i=1;
-      }
+      
 }
 
       </script>
