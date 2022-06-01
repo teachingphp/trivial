@@ -175,7 +175,7 @@ function finalitzaPartidaAjax(){
           
         }
         else if(response==1){
-          
+          alert("Dades de la partida pujades");
         }
 
     }
