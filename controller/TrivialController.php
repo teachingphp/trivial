@@ -95,6 +95,15 @@ class TrivialController
         
     }
 
+
+    public function GuardarAvatar(){
+
+        $ruta_origen = $_GET["rutaimagen"];
+        $ruta_destino = "../files/Perfils/perfil_" . $_COOKIE["USR_ID"].".jpg";
+        move_uploaded_file($ruta_origen,$ruta_destino );
+
+    }
+
     public function cerrarsesion(){
 
         if (isset($_SERVER['HTTP_COOKIE'])) {
