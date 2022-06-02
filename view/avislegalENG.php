@@ -7,6 +7,8 @@
 
 <body style="size:1040px;height:600px;background:url('../files/avislegal/minimalist.png') no-repeat; background-size: 100% 100%;">
 
+<img src="../files/avislegal/englishidiom.png" width="35" height="35"/>
+
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,6 +58,6 @@ h4 {text-align: center;}
 <body>
    <head>
       <title>Redirection</title>
-            <meta http-equiv = "refresh" content = "5; url = https://teachingphp.endinahosting.com/trivial/view/trivialavislegal.php?" />
+            <meta http-equiv = "refresh" content = "5; url = https://teachingphp.endinahosting.com/trivial/view/trivialavislegalENG.php?" />
    </head>
 </html>

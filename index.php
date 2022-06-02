@@ -33,13 +33,17 @@ else if (isset($_POST["accio"]) && $_POST["accio"] == "pujarfitxer"){
 }else if (isset($_GET["accio"]) && $_GET["accio"] == "crearpartida"){
     //echo print_r($_FILES);
     $controller->crearpartida();
-}else if (isset($_GET["accio"]) && $_GET["accio"] == "finalitzapartida"){
+}else if (isset($_GET["accio"]) && $_GET["accio"] == "finalitzaPartida"){
     //echo print_r($_FILES);
     $controller->finalitzaPartida();
 }
 else if (isset($_GET["accio"]) && $_GET["accio"] == "validarUsr"){
     //echo print_r($_FILES);
     $controller->validarUsr();
+}
+else if (isset($_GET["accio"]) && $_GET["accio"] == "actualitzaPerfil"){
+    //echo print_r($_FILES);
+    $controller->actualitzaPerfil();
 }
 else if (isset($_GET["accio"]) && $_GET["accio"] == "crearJugador"){
     //echo print_r($_FILES);
@@ -72,6 +76,7 @@ else if (isset($_GET["accio"]) && $_GET["accio"] == "jugar"){
 else if (isset($_POST["accio"]) && $_POST["accio"] == "login"){
     //echo print_r($_FILES);
     $controller->login();
+}
 else if (isset($_GET["accio"]) && $_GET["accio"] == "resultatsPartida"){
     //echo print_r($_FILES);
     $controller->resultatsPartida();

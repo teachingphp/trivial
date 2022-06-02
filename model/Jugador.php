@@ -67,26 +67,29 @@ class Jugador
     function guardarJugador($conexion){
         if (!isset($this->usr_id)){
             $sql = "INSERT INTO jugadors (usr_id, jug_nom) values (null".",'".$this->nom."');";
-            $sql .= "INSERT INTO jugadors_partida (part_id,jug_id) select ".$_GET["IDPARTIDA"].", ID from jugadors where jug_nom =".$this->nom.";";
+            
         }else{
             $sql = "INSERT INTO jugadors (usr_id, jug_nom) values (".$this->usr_id.",'".$this->nom."');";
-            $sql .= "INSERT INTO jugadors_partida (part_id,jug_id) select ".$_GET["IDPARTIDA"].", ID from jugadors where jug_nom =".$this->nom.";";
-
         }
-     
-        print_r($sql);
+        $conexion->query($sql);
+        $last_id  = $conexion->insert_id;
+        $sql2 = "INSERT INTO jugadors_partida (part_id,jug_id) VALUES (".$_COOKIE["IDPARTIDA"].",".$last_id.");";
+        $conexion->query($sql2);
+        // print_r($sql);
         // MULTI_QUERY DEIXA EXECUTAR CONSULTES MÚLTIPLES (Falta probar)
-        //return $conexion->multi_query($sql);
+        // $conexion->multi_query($sql);
+
+        return $last_id;
         // $result = $conexion -> query($sql);
     }
-    function updateJugador($conexion, $id_partida,$id_jug,$puntsJug,$aciertosJug,$usr_id){
-        $sql = "UPDATE JUGADORS SET jug_punts =".$puntsJug.", jug_aciertos =".$aciertosJug. " WHERE ID=". $id_jug;
+    function updateJugador($conexion,$id_jug,$puntsJug,$aciertosJug,$usr_id){
+        $sql = "UPDATE jugadors SET jug_punts =".$puntsJug.", jug_aciertos =".$aciertosJug. " WHERE ID=". $id_jug.";";
         if (isset($usr_id)){
             //Usuari registrat, fem update de la seva experiencia
-            $sql .= "UPDATE USUARIS_REGISTRATS SET usr_exp = usr_exp + ".$puntsJug."WHERE ID=".$usr_id;
+            $sql .= "UPDATE usuaris_registrats SET usr_exp = IFNULL(usr_exp,0) + ".$puntsJug." WHERE ID=".$usr_id.";";
         }
-        print_r($sql);
-        // $result = $conexion -> multi_query($sql);
+        // print_r($sql." ");
+        $conexion -> multi_query($sql);
 
     }
 
