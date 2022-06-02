@@ -283,7 +283,7 @@ class TrivialController
                 $jugador = new Jugador($_COOKIE["USR_ID"],$_GET["nom_jugador"]);
             }
             
-            echo $jugador->guardarJugador($this->adapter,);; //HA ANAT BE
+            echo $jugador->guardarJugador($this->adapter); //HA ANAT BE
         }catch(Exception $e){
             echo 0; //HA ANAT MALAMENT
 

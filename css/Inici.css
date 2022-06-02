@@ -186,7 +186,8 @@ button-f{
 
 .iframe {
    
-   height: 700px;
+   height: 800px;
+   min-width: 100%;
     
     
 }

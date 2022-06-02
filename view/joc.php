@@ -277,7 +277,9 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
         </div>
         <div class="col-12 col-lg-5 col-xl-4 p-0 d-flex flex-column">
           <div class="p-1 flex-grow-1">
+            
             <?php 
+            /*
               for ($i = 1; $i <= count($jugadors); $i++) {
                 echo `<div class="scoreboard bg-whats rounded"><!-- Per cada jugador de la partida loop -->
                 <div class=""><div>
@@ -295,7 +297,9 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                 </div>
               </div>`;
             }
+            */
              ?>
+             
             
           </div>
         </div>

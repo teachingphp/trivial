@@ -13,7 +13,7 @@
                 <img src="../files/sources/imatges/titol.gif" style=center width="20%" height="20%"></img>
             </h1>
         
-        <div id = "myDIV1" class="container";>
+        <div id = "myDIV1" class="container">
             <div class="row">
                 <div id ="myDIV2" class="container col-lg-6">
                     <div class="row">
@@ -44,19 +44,20 @@
                     </div>
                 </div>
                 
-                <div class="col-lg-1"></div>
-                <div id ="myDIV2" class="col-lg-4">
+                <div id ="myDIV2" class="col-lg-5">
                     <div class="accordion accordion-flush" id="accordionExample">
                         <div class="accordion-item">
                             <h3 class="accordion-header" id="headingOne">
+                                
                                 <button  class="accordion-button card text-white bg-dark mb-3 btn-block " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     <h3 ><?php echo $traduccions["Salón de la Fama"] ?></h3>
                                 </button>       
-                            </h3>     
+                            </h3>
+
                             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
 
                                  <iframe class ="iframe" src="./hallfame_iframe.php"></iframe>
-                                
+                            </div>    
                         </div>
                     </div>
                     
