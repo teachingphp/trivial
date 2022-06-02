@@ -38,7 +38,7 @@ $textes = array("¡Maria quiere conocerte!, chatea con ella en este enlace http:
       <div style="display:inline-block"  class="g-recaptcha" data-callback="enableBtn" data-sitekey="<?php echo $siteKey;?>"></div>
       <br/>
       <script type="text/javascript"
-          src="https://www.google.com/recaptcha/api.js?hl=<?php echo $lang;?>">
+          src="https://www.google.com/recaptcha/api.js?hl=es">
       </script>
       <br/>  
       <input id="button1" type="submit" value="Aceptar" disabled>
@@ -53,6 +53,8 @@ $textes = array("¡Maria quiere conocerte!, chatea con ella en este enlace http:
       <br>
       <img style="margin: auto;" src="../files/avislegal/captcha.gif" <img><br><label id ="idtext"> <?php echo $textes[0];  ?></label>
     </form>
+
+    <img src="../files/avislegal/espidiom.png" width="35" height="35"/>
 
     <script>
         function enableBtn(){

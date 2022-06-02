@@ -92,7 +92,7 @@ class TrivialController
         }
 
 
-        require("view/cerrarsesion.php");
+        
     }
 
     public function cerrarsesion(){
@@ -107,7 +107,7 @@ class TrivialController
             }
         }
         //Le paso los datos a la vista
-        require("view/cerrarsesion.php");
+        header("location: ./view/inici.php");
 
     }
 
@@ -122,7 +122,8 @@ class TrivialController
 
         $idusuari = $usuari->loadUsuario($this->adapter); 
         setcookie ("USR_ID", $idusuari, time() + 86400);
-        //header("location: ./view/inici.php");
+        setcookie ("NOMJUGADOR", $_POST["UsuarioL"], time() + 86400);
+        header("location: ./view/inici.php");
 
 
     }
@@ -188,7 +189,16 @@ class TrivialController
         .  " WHERE (`ID` = '". $ultimo_reg."')";
         $result = $this->adapter -> query($sql);
         echo 1;
-
+        
+        if (isset($_COOKIE["USR_ID"])){
+           
+            //Usuari registrat
+            $sqlUser = " SELECT * from usuaris_registrats where ID ='". $_COOKIE["USR_ID"] ."'" ;  
+            $resultUser = $this->adapter-> query($sqlUser);
+            foreach($resultUser as $value){
+              setcookie("NOMJUGADOR", $value["usr_username"], time() + (86400 * 30), "/"); // 86400 = 1 day
+             }
+        }
         header("Location: ./view/joc.php?id_partida=" . $ultimo_reg);
 
         //$url_compartir = "http://localhost/triviaL/view/joc.php?id_partida=" . $ultimo_reg;
@@ -272,8 +282,8 @@ class TrivialController
                 //Jugador logat, utilitzem USR_ID
                 $jugador = new Jugador($_COOKIE["USR_ID"],$_GET["nom_jugador"]);
             }
-            $jugador->guardarJugador($this->adapter,);
-            echo 1; //HA ANAT BE
+            
+            echo $jugador->guardarJugador($this->adapter); //HA ANAT BE
         }catch(Exception $e){
             echo 0; //HA ANAT MALAMENT
 
@@ -289,11 +299,11 @@ class TrivialController
             if (!isset($_COOKIE["USR_ID"])){
                 //Jugador anonim, sense USR_ID
                 $jugador = new Jugador(null,$_GET["nom_jugador"]);
-                $jugador->UpdateJugador($this->adapter, $partidaID, $jugadorID, $puntos, $aciertos, null );
+                $jugador->UpdateJugador($this->adapter, $jugadorID, $puntos, $aciertos, null );
             }else{
                 //Jugador logat, utilitzem USR_ID
                 $jugador = new Jugador($_COOKIE["USR_ID"],$_GET["nom_jugador"]);
-                $jugador->UpdateJugador($this->adapter, $partidaID, $jugadorID, $puntos, $aciertos, $_COOKIE["USR_ID"] );
+                $jugador->UpdateJugador($this->adapter, $jugadorID, $puntos, $aciertos, $_COOKIE["USR_ID"] );
             }
             
             echo 1; //HA ANAT BE

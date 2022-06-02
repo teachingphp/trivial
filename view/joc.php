@@ -68,6 +68,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
   </head>
   <body>
   <?php
+    // ob_start();
     include 'menu.php';
     //Conexión con BBDD
     // require_once dirname(__FILE__).'/../connection/Conectar.php';
@@ -134,11 +135,12 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     //print_r (, false);
     // setcookie("USR_ID", 1, time() + (86400 * 30), "/"); // 86400 = 1 day
     // $_COOKIE['USR_ID'] = 1;
+    
     if (!isset($_COOKIE["USR_ID"])){
       //Usuari anònim
-      if (!isset($_COOKIE["NOMJUGADOR"])){
+       if (!isset($_COOKIE["NOMJUGADOR"])){
         //El jugador no existeix (ens arriba desde obrir partida, el jugador entra per el link compartit)
-       
+        $isDisabled = 'disabledbutton';
     
       }else{
         $isNotAnon = 'd-none';
@@ -146,13 +148,8 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     }else{
       //Usuari registrat
       $isNotAnon = 'd-none';
-      $sqlUser = " SELECT * from usuaris_registrats where ID ='". $_COOKIE["USR_ID"] ."'" ;  
-      $resultUser = $conexion -> query($sqlUser);
-      foreach($resultUser as $value){
-        setcookie("NOMJUGADOR", $value["usr_username"], time() + (86400 * 30), "/"); // 86400 = 1 day
-        $_COOKIE["NOMJUGADOR"] = $value["usr_username"];
-      }
     }
+    // ob_end_flush();
   
   ?>
 
@@ -165,7 +162,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                     </div>
                     <div class="col-12 col-md-8 col-xl-6">
                       <div class="p-1">
-                        <div class="alert alert-primary p-1 m-0">
+                        <div class="alert alert-success p-1 m-0">
                           <div class="d-none d-sm-block float-left pr-2">
                             
                           </div>
@@ -174,9 +171,11 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                           <div class="input-group link-input">
                             <input type="text" class="form-control" id="usernameInput">
                             <div class="input-group-append">
-                              <button type="submit" class="btn btn-primary" data-clipboard-text=""  onclick="submitUsername()">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-archive" viewBox="0 0 16 16">
-                                <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                              <button type="submit" class="btn btn-success" data-clipboard-text=""  onclick="submitUsername()">
+                              Entrar
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-down-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M7.364 12.5a.5.5 0 0 0 .5.5H14.5a1.5 1.5 0 0 0 1.5-1.5v-10A1.5 1.5 0 0 0 14.5 0h-10A1.5 1.5 0 0 0 3 1.5v6.636a.5.5 0 1 0 1 0V1.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5H7.864a.5.5 0 0 0-.5.5z"/>
+                                <path fill-rule="evenodd" d="M0 15.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1H1.707l8.147-8.146a.5.5 0 0 0-.708-.708L1 14.293V10.5a.5.5 0 0 0-1 0v5z"/>
                               </svg>
                               </button>
                             </div>
@@ -189,7 +188,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
               </div>
  
 
-<div id="game">
+<div id="game" class="<?php echo $isDisabled; ?>">
   <div class="bg-dark bg-dark rounded">
     <div class="p-1">
       <div class="float-end">
@@ -278,7 +277,9 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
         </div>
         <div class="col-12 col-lg-5 col-xl-4 p-0 d-flex flex-column">
           <div class="p-1 flex-grow-1">
+            
             <?php 
+            /*
               for ($i = 1; $i <= count($jugadors); $i++) {
                 echo `<div class="scoreboard bg-whats rounded"><!-- Per cada jugador de la partida loop -->
                 <div class=""><div>
@@ -296,7 +297,9 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
                 </div>
               </div>`;
             }
+            */
              ?>
+             
             
           </div>
         </div>

@@ -59,9 +59,11 @@
     //$conectar=new Conectar();
     //$conexion=$conectar->conexion();
 
-    $sql = "SELECT * FROM preguntes p inner join respostes r on p.id = r.preg_id";
-    $result = $conexion -> query($sql);
-    
+     $nameuser ="";
+     if (isset($_COOKIE["NOMJUGADOR"])){
+       $nameuser = $_COOKIE["NOMJUGADOR"];
+     }
+  
   
   ?>
 
@@ -76,12 +78,7 @@
   <div class="bg-dark bg-dark rounded">
     <div class="p-1">
       <div class="float-end">
-        <a href="" class="btn btn-sm btn-danger">
-          Abandonar
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-          </svg>
-        </a>
+        
         
       </div>
       <div class="p-1">
@@ -90,7 +87,7 @@
     </div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-12 col-lg-7 col-xl-8 p-0 d-flex flex-column">
+        <div class="">
           <div class="flex-grow-1 d-flex flex-column">
             <div class="p-1">
 
@@ -173,7 +170,7 @@
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                              <button type="button" class="btn btn-primary" onclick="GuardarC()">Guardar configuracion</button>
+                              <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" onclick="GuardarC()">Guardar configuracion</button>
                             </div>
                           </div>
                         </div>
@@ -190,7 +187,7 @@
             <div class="scoreboard bg-whats rounded"><!-- Per cada jugador de la partida loop -->
               <div class=""><div>
                 <div class="float-left ml-1">
-                  <div><span class="badge badge-dark">1</span> Jugador 1
+                  <div><span class="badge badge-dark">1</span> <?php echo $nameuser; ?>
                 </div>
                 <div>
                 </div>
