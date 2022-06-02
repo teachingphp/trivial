@@ -9,8 +9,10 @@
 
 <body style="size:1000px;height:900px;background:url('../files/avislegal/manzi.jpg') no-repeat; background-size: 100% 100%;">
 
+<img src="../files/avislegal/espidiom.png" width="35" height="35"/> 
+
 <center>
-<a href="./menu.php">Volver a inicio</a>
+<a href="./inici.php">Volver a inicio</a>
 </center>
 
     <h2>
@@ -35,7 +37,7 @@
 
       El juego de trivial se fundo el 28 de Abril de 2022 y se desarollo por 16 alumnos del CEINA. 
 
-     <h4> Para cualquier comentario o sugerencia sobre los contenidos de este website pueden ponerse en contacto con los anfitriones de la pagina, director general Alberto o programador del aviso legal Marcel php.ceina.marcel@gmail <h4/>
+     <h4> Para cualquier comentario o sugerencia sobre los contenidos de este website pueden ponerse en contacto con los anfitriones de la pagina, director general Alberto o programador del aviso legal Marcel php.ceina.marcel@gmail.com <h4/>
 </center>
 <br/>
 <br/>
