@@ -1,11 +1,13 @@
 <html>
 <head>
-    <title>Aviso legal - Trivial</title>
+    <title>Avís legal - Trivial</title>
 </head>
 <body>
-<i><h1 style="text-align:center;" ><B><FONT COLOR="black"><h3><p style="font-family:'Times New Roman', Times, serif">Aviso Legal</p></h3></h1></i></FONT>
+<i><h1 style="text-align:center;" ><B><FONT COLOR="black"><h3><p style="font-family:'Times New Roman', Times, serif">Avís Legal</p></h3></h1></i></FONT>
 
 <body style="size:1040px;height:600px;background:url('../files/avislegal/minimalist.png') no-repeat; background-size: 100% 100%;">
+
+<img src="../files/avislegal/catidiom.png" width="35" height="35"/>
 
 <html>
 <head>
@@ -42,7 +44,7 @@ h4 {text-align: center;}
 </head>
 <body>
 
-<h4>Cargando reCAPTCHA de Aviso Legal..</h4>
+<h4>Carregant reCAPTCHA d'Avís Legal..</h4>
 
 </body>
 </html>
@@ -56,6 +58,6 @@ h4 {text-align: center;}
 <body>
    <head>
       <title>Redirection</title>
-            <meta http-equiv = "refresh" content = "5; url = https://teachingphp.endinahosting.com/trivial/view/trivialavislegal.php?" />
+            <meta http-equiv = "refresh" content = "5; url = https://teachingphp.endinahosting.com/trivial/view/trivialavislegalCAT.php?" />
    </head>
 </html>
