@@ -86,7 +86,7 @@ class Jugador
         $sql = "UPDATE jugadors SET jug_punts =".$puntsJug.", jug_aciertos =".$aciertosJug. " WHERE ID=". $id_jug.";";
         if (isset($usr_id)){
             //Usuari registrat, fem update de la seva experiencia
-            $sql .= "UPDATE usuaris_registrats SET usr_exp = usr_exp + ".$puntsJug." WHERE ID=".$usr_id.";";
+            $sql .= "UPDATE usuaris_registrats SET usr_exp = IFNULL(usr_exp,0) + ".$puntsJug." WHERE ID=".$usr_id.";";
         }
         // print_r($sql." ");
         $conexion -> multi_query($sql);
