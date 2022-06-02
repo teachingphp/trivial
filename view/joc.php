@@ -77,7 +77,12 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     // $conexion=$conectar->conexion();
     
     if (!isset($_COOKIE["IDPARTIDA"])){
-      $idpartida = 1;
+      if (!isset($_GET["IDPARTIDA"])){
+        setcookie("IDPARTIDA", $_GET["IDPARTIDA"], time()+86400 );
+      }else{
+        $idpartida = 1;
+      }
+      
     }else{
       $idpartida = $_COOKIE["IDPARTIDA"];
     }
@@ -276,29 +281,9 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
           </div>
         </div>
         <div class="col-12 col-lg-5 col-xl-4 p-0 d-flex flex-column">
-          <div class="p-1 flex-grow-1">
-            
-            <?php 
-            /*
-              for ($i = 1; $i <= count($jugadors); $i++) {
-                echo `<div class="scoreboard bg-whats rounded"><!-- Per cada jugador de la partida loop -->
-                <div class=""><div>
-                  <div class="float-left ml-1">
-                    <div><span class="badge badge-dark">1</span> `.$jugadors[$i][1].`
-                  </div>
-                  <div>
-                  </div>
-                </div>
-                <div class="float-right mr-1">
-                  <div>`.$jugadors[$i][2].` puntos</div>
-                  <div>`.$jugadors[$i][3].` aciertos</div></div><div class="clearfix">
-  
-                  </div>
-                </div>
-              </div>`;
-            }
-            */
-             ?>
+          <div  class="p-1 flex-grow-1">
+          <div id ="playersList" class="scoreboard bg-whats rounded"><!-- Per cada jugador de la partida loop -->
+
              
             
           </div>
