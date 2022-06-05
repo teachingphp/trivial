@@ -107,12 +107,15 @@
                     url: '../index.php?accio=GuardarAvatar', 
                     data: { rutaimagen:  document.getElementById("imagen-avatar").src },
                     success: function(response) {
-                       
+                        if (response == 1){
+                            console.log("ha anat be");
+                        }
+                        window.location.href='./crearpartida.php';
         
                     }
             });
 
-            window.location.href='./crearpartida.php';
+            
         }
     
     </script>
