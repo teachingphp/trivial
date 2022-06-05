@@ -223,11 +223,13 @@ class TrivialController
     public function actualitzaPerfil(){
         $user = $_GET["username"];
         $pass = $_GET["password"];
+        $ruta = $_GET["ruta"];
         $id = $_GET["id"];
         $sql = " UPDATE usuaris_registrats SET usr_username = '".$user."',usr_pwd = '".$pass."' WHERE (ID = '".$id."')";
           
         $result = $this->adapter -> query($sql);
 
+        $anatbe = copy($ruta, "./files/sources/imatges/imagenmolonga".$id.".jpg");
         echo 1;
         
     }
