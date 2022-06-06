@@ -7,7 +7,8 @@ var puntuacio = 0;
 var num_aciertos = 0;
 var respostesJoc;
 var IDjugador;
-var listado;
+var IDpartida;
+var listado ="";
 
 function getCookie(name) {
     function escape(s) { return s.replace(/([.*+?\^$(){}|\[\]\/\\])/g, '\\$1'); }
@@ -169,7 +170,7 @@ function finalitzaPartidaAjax(){
   $.ajax({  
     type: 'GET',  
     url: '../index.php?accio=finalitzaPartida', 
-    data: { nom_jugador: getCookie ("NOMJUGADOR"), id_partida : getCookie ("IDPARTIDA"), id_jugador: IDjugador, punts: puntuacio, acerts: num_aciertos },
+    data: { nom_jugador: getCookie ("NOMJUGADOR"), id_partida : IDpartida, id_jugador: IDjugador, punts: puntuacio, acerts: num_aciertos },
     success: function(response) {
           //console.log(response);
         if(response==0){
@@ -211,7 +212,7 @@ function resultsAjax(){
     $.ajax({  
         type: 'GET',  
         url: '../index.php?accio=resultatsPartida', 
-        data: { id_partida : getCookie("IDPARTIDA") },
+        data: { id_partida : IDpartida },
         success: function(response) {
               //console.log(response);
             
@@ -294,11 +295,11 @@ function finalitzaPartida() {
     return "";
   }
 
-  function crearJugadorAssigPartida(){
+  function crearJugadorAssigPartida(idpartida){
       $.ajax({  
         type: 'GET',  
         url: '../index.php?accio=crearJugador', 
-        data: { nom_jugador: getCookie ("NOMJUGADOR"), id_partida : getCookie("IDPARTIDA") },
+        data: { nom_jugador: getCookie ("NOMJUGADOR"), id_partida : idpartida },
         success: function(response) {
               //console.log(response);
             if(response==0){
@@ -315,8 +316,9 @@ function finalitzaPartida() {
 
   }
 
-function startGame(preguntesjson, respostesjson, correctesjson, imatgesjson) {
-    crearJugadorAssigPartida();
+function startGame(preguntesjson, respostesjson, correctesjson, imatgesjson, idpartida) {
+    IDpartida = idpartida;
+    crearJugadorAssigPartida(IDpartida);
     preguntes = preguntesjson;
     respostes = respostesjson;
     correctes = correctesjson;
