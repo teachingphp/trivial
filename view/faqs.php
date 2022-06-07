@@ -1,4 +1,4 @@
-<?php
+  <?php
     include 'menu.php';
   ?>
   <link href="../css/faqs.css?v=<?php echo time(); ?>" rel=stylesheet>
