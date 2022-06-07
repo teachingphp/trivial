@@ -22,7 +22,7 @@
     padding-top: 3rem;
     padding-bottom: 3rem;
     color: #f60f0f;
-    font-family: quieloprobartuboca;
+    font-family: 'NoiceFx';
     background-image:url("../files/sources/imatges/globo.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -53,12 +53,12 @@
   #titulo1{
   color:rgb(255, 72, 0);
   text-align: center;
-  font-family: quieloprobartuboca;
+  font-family: 'NoiceFx';
   }
   
   #p1{
     text-align: center;
-    font-family: quieloprobartuboca;
+    font-family: 'NoiceFx';
     }
 
 /* CUSTOMIZE THE CAROUSEL
@@ -142,4 +142,12 @@
   .featurette-heading {
     margin-top: 7rem;
   }
+}
+
+
+@font-face {
+  font-family: 'NoiceFx';
+  src: url('../files/sources/fuentes/ferrum.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
