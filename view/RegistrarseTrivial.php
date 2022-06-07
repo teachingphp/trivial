@@ -31,7 +31,7 @@
     </div>
     <label id ="UsuarioErr" forerr="UsuarioErr" hidden>Usuario ya registrado, escoge otro</label>
     <div class="field">
-    	<input id="email" name = "email" onfocusout = "validateEmail()" type="email" placeholder=" " required>
+    	<input id="email" name = "email" onfocusout = "validateEmail()" type="email" placeholder=" " required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" title="Introduce email como en el ejemplo:'JohnDoe@ejemplo.fr'" >
         <label for="email">eMail</label>
     </div>
     <label id ="EmailErr" forerr="EmailErr" hidden>Email ya registrado, escoge otro</label>
