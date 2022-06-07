@@ -90,7 +90,7 @@ class TrivialController
             echo "Sorry, there was an error uploading your file.";
         }
         }
-
+        header("location: ./view/crearpartida.php");
 
         
     }
