@@ -1,18 +1,18 @@
 body{
 
-        background-color:lightblue
+background-image:url("https://img.freepik.com/vector-gratis/arte-lineal-semicirculos-oriental-patrones-fisuras-vector-vintage-fondo-abstracto-blanco-semicirculos-decorativos-lineas-finas-elegante-fondo-pantalla-repetitivo-textura-sutil-patron-celosia-moda_87538-2241.jpg?w=2000");
 
 }
 .h1{
     text-align: 100%;
-    color: aliceblue;
+    color: rgb(9, 127, 230);
 }
 .h2{
     text-align: left;
-    color: aliceblue;
+    color: rgb(1, 10, 17);
 }
 .p{
     font-size: 20px ;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    
+    color: rgb(255, 255, 0);
 }
