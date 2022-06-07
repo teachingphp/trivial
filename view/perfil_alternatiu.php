@@ -23,6 +23,8 @@ include 'menu.php';
     $rutaimatge = "../files/sources/imatges/imagenmolonga" . $_GET["ID"] . ".jpg";
     if (!file_exists($rutaimatge)){
       $rutaimatge = "../files/sources/imatges/imagenmolongadefecte.jpg";
+    }else{
+      $rutaimatge = "../files/sources/imatges/imagenmolonga" . $_GET["ID"] . ".jpg?v=". time();
     }
 ?>
   <head>
