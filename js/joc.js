@@ -18,8 +18,17 @@ function getCookie(name) {
 window.onload = function() {
     var ultimoReg = getCookie("IDPARTIDA");
     // document.getElementById("linkCopiar").value = "http://localhost/triviaL/view/joc.php?id_partida=" + ultimoReg;
-    document.getElementById("linkCopiar").value = "http://localhost/ProjecteCEINA/trivial/view/joc.php?id_partida=" + ultimoReg;
-};
+    if (ultimoReg) {
+      document.getElementById("linkCopiar").value = "http://localhost/ProjecteCEINA/trivial/view/joc.php?id_partida=" + ultimoReg;
+    }
+    else{
+      var params = new URL(location.href).searchParams;
+      var partID = params.get('id_partida');
+      document.getElementById("linkCopiar").value = "http://localhost/ProjecteCEINA/trivial/view/joc.php?id_partida=" + partID;
+    }
+     
+  }
+    
 
 function copiarPortapapeles() {
     /* Get the text field */
@@ -321,7 +330,6 @@ function finalitzaPartida() {
 
 function startGame(preguntesjson, respostesjson, correctesjson, imatgesjson, idpartida) {
     IDpartida = idpartida;
-    document.getElementById("linkCopiar").value = "http://localhost/ProjecteCEINA/trivial/view/joc.php?id_partida=" + IDpartida;
     crearJugadorAssigPartida(IDpartida);
     preguntes = preguntesjson;
     respostes = respostesjson;

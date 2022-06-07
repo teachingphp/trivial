@@ -82,18 +82,35 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
         $idpartida = 1;
       }else{
         $idpartida = $_GET["id_partida"];
+
       }
       
     }else{
       $idpartida = $_COOKIE["IDPARTIDA"];
     }
-    if (!isset($_COOKIE["NOMPARTIDA"])){
-      $nompartida = "Cool Trivial";
-    }else{
-      $nompartida = $_COOKIE["NOMPARTIDA"];
+    //Obtenir info partida
+    $sqlPartida = "SELECT part_nom, part_preguntes FROM partida where ID=".$idpartida;
+    $resultPartida = $conexion -> query($sqlPartida);
+    foreach ($resultPartida as $value){
+      //print_r ($value, false);
+      $nompartida = $value["part_nom"];
+      if (isset($value["part_preguntes"])){
+        $numPreguntes = $value["part_preguntes"];
+      }else{
+        $numPreguntes = 10;
+      }
+      
+      $i++;
     }
+    // if (!isset($_COOKIE["NOMPARTIDA"])){
+    //   $nompartida = "Cool Trivial";
+    // }else{
+    //   $nompartida = $_COOKIE["NOMPARTIDA"];
+    // }
+    
+
     //Posar el limit de preguntes
-    $sql = "SELECT * FROM preguntes p inner join respostes r on p.id = r.preg_id order by RAND() LIMIT 10";
+    $sql = "SELECT * FROM preguntes p inner join respostes r on p.id = r.preg_id order by RAND() LIMIT ".$numPreguntes;
     $result = $conexion -> query($sql);
     
     $sqlJugadors = "SELECT j.usr_id, j.jug_nom, j.jug_punts, j.jug_aciertos, p.part_nom FROM jugadors j 
