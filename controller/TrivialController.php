@@ -95,6 +95,15 @@ class TrivialController
         
     }
 
+
+    public function GuardarAvatar(){
+
+        $ruta_origen = $_GET["rutaimagen"];
+        $ruta_destino = "./files/Perfils/perfil_" . $_COOKIE["USR_ID"].".jpg";
+        copy($ruta_origen,$ruta_destino );
+        echo 1;
+    }
+
     public function cerrarsesion(){
 
         if (isset($_SERVER['HTTP_COOKIE'])) {
@@ -223,11 +232,13 @@ class TrivialController
     public function actualitzaPerfil(){
         $user = $_GET["username"];
         $pass = $_GET["password"];
+        $ruta = $_GET["ruta"];
         $id = $_GET["id"];
         $sql = " UPDATE usuaris_registrats SET usr_username = '".$user."',usr_pwd = '".$pass."' WHERE (ID = '".$id."')";
           
         $result = $this->adapter -> query($sql);
 
+        $anatbe = copy($ruta, "./files/sources/imatges/imagenmolonga".$id.".jpg");
         echo 1;
         
     }
@@ -283,7 +294,7 @@ class TrivialController
                 $jugador = new Jugador($_COOKIE["USR_ID"],$_GET["nom_jugador"]);
             }
             
-            echo $jugador->guardarJugador($this->adapter); //HA ANAT BE
+            echo $jugador->guardarJugador($this->adapter, $_GET["id_partida"]); //HA ANAT BE
         }catch(Exception $e){
             echo 0; //HA ANAT MALAMENT
 
@@ -315,11 +326,24 @@ class TrivialController
     }
 
     public function resultatsPartida(){
-        $idPartida = $_GET["id_partida"];
-        $sql = "SELECT j.jug_nom, j.jug_punts, j.jug_aciertos from jugadors j left join jugadors_partida jp 
-        on j.ID = jp.jug_id 
-        where jp.part_id = ".$idPartida." order by jug_punts";
-        $result = $this->adapter -> query($sql);
+        try{
+            $idPartida = $_GET["id_partida"];
+            $sql = "SELECT j.jug_nom, j.jug_punts, j.jug_aciertos from jugadors j left join jugadors_partida jp 
+            on j.ID = jp.jug_id 
+            where jp.part_id = ".$idPartida." order by jug_punts desc";
+            $result = $this->adapter -> query($sql);
+            $listadoJugadores = array();
+               $i = 1;
+            foreach ($result as $value){
+              //print_r ($value, false);
+              $listadoJugadores[$i]= array($value["jug_nom"],$value["jug_punts"],$value["jug_aciertos"]); 
+              $i++;
+            }
+            $listadoJSON = json_encode($listadoJugadores,JSON_UNESCAPED_UNICODE);
+            echo $listadoJSON;
+        }catch(Exception $e){
+            echo 0;
+        }
     }
 
     public function guardarConf(){
