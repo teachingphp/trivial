@@ -18,13 +18,17 @@ function getCookie(name) {
 window.onload = function() {
     var ultimoReg = getCookie("IDPARTIDA");
     // document.getElementById("linkCopiar").value = "http://localhost/triviaL/view/joc.php?id_partida=" + ultimoReg;
+    var location = window.location.href;
+    var directoryPath = location.substring(0, location.lastIndexOf("/")+1);
     if (ultimoReg) {
-      document.getElementById("linkCopiar").value = "http://localhost/ProjecteCEINA/trivial/view/joc.php?id_partida=" + ultimoReg;
+      document.getElementById("linkCopiar").value = directoryPath+"joc.php?id_partida=" + ultimoReg;
     }
     else{
-      var params = new URL(location.href).searchParams;
-      var partID = params.get('id_partida');
-      document.getElementById("linkCopiar").value = "http://localhost/ProjecteCEINA/trivial/view/joc.php?id_partida=" + partID;
+      var queryString = window.location.search;
+      var urlParams = new URLSearchParams(queryString);
+      var params2 = urlParams.get('id_partida');
+
+      document.getElementById("linkCopiar").value = directoryPath+"joc.php?id_partida="+ params2;
     }
      
   }
