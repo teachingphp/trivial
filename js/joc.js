@@ -92,6 +92,10 @@ function changeHMTL(pregunta, totes_respostes, imatge) {
     shuffleArray(elementos);
     respostesJoc = "";
     //console.log(elementos);
+    if (!imatge){
+      imatge ="../files/sources/imatges/categories.gif" ;
+    }
+
     for (let i = 0; i < elementos.length; i++) {
         respostesJoc = respostesJoc + `<button id ="resp` + elementos[i] + `" class="btn btn-lg btn-secondary btn-block" onclick="validaResposta(` + indicador + ',' + elementos[i] + `)">` + totes_respostes[elementos[i]] + `</button>`;
     }
@@ -344,7 +348,12 @@ function startGame(preguntesjson, respostesjson, correctesjson, imatgesjson, idp
     data = preguntes[1];
     //data.forEach(myFunction);
     resposta1 = respostes[preguntes[1]].split(";");
-    imatge = imatges[preguntes[1]];
+    if (imatges[preguntes[1]]){
+      imatge = imatges[preguntes[1]];
+    }
+    else{
+      imatge = "../files/sources/imatges/categories.gif";
+    }
     elementos = [0, 1, 2, 3];
     shuffleArray(elementos);
     respostesJoc = "";
