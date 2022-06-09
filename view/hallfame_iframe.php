@@ -75,7 +75,7 @@
   $conexion=$conectar->conexion();
   
   //Base de dades -> S'hauria de canviar a la base que ha fet el Pol
-  $sql = "SELECT * FROM jugadors ORDER BY jug_punts DESC limit 10";
+  $sql = "SELECT * FROM usuaris_registrats ORDER BY usr_exp DESC limit 10";
     $result = $conexion -> query($sql);
   //query vol dir consulta  
   ?>
@@ -91,8 +91,8 @@
         
 <div class="row">
 <div class="col" style="text-align:center"><img  alt="Imatge perfil" width="60" height="60" class="rounded-circle flex-shrink-0"  src="'.$ruta.'" </img><br><br></div>
-  <div class="col"><h2 style="text-align:left"; >'.$value["jug_nom"].'</h2></div>
-  <div class="col"><p style="text-align:left">'.$value["jug_punts"].' Punts</p></div>
+  <div class="col"><h2 style="text-align:left"; >'.$value["usr_username"].'</h2></div>
+  <div class="col"><p style="text-align:left">'.$value["usr_exp"].' Punts</p></div>
    
 </div>
         ';

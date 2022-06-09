@@ -115,9 +115,15 @@ class TrivialController
                 setcookie($name, '', time()-1000, '/');
             }
         }
+
+        $past = time() - 3600;
+        foreach ( $_COOKIE as $key => $value )
+        {
+            setcookie( $key, $value, $past, '/' );
+        }
         //Le paso los datos a la vista
         header("location: ./view/inici.php");
-
+        Exit();
     }
 
     public function login(){
