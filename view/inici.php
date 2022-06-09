@@ -13,7 +13,7 @@
                 <img src="../files/sources/imatges/titol.gif" style=center width="20%" height="20%"></img>
             </h1>
         
-        <div id = "myDIV1" class="container";>
+        <div id = "myDIV1" class="container">
             <div class="row">
                 <div id ="myDIV2" class="container col-lg-6">
                     <div class="row">
@@ -36,7 +36,7 @@
                         !-->
                         <div id = "myDIV5" class="container col-lg-10">
                             <div class="row">
-                                <button onclick="window.location.href='./crearpartida.php';">
+                                <button onclick="GuardarAvatar()">
                                     <h2><?php echo $traduccions["Crear Partida"] ?></h2>
                                 </button>
                             </div>
@@ -44,19 +44,20 @@
                     </div>
                 </div>
                 
-                <div class="col-lg-1"></div>
-                <div id ="myDIV2" class="col-lg-4">
+                <div id ="myDIV2" class="col-lg-5">
                     <div class="accordion accordion-flush" id="accordionExample">
                         <div class="accordion-item">
                             <h3 class="accordion-header" id="headingOne">
+                                
                                 <button  class="accordion-button card text-white bg-dark mb-3 btn-block " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                     <h3 ><?php echo $traduccions["Salón de la Fama"] ?></h3>
                                 </button>       
-                            </h3>     
+                            </h3>
+
                             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
 
                                  <iframe class ="iframe" src="./hallfame_iframe.php"></iframe>
-                                
+                            </div>    
                         </div>
                     </div>
                     
@@ -94,9 +95,31 @@
                 </div>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
- 
+       <!--- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>-->
+
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>   
+    <script>
+    
+        function GuardarAvatar(){
+            
+                    $.ajax({  
+                    type: 'GET',  
+                    url: '../index.php?accio=GuardarAvatar', 
+                    data: { rutaimagen:  document.getElementById("imagen-avatar").src },
+                    success: function(response) {
+                        if (response == 1){
+                            console.log("ha anat be");
+                        }
+                        window.location.href='./crearpartida.php';
         
+                    }
+            });
+
+            
+        }
+    
+    </script>
+
         <?php
             include './peu_pagina.php';
         ?>

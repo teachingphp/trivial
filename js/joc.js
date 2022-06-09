@@ -6,7 +6,9 @@ var quantes_preguntes = 0;
 var puntuacio = 0;
 var num_aciertos = 0;
 var respostesJoc;
-
+var IDjugador;
+var IDpartida;
+var listado ="";
 
 function getCookie(name) {
     function escape(s) { return s.replace(/([.*+?\^$(){}|\[\]\/\\])/g, '\\$1'); }
@@ -15,8 +17,22 @@ function getCookie(name) {
 }
 window.onload = function() {
     var ultimoReg = getCookie("IDPARTIDA");
-    document.getElementById("linkCopiar").value = "http://localhost/triviaL/view/joc.php?id_partida=" + ultimoReg;
-};
+    // document.getElementById("linkCopiar").value = "http://localhost/triviaL/view/joc.php?id_partida=" + ultimoReg;
+    var location = window.location.href;
+    var directoryPath = location.substring(0, location.lastIndexOf("/")+1);
+    if (ultimoReg) {
+      document.getElementById("linkCopiar").value = directoryPath+"joc.php?id_partida=" + ultimoReg;
+    }
+    else{
+      var queryString = window.location.search;
+      var urlParams = new URLSearchParams(queryString);
+      var params2 = urlParams.get('id_partida');
+
+      document.getElementById("linkCopiar").value = directoryPath+"joc.php?id_partida="+ params2;
+    }
+     
+  }
+    
 
 function copiarPortapapeles() {
     /* Get the text field */
@@ -76,6 +92,10 @@ function changeHMTL(pregunta, totes_respostes, imatge) {
     shuffleArray(elementos);
     respostesJoc = "";
     //console.log(elementos);
+    if (!imatge){
+      imatge ="../files/sources/imatges/categories.gif" ;
+    }
+
     for (let i = 0; i < elementos.length; i++) {
         respostesJoc = respostesJoc + `<button id ="resp` + elementos[i] + `" class="btn btn-lg btn-secondary btn-block" onclick="validaResposta(` + indicador + ',' + elementos[i] + `)">` + totes_respostes[elementos[i]] + `</button>`;
     }
@@ -168,14 +188,15 @@ function finalitzaPartidaAjax(){
   $.ajax({  
     type: 'GET',  
     url: '../index.php?accio=finalitzaPartida', 
-    data: { nom_jugador: getCookie ("NOMJUGADOR"), id_partida : 1, id_jugador: 1, punts: puntuacio, acerts: aciertos },
+    data: { nom_jugador: getCookie ("NOMJUGADOR"), id_partida : IDpartida, id_jugador: IDjugador, punts: puntuacio, acerts: num_aciertos },
     success: function(response) {
           //console.log(response);
         if(response==0){
           
         }
         else if(response==1){
-          
+        //   alert("Dades de la partida pujades");
+            resultsAjax();
         }
 
     }
@@ -183,22 +204,72 @@ function finalitzaPartidaAjax(){
 
 }
 
-function resultsAjax(){
-  $.ajax({  
-    type: 'GET',  
-    url: '../index.php?accio=resultatsPartida', 
-    data: { id_partida : 4},
-    success: function(response) {
-          //console.log(response);
-        if(response==0){
-          
-        }
-        else if(response==1){
-          
-        }
+function resultsTest(){
+    document.getElementById("playersList").innerHTML =
+    `
+                    
+                    <div class=""><div>
+                      <div class="float-left ml-1">
+                        <div><span class="badge badge-dark">1</span> Player 1
+                      </div>
+                      <div>
+                      </div>
+                    </div>
+                    <div class="float-right mr-1">
+                      <div>50 puntos</div>
+                      <div>10 aciertos</div></div><div class="clearfix">
+      
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  `
+}
 
-    }
-});
+function resultsAjax(){
+    $.ajax({  
+        type: 'GET',  
+        url: '../index.php?accio=resultatsPartida', 
+        data: { id_partida : IDpartida },
+        success: function(response) {
+              //console.log(response);
+            
+            if(response==0){
+              
+            }
+            else if(response!=0){
+                // console.log(response);
+                var myList = JSON.parse(response);
+                console.log(myList);
+                console.log(Object.keys(myList).length);
+                listado ="";
+                for (let i = 1; i < Object.keys(myList).length + 1; i++)  {
+                    listado = listado +
+                    `
+                    <div class=""><div>
+                      <div class="float-left ml-1">
+                        <div><span class="badge badge-dark">`+i+`</span> `+myList[i][0]+`
+                      </div>
+                      <div>
+                      </div>
+                    </div>
+                    <div class="float-right mr-1">
+                      <div>`+myList[i][1]+` puntos</div>
+                      <div>`+myList[i][2]+` aciertos</div></div><div class="clearfix">
+      
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  `;
+                }
+
+              document.getElementById("playersList").innerHTML = listado;
+              document.getElementById("listButton").classList.remove("disabled");
+            }
+
+        }
+  });
 
 }
 
@@ -225,6 +296,7 @@ function finalitzaPartida() {
 `
     generateGraph();
     finalitzaPartidaAjax();
+    // resultsAjax();
 }
 
   function getCookie(cname) {
@@ -243,18 +315,20 @@ function finalitzaPartida() {
     return "";
   }
 
-  function crearJugadorAssigPartida(){
+  function crearJugadorAssigPartida(idpartida){
       $.ajax({  
         type: 'GET',  
         url: '../index.php?accio=crearJugador', 
-        data: { nom_jugador: getCookie ("NOMJUGADOR"), id_partida : 1 },
+        data: { nom_jugador: getCookie ("NOMJUGADOR"), id_partida : idpartida },
         success: function(response) {
               //console.log(response);
             if(response==0){
               location.reload();
             }
-            else if(response==1){
-              alert("Vamos a jugar");
+            else if(response!=0){
+              IDjugador = response;
+              // alert("Vamos a jugar"+IDjugador);
+              
             }
 
         }
@@ -262,8 +336,9 @@ function finalitzaPartida() {
 
   }
 
-function startGame(preguntesjson, respostesjson, correctesjson, imatgesjson) {
-    crearJugadorAssigPartida();
+function startGame(preguntesjson, respostesjson, correctesjson, imatgesjson, idpartida) {
+    IDpartida = idpartida;
+    crearJugadorAssigPartida(IDpartida);
     preguntes = preguntesjson;
     respostes = respostesjson;
     correctes = correctesjson;
@@ -273,7 +348,12 @@ function startGame(preguntesjson, respostesjson, correctesjson, imatgesjson) {
     data = preguntes[1];
     //data.forEach(myFunction);
     resposta1 = respostes[preguntes[1]].split(";");
-    imatge = imatges[preguntes[1]];
+    if (imatges[preguntes[1]]){
+      imatge = imatges[preguntes[1]];
+    }
+    else{
+      imatge = "../files/sources/imatges/categories.gif";
+    }
     elementos = [0, 1, 2, 3];
     shuffleArray(elementos);
     respostesJoc = "";
@@ -349,6 +429,7 @@ function submitUsername() {
     if (document.getElementById("usernameInput").value !== null) {
         document.cookie = "NOMJUGADOR=" + document.getElementById("usernameInput").value;
         document.getElementById("anon").classList.remove("d-none");
+        document.getElementById("game").classList.remove("disabledbutton");
         location.reload();
     }
 }

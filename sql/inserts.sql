@@ -28,14 +28,14 @@ INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (1,'¿De qu
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (4,'¿Quien es el autor de esta obra?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (6,'A qui es considera com el rei del rock?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (4,'¿Que falta entre los arcos del Coliseo Romano?','');
-INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (1,"Como se llama el company de Tom clancy's Jack Rayan ?",'');
+INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (1,"Como se llama el company de Tom clancys Jack Rayan ?",'');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (1,'¿De quien trata la película "La teoría del todo"?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (1,'¿ A que libro infantil de la saga de Harry Potter pertenece el cuento "La fábula de los tres hermanos"?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (1,'¿Como se llama el phsicologo de la pelicula Jolt ?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (5,'¿Con las matematicas actuales se puede calcular la densidad de un agujero negro?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (3,'¿Cual és el deporte electrònico mas competitivo del mundo?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (4,'¿Quien era "Halston"?','');
-INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (6,"¿A quien pertenece la canción don't go breaking my heart?",'');
+INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (6,"¿A quien pertenece la canción dont go breaking my heart?",'');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (6,'Com continua la següent cançó ? "Last Christmas, I gave you my..."','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (5,'¿Cuanto mide el universo observable hasta la fecha?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (2,'¿Quin es un dels super cotxes mes rapids del mon?','https://thumbs.dreamstime.com/b/koenigsegg-jesko-ginebra-suiza-de-marzo-el-modelo-la-preproducci%C3%B3n-del-supercar-present%C3%B3-en-sal%C3%B3n-autom%C3%B3vil-internacional-143060616.jpg');
@@ -45,7 +45,7 @@ INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (4,'¿Quié
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (4,'Quin és el llibre més venut del món?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (5,'¿Cual es el pez mas inutil del mundo?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (4,'¿Quien de estas personas es una autora feminista del siglo XVII?','');
-INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (6,"Qui és l'home de la foto?",'https://static-abcblogs.abc.es/wp-content/uploads/sites/250/2019/12/sinatra-516x315.jpg');
+INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (6,"Qui és el senyor de la foto?",'https://static-abcblogs.abc.es/wp-content/uploads/sites/250/2019/12/sinatra-516x315.jpg');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (5,'A quin element químic es refereix el símbol Ag?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (6,'Com es diu aquesta canço?','https://hips.hearstapps.com/es.h-cdn.co/hares/images/cultura/ocio/michael-jackson-thriller-video/2711550-1-esl-ES/thriller-el-videoclip-que-lo-cambio-todo.jpg');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (5,'¿Que acción realizan las amantis religiosas durante el coito?','');
@@ -56,11 +56,11 @@ INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (4,'¿En qu
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (3,'El Episkyros es una de las primeras formas de un deporte. ¿Cuál?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (4,'¿De que tratan los comics de "Joe Bar team"?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (5,'¿Cual fue la bomba cuyo unico impedimento de que explotara, era un destornillador?','');
-INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (1,"Com es diu la pelicula que surt a l'imatge?",'');
+INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (1,"Com es diu la pelicula que surt a la següent imatge?",'');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (6,'Quin artista o grup musical té el record de visites en 24h a youtube?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (3,'Quants punts suma un tir lliure a basquet?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (6,'Quina es la cançó més escoltada de la història','');
-INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (3,"Quants jugadors de camp hi ha en l'handbol?",'');
+INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (3,"Quants jugadors de camp hi ha a handbol?",'');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (3,'Quin ha sigut el fichatge més car de la història del futbol ?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (4,'¿En que ciudad se situa el museo "Guggenheim"?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (3,'¿En que deporte se realiza la postura del "Gato Vaca"?','');
@@ -75,13 +75,13 @@ INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (5,'¿Cuant
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (3,'¿Que tipo de terreno manejan las motos de motocross?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (1,'¿Cuantas películas tiene la saga del señor de los anillos?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (4,'¿Quien fue Julius Caesar?','');
-INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (6,"Persona més jove en guanyar el millor album de l'any",'');
+INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (6,"Persona més jove en guanyar el millor album any",'');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (6,'¿A quien pertenece la 5ta sinfonía?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (6,'¿Cual es el nombre real de Bad Bunnny?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (5,'¿Cual es la famosa formula de Einstein que aportó a la creacion de la bomba atómica?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (3,'Qui té el rècord de major velocitat aconseguida a peu durant un event esportiu ?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (2,'¿Quan es va crear el primer motor de combustio?','https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.wikipedia.org%2Fwiki%2FHistoria_del_motor_de_combusti%25C3%25B3n_interna&psig=AOvVaw33E3lhniKrYbFhcAYsVnTF&ust=1651054879495000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCOC2k_PAsfcCFQAAAAAdAAAAABAD');
-INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (1,'¿Cual de estas películas está basda en un libro?','');
+INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (1,'¿Cual de estas películas está basada en un libro?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (2,'¿Qui va disenyar el primer automobil?','https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.wikipedia.org%2Fwiki%2FCarl_Benz&psig=AOvVaw3QV_8yU4cyWu238V4l2osB&ust=1651055003910000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCLjKuLDBsfcCFQAAAAAdAAAAABAV');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (2,'¿Quants caballs de potencia te un Bugatti Veyron?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (5,'¿De que color es la sangre del cangrejo erradura?','');
@@ -111,7 +111,7 @@ INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (1,'¿Cuál
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (4,'¿Quien era Friederich Nietzsche?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (3,'¿Cuando se jugó el primer partido de baloncesto?','');
 INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (1,'¿Que película protagonza Robin Williams?','');
-INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (4,'¿ De que trata realmete el famoso cuento de "La caperucita Roja"','');
+INSERT INTO preguntes (categoria_id, preg_pregunta, preg_img) VALUES (4,'¿ De que trata realmente el famoso cuento de "La caperucita Roja"','');
 
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Als Anys 1920 en Estats units i als 1950 en Europa i Japo','','','',1);
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Ford Model T','Volkwagen','Chevrolet','Gready',2);
@@ -135,7 +135,7 @@ INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('93,016 miles de millones años luz','890,019 millones de años','Desconocido hasta la fecha','9,890,000 mil millones de años luz',20);
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Koenigsegg Jesko','Bugatti veyron super sport','McLaren senna','Ferrari FXX K Evo',21);
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('La teoría de la relatividad de Einstein','La teoría del Big Bang','La teoría de la Evolución','El principio de incertidumbre de Heisenberg',22);
-INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Queen','Pink Floyd',"Guns N' Roses",'Red Hot chilli peppers',23);
+INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Queen','Pink Floyd',"Guns N Roses",'Red Hot chilli peppers',23);
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Homero','Marge','Bart','Lisa',24);
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('La Biblia','Don Quixot','Las mil y una noches','After',25);
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('El pez luna','El pez payaso','La sardina','El pez gato',26);
@@ -198,10 +198,10 @@ INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Martin Scorsese','Pedro Almodovar','Tim Burton','Woody Allen',83);
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('253','100','87','335',84);
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Edipo Rey','Thor','Isis y los siete escorpiones','La divinidad de Aspasio',85);
-INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Cada 7 u 8 meses o incluso una vez al año','1 vez al mes como a las mujeres','cada 5 o 6 meses o 2 veces al año','Solamete cada 3 meses',86);
+INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Cada 7 u 8 meses o incluso una vez al año','1 vez al mes como a las mujeres','cada 5 o 6 meses o 2 veces al año','Solamente cada 3 meses',86);
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Pv','Cd','Po','C',87);
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Michael Phelps','Alexandr Popov','Mireia Belmonte','Eric Moussambani',88);
-INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Escritoa','Escultora','Arquitecta','Actriz',89);
+INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Escritora','Escultora','Arquitecta','Actriz',89);
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Sátira social','La mente asesina','El comportamiento de los jovenes','De la influencia musical',90);
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('Filósofo','Piloto','Escritor de novelas Románticas','Profesor de programación',91);
 INSERT INTO respostes (resp_correcte, resp_incorrecte_1, resp_incorrecte_2, resp_incorrecte_3, preg_id) VALUES ('1892','1800','1863','1912',92);

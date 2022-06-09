@@ -33,7 +33,7 @@ else if (isset($_POST["accio"]) && $_POST["accio"] == "pujarfitxer"){
 }else if (isset($_GET["accio"]) && $_GET["accio"] == "crearpartida"){
     //echo print_r($_FILES);
     $controller->crearpartida();
-}else if (isset($_GET["accio"]) && $_GET["accio"] == "finalitzapartida"){
+}else if (isset($_GET["accio"]) && $_GET["accio"] == "finalitzaPartida"){
     //echo print_r($_FILES);
     $controller->finalitzaPartida();
 }
@@ -80,6 +80,10 @@ else if (isset($_POST["accio"]) && $_POST["accio"] == "login"){
 else if (isset($_GET["accio"]) && $_GET["accio"] == "resultatsPartida"){
     //echo print_r($_FILES);
     $controller->resultatsPartida();
+}
+else if (isset($_GET["accio"]) && $_GET["accio"] == "GuardarAvatar"){
+    //echo print_r($_FILES);
+    $controller->GuardarAvatar();
 }
 else{
     //Ejecuto el método

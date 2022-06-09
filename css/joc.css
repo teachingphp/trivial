@@ -18,7 +18,7 @@
 }
 
 .scoreboard {
-  max-height: 300px;
+  /* max-height: 300px; */
   overflow-y: auto;
 }
 
@@ -61,3 +61,8 @@
   max-width: 400px;
 }
 
+.disabledbutton{
+  pointer-events: none;
+  opacity: 0.4;
+  user-select: none;
+}

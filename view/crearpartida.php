@@ -6,11 +6,12 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
     <title>Trivial CEINA</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/modals/">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
- 
     
 
     <!-- Bootstrap core CSS -->
@@ -59,9 +60,11 @@
     //$conectar=new Conectar();
     //$conexion=$conectar->conexion();
 
-    $sql = "SELECT * FROM preguntes p inner join respostes r on p.id = r.preg_id";
-    $result = $conexion -> query($sql);
-    
+     $nameuser ="";
+     if (isset($_COOKIE["NOMJUGADOR"])){
+       $nameuser = $_COOKIE["NOMJUGADOR"];
+     }
+  
   
   ?>
 
@@ -76,12 +79,7 @@
   <div class="bg-dark bg-dark rounded">
     <div class="p-1">
       <div class="float-end">
-        <a href="" class="btn btn-sm btn-danger">
-          Abandonar
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
-            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
-          </svg>
-        </a>
+        
         
       </div>
       <div class="p-1">
@@ -90,7 +88,7 @@
     </div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-12 col-lg-7 col-xl-8 p-0 d-flex flex-column">
+        <div class="">
           <div class="flex-grow-1 d-flex flex-column">
             <div class="p-1">
 
@@ -108,6 +106,7 @@
                 </div>
               </div>
 
+              
   
             </div>
             <div class="p-1 flex-grow-1 d-flex flex-column" id="joc">
@@ -153,27 +152,49 @@
                           <br>
                           <br>
                             <div class="form-check form-switch">
-                              <input class="form-check-input" type="checkbox" onclick="activarComodin()" role="switch" id="activarComodin">
+                              <input class="form-check-input" type="checkbox" onmouseover="msjcomodin()" title="Activa las ayudas y decide cual activar" onclick="activarComodin()" role="switch" id="activarComodin">
                               <label class="form-check-label" for="flexSwitchCheckDefault">Activar comodin</label>
                             </div>
                               <br>
+
+                              
                               <br>
                               <label class="form-check-label" for="comodin">
-                              ComodinesX
+                              Comodines
                               </label>
                               <br>
                               
-                                 <input class="form-check-input" type="checkbox" onclick="" value="" id="comodin1" disabled> 
-                                 <input class="form-check-input" type="checkbox" onclick="" value="" id="comodin2" disabled> 
+                                 <input class="form-check-input" type="checkbox" onmouseover="comodinMitad()" title="Usalo para eliminar 2 de las 4 resupestas" onclick="" value="" id="comodin1" disabled> 
+                                 <label class="form-check-label" for="comodin1"> 50%  </label>
+                                 <input class="form-check-input" type="checkbox" onmouseover="comodin20seg()" title="Añade 20 segundos mas a tu turno" onclick="" value="" id="comodin2" disabled> 
+                                 <label class="form-check-label" for="comodin2"> 20seg más </label>
                                  <input class="form-check-input" type="checkbox" onclick="" value="" id="comodin3" disabled> 
+                                 <label class="form-check-label" for="comodin3"> </label>
                                  <input class="form-check-input" type="checkbox" onclick="" value="" id="comodin4" disabled> 
-                              
+                                 <label class="form-check-label" for="comodin4"> </label>
+
+                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="cantPreguntas" href="#" role="button"><?php echo "Cantidad de preguntas" ?></a>
+                                    <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" value="1" >10 preguntas</a></li>
+                                <li><a class="dropdown-item" value="2">20 preguntas</a></li>
+                                <li><a class="dropdown-item" value="3">30 preguntas</a></li>
+                                <li><a class="dropdown-item" value="4">40 preguntas</a></li>
+                                <li><a class="dropdown-item" value="5">50 preguntas</a></li>
+                                <li><a class="dropdown-item" value="6">60 preguntas</a></li>
+                                <li><a class="dropdown-item" value="7">70 preguntas</a></li>
+                                <li><a class="dropdown-item" value="8">80 preguntas</a></li>
+                                <li><a class="dropdown-item" value="9">90 preguntas</a></li>
+                                <li><a class="dropdown-item" value="10">100 preguntas</a></li>
+                              </ul></li>
+                                  </ul>
+                              <!--cambiar value para la funcion de show selected-->
                               </div>
+                             
                             </div>
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                              <button type="button" class="btn btn-primary" onclick="GuardarC()">Guardar configuracion</button>
+                              <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" onclick="GuardarC()">Guardar configuracion</button>
                             </div>
                           </div>
                         </div>
@@ -190,7 +211,7 @@
             <div class="scoreboard bg-whats rounded"><!-- Per cada jugador de la partida loop -->
               <div class=""><div>
                 <div class="float-left ml-1">
-                  <div><span class="badge badge-dark">1</span> Jugador 1
+                  <div><span class="badge badge-dark">1</span> <?php echo $nameuser; ?>
                 </div>
                 <div>
                 </div>
@@ -214,7 +235,6 @@
 
 
  
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="../js/joc.js?v=<?php echo time();?>"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script> 
@@ -242,7 +262,7 @@
           success: function(response) {
                 //console.log(response);
                if(response==1){
-                    alert ("La configuración se ha guardado correctamente");
+                    
                     document.getElementById("idCrear").disabled = false;
 
                 }
@@ -273,8 +293,25 @@
     function confirmarNombrePartida(){
         document.getElementById("namePartida").innerHTML = "Partida " +  document.getElementById("nombreDeLaPartida").value;
     }
+    
+    function msjComodin(){
+      document.getElementById("activarComodin"). value; 
+    }
+    
+    function comodinMitad(){
+      document.getElementById("comodin1"). value;
 
-        
+    }
+
+    function comodin20seg(){
+      document.getElementById("comodin2"). value;
+
+    }
+
+    // probando show selectionfunction showCantidadPreguntas(){
+      //document.getElementById("cantPreguntas").value 
+    //}
+    
 </script>
       
   </body>

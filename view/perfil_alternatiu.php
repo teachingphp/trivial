@@ -23,6 +23,8 @@ include 'menu.php';
     $rutaimatge = "../files/sources/imatges/imagenmolonga" . $_GET["ID"] . ".jpg";
     if (!file_exists($rutaimatge)){
       $rutaimatge = "../files/sources/imatges/imagenmolongadefecte.jpg";
+    }else{
+      $rutaimatge = "../files/sources/imatges/imagenmolonga" . $_GET["ID"] . ".jpg?v=". time();
     }
 ?>
   <head>
@@ -205,7 +207,7 @@ include 'menu.php';
       $.ajax({  
           type: 'GET',  
           url: '../index.php?accio=actualitzaPerfil', 
-          data: { username: document.getElementById("username").value, password: document.getElementById("password").value, id: <?php echo $_GET["ID"];  ?> },
+          data: { ruta: document.getElementById("imatge_perfil").src,  username: document.getElementById("username").value, password: document.getElementById("password").value, id: <?php echo $_GET["ID"];  ?> },
           success: function(response) {
                 //console.log(response);
                if(response==1){

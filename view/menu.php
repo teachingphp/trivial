@@ -4,18 +4,18 @@ $imgusu = "";
 /* definicio de la cockieee */
 $classe_escondite = "";
 $classe_amagar = "";
-if(isset($_COOKIE["usuari"])){
+if(isset($_COOKIE["NOMJUGADOR"])){
   //echo $_COOKIE["usuari"];
-  $nomusuari = $_COOKIE["usuari"];
+  $nomusuari = $_COOKIE["NOMJUGADOR"];
   $classe_amagar = "amagar";
 } 
-if(! isset($_COOKIE["usuari"])){
+if(! isset($_COOKIE["NOMJUGADOR"])){
   $classe_escondite = "escondite";
 }   
   $id_usuari = 0;
   $ruta_imatge ="../files/Perfils/perfil_defecte.png";
-  if (isset($_COOKIE["Usid"])){
-    $id_usuari = $_COOKIE["Usid"];
+  if (isset($_COOKIE["USR_ID"])){
+    $id_usuari = $_COOKIE["USR_ID"];
     $ruta_imatge = "../files/Perfils/perfil_" . $id_usuari.".jpg";
     if (!file_exists($ruta_imatge) ){
       $ruta_imatge ="../files/Perfils/perfil_defecte.png";
@@ -160,7 +160,7 @@ global $conexion;
             <li><a class="dropdown-item" href="#"><?php echo $traduccions["Opciones"] ?></a></li>
             <li><a class="dropdown-item" href="./perfil_alternatiu.php?ID=1"><?php echo $traduccions["Perfil"] ?></a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="../index.php?accio=cerrarsesion"><?php echo $traduccions["Cerrar session"] ?></a></li>
+            <li><a class="dropdown-item" href="../index.php?accio=cerrarsesion"><?php echo $traduccions["Cerrar session"] . " (" . $nomusuari . ")" ?></a></li>
           </ul>
     
         </div>
@@ -170,9 +170,9 @@ global $conexion;
 
 </main> 
 <!--href="../index.php?accio=veureperfil"
-    -->
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-      
+-->
 
 <script>
   function login (){
