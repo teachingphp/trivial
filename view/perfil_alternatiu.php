@@ -120,7 +120,7 @@ include 'menu.php';
 
           <div class="col-12">
             <label for="password" class="form-label">Password </label>
-            <input type="password" class="form-control" id="password" placeholder="**********" >           
+            <input type="password" class="form-control" id="password" placeholder="**********" value="<?php echo $jugador_perfil["usr_pwd"];  ?>">           
           </div>
 
           <div class="col-12">
