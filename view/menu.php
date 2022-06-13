@@ -22,6 +22,14 @@ if(! isset($_COOKIE["NOMJUGADOR"])){
     }
   }
 
+  if (isset($_COOKIE["rutaavatar"])){
+    //if (file_exists($_COOKIE["rutaavatar"]) ){
+      $ruta_imatge =$_COOKIE["rutaavatar"];
+    //}
+  }
+
+  
+
 /* definicio de idiomes i crida a la DB*/
 
 $idioma ="ES"; 
@@ -154,7 +162,7 @@ global $conexion;
           <button type="button" onclick="SingOut()"  class="btn btn-primary <?php echo $classe_amagar ?>"><?php echo $traduccions["Inicia sesión"] ?></button>
         </div>
         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle <?php echo $classe_escondite ?>" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="<?php echo $ruta_imatge?>" alt="mdo" width="32" height="32" class="rounded-circle"></img></a>
+            <img id="avatarinici" src="<?php echo $ruta_imatge?>" alt="mdo" width="32" height="32" class="rounded-circle"></img></a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
             <li><a class="dropdown-item" href="../index.php?accio=jugar"><?php echo $traduccions["Metas"] ?></a></li>
             <li><a class="dropdown-item" href="#"><?php echo $traduccions["Opciones"] ?></a></li>

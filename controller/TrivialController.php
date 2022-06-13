@@ -90,7 +90,8 @@ class TrivialController
             echo "Sorry, there was an error uploading your file.";
         }
         }
-        header("location: ./view/crearpartida.php");
+        setcookie("rutaavatar", "." . $target_file, time() + 86400, "/");
+        header("location: ./view/inici.php");
 
         
     }
@@ -106,24 +107,39 @@ class TrivialController
 
     public function cerrarsesion(){
 
+        /*$past = 0;
+        $fichero = "./log.txt";
+        //file_put_contents($fichero, "HOLA", FILE_APPEND | LOCK_EX);
+        foreach ( $_COOKIE as $key => $value )
+        {
+            setcookie( $key, $value, $past, '/');
+            //unset($_COOKIE[$key]);
+            //file_put_contents($fichero, $key, FILE_APPEND | LOCK_EX);
+        }
+
         if (isset($_SERVER['HTTP_COOKIE'])) {
             $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
             foreach($cookies as $cookie) {
                 $parts = explode('=', $cookie);
                 $name = trim($parts[0]);
-                setcookie($name, '', time()-1000);
-                setcookie($name, '', time()-1000, '/');
+                setcookie($name, '', 0);
+                setcookie($name, '', 0, '/');
             }
+        }*/
+
+        if (isset($_COOKIE['USR_ID'])) {
+            unset($_COOKIE['USR_ID']);
+            setcookie('USR_ID', '', time() - (86400 * 30), "/");
         }
 
-        $past = time() - 3600;
-        foreach ( $_COOKIE as $key => $value )
-        {
-            setcookie( $key, $value, $past, '/' );
+        if (isset($_COOKIE['NOMJUGADOR'])) {
+            unset($_COOKIE['NOMJUGADOR']);
+            setcookie('NOMJUGADOR', '', time() - (86400 * 30), "/");
         }
+    
+    
         //Le paso los datos a la vista
         header("location: ./view/inici.php");
-        Exit();
     }
 
     public function login(){
@@ -136,8 +152,8 @@ class TrivialController
         $usuari->setcontra($_POST["ContraL"]);
 
         $idusuari = $usuari->loadUsuario($this->adapter); 
-        setcookie ("USR_ID", $idusuari, time() + 86400);
-        setcookie ("NOMJUGADOR", $_POST["UsuarioL"], time() + 86400);
+        setcookie ("USR_ID", $idusuari, time() + 86400, "/");
+        setcookie ("NOMJUGADOR", $_POST["UsuarioL"], time() + 86400, "/");
         header("location: ./view/inici.php");
 
 
