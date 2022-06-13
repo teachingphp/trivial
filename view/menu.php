@@ -18,15 +18,18 @@ if(! isset($_COOKIE["NOMJUGADOR"])){
     $id_usuari = $_COOKIE["USR_ID"];
     $ruta_imatge = "../files/Perfils/perfil_" . $id_usuari.".jpg";
     if (!file_exists($ruta_imatge) ){
-      $ruta_imatge ="../files/Perfils/perfil_defecte.png";
+      if (isset($_COOKIE["rutaavatar"])){
+        //if (file_exists($_COOKIE["rutaavatar"]) ){
+          $ruta_imatge =$_COOKIE["rutaavatar"];
+        //}
+      }else{
+          $ruta_imatge ="../files/Perfils/perfil_defecte.png";
+      }
+      
     }
   }
 
-  if (isset($_COOKIE["rutaavatar"])){
-    //if (file_exists($_COOKIE["rutaavatar"]) ){
-      $ruta_imatge =$_COOKIE["rutaavatar"];
-    //}
-  }
+
 
   
 
