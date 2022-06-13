@@ -2,8 +2,8 @@
 
 require_once "recaptchalib.php";
 
-$siteKey = "6Lf4UL0fAAAAAKcdHHZsms20ryJ8VcwLkpO2Ov_F";
-$secret = "6Lf4UL0fAAAAAEHZC9VnjAUGdF_vGTD8T0at02iL";
+$siteKey = "6LchRWcgAAAAAFVpNDnCvqGuDUv3_O7nnigxemvF";
+$secret = "6LchRWcgAAAAAPQgsL2kHBw8S3x259dwwdzArBjT";
 
 $lang = "es";
 
