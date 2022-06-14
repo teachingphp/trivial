@@ -8,13 +8,18 @@ function next(rutas){
     i = 1;
   }
   image.src = rutasImg[i];
+  var avatar = document.getElementById("avatarinici");
+  avatar.src = rutasImg[i];
   i++;
   //console.log(i);
+  
 }
 
 function previous(rutas){
   rutasImg = rutas.split(';');
   image.src = rutasImg[i];
+  var avatar = document.getElementById("avatarinici");
+  avatar.src = rutasImg[i];
   i--;
 }
 

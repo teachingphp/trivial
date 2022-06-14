@@ -4,7 +4,7 @@
 $_classe_amagar = "";
 if(isset($_COOKIE["galleta"])){
 
-//echo $_COOKIE["galleta"];
+ //echo $_COOKIE["galleta"];
 
 $_classe_amagar = "amagar";
 

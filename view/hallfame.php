@@ -16,6 +16,9 @@
 
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -75,7 +78,7 @@
   //$conexion=$conectar->conexion();
   
   //Base de dades -> S'hauria de canviar a la base que ha fet el Pol
-  $sql = "SELECT * FROM jugadors ORDER BY jug_punts DESC limit 10";
+  $sql = "SELECT * FROM usuaris_registrats ORDER BY usr_exp DESC limit 10";
     $result = $conexion -> query($sql);
   //query vol dir consulta  
   ?>
@@ -92,8 +95,8 @@
 <div class="row">
 <div class="col"><p class="round4">'.$i.'</div>  
 <div class="col" style="text-align:center"><img  alt="Imatge perfil" width="60" height="60" class="rounded-circle flex-shrink-0"  src="'.$ruta.'" </img><br><br></div>
-  <div class="col"><h2 style="text-align:left"; >'.$value["jug_nom"].'</h2></div>
-  <div class="col"><p style="text-align:left">'.$value["jug_punts"].' Punts</p></div>
+  <div class="col"><h2 style="text-align:left"; >'.$value["usr_username"].'</h2></div>
+  <div class="col"><p style="text-align:left">'.$value["usr_exp"].' Punts</p></div>
    
 </div>
         ';

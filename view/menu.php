@@ -18,9 +18,20 @@ if(! isset($_COOKIE["NOMJUGADOR"])){
     $id_usuari = $_COOKIE["USR_ID"];
     $ruta_imatge = "../files/Perfils/perfil_" . $id_usuari.".jpg";
     if (!file_exists($ruta_imatge) ){
-      $ruta_imatge ="../files/Perfils/perfil_defecte.png";
+      if (isset($_COOKIE["rutaavatar"])){
+        //if (file_exists($_COOKIE["rutaavatar"]) ){
+          $ruta_imatge =$_COOKIE["rutaavatar"];
+        //}
+      }else{
+          $ruta_imatge ="../files/Perfils/perfil_defecte.png";
+      }
+      
     }
   }
+
+
+
+  
 
 /* definicio de idiomes i crida a la DB*/
 
@@ -154,11 +165,11 @@ global $conexion;
           <button type="button" onclick="SingOut()"  class="btn btn-primary <?php echo $classe_amagar ?>"><?php echo $traduccions["Inicia sesión"] ?></button>
         </div>
         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle <?php echo $classe_escondite ?>" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="<?php echo $ruta_imatge?>" alt="mdo" width="32" height="32" class="rounded-circle"></img></a>
+            <img id="avatarinici" src="<?php echo $ruta_imatge?>" alt="mdo" width="32" height="32" class="rounded-circle"></img></a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
             <li><a class="dropdown-item" href="../index.php?accio=jugar"><?php echo $traduccions["Metas"] ?></a></li>
             <li><a class="dropdown-item" href="#"><?php echo $traduccions["Opciones"] ?></a></li>
-            <li><a class="dropdown-item" href="./perfil_alternatiu.php?ID=1"><?php echo $traduccions["Perfil"] ?></a></li>
+            <li><a class="dropdown-item" href="./perfil_alternatiu.php?ID=<?php echo $id_usuari ?>"><?php echo $traduccions["Perfil"] ?></a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="../index.php?accio=cerrarsesion"><?php echo $traduccions["Cerrar session"] . " (" . $nomusuari . ")" ?></a></li>
           </ul>
@@ -170,9 +181,9 @@ global $conexion;
 
 </main> 
 <!--href="../index.php?accio=veureperfil"
-    -->
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-      
+-->
 
 <script>
   function login (){
