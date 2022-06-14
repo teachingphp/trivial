@@ -25,7 +25,7 @@
       CIF: B61247060
       Domicili Fiscal: Av. Europa 7-9, 08700-Igualada (Barcelona)
 
-      Aquest projecte de trivial sense ànim de lucre es troba allotjat al domini teachingphp.endinahosting.com
+      Aquest projecte de trivial sense ànim de lucre es troba allotjat al domini https://bit-data.es/trivial/view/inici.php
 
       Tota la informació continguda en aquest Website, el seu disseny gràfic, imatges, bases de dades, índexs, codi font i qualsevol altre element que en formi part és propietat de TRIVIAL. La reproducció total o parcial, distribució, modificació, cessió i qualsevol altre acte que no hagi estat expressament autoritzat pel titular dels drets dexplotació queden prohibits.
 

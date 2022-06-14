@@ -25,7 +25,7 @@
       CIF: B61247060
       Fiscal Address: Av. Europa 7-9, 08700-Igualada (Barcelona)
 
-      This non-profit trivia project is hosted on the domain teachingphp.endinahosting.com
+      This non-profit trivia project is hosted on the domain https://bit-data.es/trivial/view/inici.php
 
       All the information contained in this Website, its graphic design, images, databases, indexes, source code and any other element that forms part of it is the property of TRIVIAL. The total or partial reproduction, distribution, modification, assignment and any other act that has not been expressly authorized by the owner of the exploitation rights are prohibited.
 
