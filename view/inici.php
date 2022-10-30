@@ -66,9 +66,11 @@
 
             <div id = "myDIV3" >
                 <div class="row">
+                <div class="d-flex align-content-start flex-wrap">
+                </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button text-white bg-dark mb-3 btn-block" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="accordion-button text-white bg-dark mb-3 btn-block d-block text center" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             <h2><?php echo $traduccions["Instrucciones"] ?></h2>
                             </button>
                         </h2>
@@ -77,15 +79,15 @@
                                 <section>   
                                     <article>
                                         <p>
-                                            !!!!!!!!!!!!!!!!!!!!<?php echo $traduccions["!Juega a nuestro Trivial!"] ?>!!!!!!!! SIIIIIIIIIIIIIII
+                                            <?php echo $traduccions["!Juega a nuestro Trivial!"] ?>
                                             <br></br>
-                                                Sabias que Alemania hasen cossas buenas?
+                                               Para iniciar un juego tienes que darle al botón de crear partida, seguidamente introduces 
+                                               el nombre de la partida que vas a jugar junto con los ajustes de esta misma, finalmente si no estás registrado, se te pedirá
+                                               que añadas un nombre temporalmente o directamente darle a jugar!
                                             <br></br>
-                                                Estaras diciendo WOW cada ves que uses este programa.
-                                                Aprofita y JUEGA AHORA POR TAN SOLO diesinueve noventaicinco $  !!!!!!!!!!
+                                            Para jugar no hace falta registrarse, pero si te interesa conseguir puntos para entrar en el ránking o simplemente disfrutar de una creación de avatar más divertida es recomendable!
                                                 <br></br>
-                                                Lore unde aut velit asperiores soluta quod repellendus quasi veritatis quae voluptatum atque, perferendis cumque quisquam assumenda cupiditate incidunt eligendi doloremque? 
-                                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique doloribus perspiciatis facere amet nostrum fugit, ipsum nesciunt velit placeat quaerat sint vero tempore mollitia aliquid impedit numquam, modi voluptatum consequatur.
+                                                
                                             </p>
                                     </article>
                                 </section>
